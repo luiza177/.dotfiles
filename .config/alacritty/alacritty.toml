@@ -1,0 +1,35 @@
+[general]
+# import = [ "~/.config/alacritty/themes/themes/cool_night.toml" ]
+# import = ["~/.config/alacritty/themes/themes/tokyo_night.toml"]
+# import = ["~/.config/alacritty/themes/themes/catppuccin_mocha.toml"]
+import = ["~/.config/alacritty/themes/themes/nordic.toml"]
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+padding.x = 10
+padding.y = 10
+
+opacity = 0.8
+blur = true
+
+decorations = "Buttonless"
+
+option_as_alt = "Both"
+
+[font]
+normal.family = "MesloLGS Nerd Font Mono"
+size = 14
+
+[keyboard]
+bindings = [
+  { key = "Left",  mods = "Alt",     chars = "\u001bb" },
+  { key = "Right", mods = "Alt",     chars = "\u001bf" },
+  { key = "Left",  mods = "Super", chars = "\u001b[1;5D" },
+  { key = "Right", mods = "Super", chars = "\u001b[1;5C" },
+  { key = "Back",  mods = "Alt",     chars = "\u001b\u007f" },
+  { key = "Back",  mods = "Super",     chars = "\u0015" },
+  { key = "Delete", mods = "Alt",    chars = "\u001b[3~" },
+  { key = "Delete", mods = "Super",  chars = "\u000b" },
+]
