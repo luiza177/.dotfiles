@@ -36,7 +36,7 @@ return {
 				"luadoc",
 				"luap",
 			},
-			modules = {},
+			modules = {}, -- TODO: add nvim-treesitter-context, nvim-treesitter-textobjects, rainbow-delimiters.nvim, nvim-ts-autotag
 			sync_install = false,
 			ignore_install = {},
 			auto_install = true,

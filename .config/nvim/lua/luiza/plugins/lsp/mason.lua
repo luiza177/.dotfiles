@@ -8,6 +8,8 @@ return {
 		local mason = require("mason")
 		local mason_tool_installer = require("mason-tool-installer")
 
+		vim.keymap.set("n", "<leader>M", "<cmd>Mason<cr>", { desc = "Open Mason" })
+
 		mason.setup({
 			ui = {
 				icons = {

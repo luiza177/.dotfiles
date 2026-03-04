@@ -38,7 +38,7 @@ return {
 			{ "<leader>u", group = "ui" },
 			{ "<leader>b", group = "buffer" },
 			{ "<leader>d", group = "diagnostics" },
-			{ "<leader>l", group = "lsp" }, -- NOTE: change all to 'code'??
+			{ "<leader>l", group = "lsp" }, -- QUESTION: change all to 'code'??
 			{ "<leader>c", group = "code" },
 			{ "<leader>r", group = "replace" },
 			{ "<leader>g", group = "git" },

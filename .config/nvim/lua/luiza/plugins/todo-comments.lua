@@ -17,5 +17,6 @@ return {
 			todo = { "#fab387" },
 			blue = { "#0db9d7" },
 		},
+		-- TODO: adjust multiline comment highlighting
 	},
 }
