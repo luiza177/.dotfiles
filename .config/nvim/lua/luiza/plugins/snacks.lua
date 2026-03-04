@@ -1,0 +1,96 @@
+return {
+	"folke/snacks.nvim",
+	priority = 1000,
+	lazy = false,
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+	},
+	opts = {
+		bigfile = { enabled = true },
+		dashboard = {
+			enabled = true,
+			sections = {
+				{ section = "header" },
+				-- {
+				-- 	pane = 2,
+				-- 	section = "terminal",
+				-- 	cmd = "colorscript -e square", -- FIXME: colorscript??
+				-- 	height = 5,
+				-- 	padding = 1,
+				-- },
+				{ section = "keys", gap = 1, padding = 1 },
+				{ pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+				{ pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+				{
+					pane = 2,
+					icon = " ",
+					title = "Git Status",
+					section = "terminal",
+					enabled = function()
+						return Snacks.git.get_root() ~= nil
+					end,
+					cmd = "git status --short --branch --renames",
+					height = 5,
+					padding = 1,
+					ttl = 5 * 60,
+					indent = 3,
+				},
+				{ section = "startup" },
+			},
+		},
+		dim = { enabled = false }, -- TODO: test and enable
+		indent = {
+			enabled = true,
+			indent = {
+				enabled = true,
+				char = "┊",
+				-- hl = {
+				-- 	"SnacksIndent1",
+				-- 	"SnacksIndent2",
+				-- 	"SnacksIndent3",
+				-- 	"SnacksIndent4",
+				-- 	"SnacksIndent5",
+				-- 	"SnacksIndent6",
+				-- 	"SnacksIndent7",
+				-- 	"SnacksIndent8",
+				-- },
+			},
+			scope = {
+				enabled = true, -- highlight current scope within indent guides
+				char = "┊",
+				-- hl = "SnacksIndentScope",
+			},
+			animate = { enabled = false },
+		},
+		-- input = { enabled = true }, -- TODO: test and enable
+		-- notifier = { enabled = true }, -- maybe?
+		quickfile = { enabled = true },
+		-- scope = { enabled = true }, -- TODO: see docs and maybe enable
+		-- statuscolumn = { enabled = true }, -- TODO: check for conflicts
+		toggle = { enabled = true }, -- TODO: toggle inlay hints, linenumber, option, words, diagnostics
+		-- words = { enabled = true }, -- TODO: replaces illuminate.lua?
+	},
+	keys = {
+		{
+			"<leader>ud",
+			function()
+				Snacks.dim.toggle()
+			end,
+			desc = "Toggle dim",
+		},
+		-- {
+		-- 	"<leader>uw",
+		-- 	function()
+		-- 		Snacks.words.jump(1)
+		-- 	end,
+		-- 	desc = "Next word reference",
+		-- },
+		-- {
+		-- 	"<leader>uW",
+		-- 	function()
+		-- 		Snacks.words.jump(-1)
+		-- 	end,
+		-- 	desc = "Prev word reference",
+		-- },
+	},
+}
