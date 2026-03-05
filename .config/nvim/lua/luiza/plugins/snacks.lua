@@ -46,7 +46,24 @@ return {
 			animate = { enabled = false },
 		},
 		input = { enabled = true }, -- QUESTION: what's this for?
-		picker = { enabled = true },
+		picker = {
+			enabled = true,
+			sources = {
+				explorer = { -- TODO: preview appears outside
+					follow_file = false,
+					jump = {
+						close = true,
+					},
+					win = {
+						input = {
+							keys = {
+								["<Esc>"] = "focus_input",
+							},
+						},
+					},
+				},
+			},
+		},
 		quickfile = { enabled = true },
 		rename = { enabled = true },
 		scope = { enabled = true }, -- QUESTION: what's this for?
@@ -57,7 +74,8 @@ return {
 	keys = {
     -- stylua: ignore start
     -- Top Pickers & Explorer
-    { "<leader>fl", function() Snacks.picker.grep() end, desc = "Grep" },
+    { "<leader>fl", function() Snacks.picker.grep({ dirs = { vim.uv.cwd() } }) end, desc = "Grep" },
+    -- { "<leader>fl", function() Snacks.picker.grep({ hidden = true }) end, desc = "Grep" },
     { "<leader>nh", function() Snacks.picker.notifications() end, desc = "Notification History" },
     -- { "<leader>nn", function() Snacks.notifier.show_history() end, desc = "Notification History" },
     { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
@@ -159,6 +177,27 @@ return {
 		-- stylua: ignore end
 	},
 	init = function()
+		vim.api.nvim_create_autocmd("QuitPre", {
+			callback = function()
+				local snacks_wins = {}
+				local floating_wins = {}
+				local wins = vim.api.nvim_list_wins()
+				for _, w in ipairs(wins) do
+					local ft = vim.api.nvim_get_option_value("filetype", { buf = vim.api.nvim_win_get_buf(w) })
+					if ft:match("snacks_") ~= nil then
+						table.insert(snacks_wins, w)
+					elseif vim.api.nvim_win_get_config(w).relative ~= "" then
+						table.insert(floating_wins, w)
+					end
+				end
+				if #wins - #floating_wins - #snacks_wins == 1 then
+					for _, w in ipairs(snacks_wins) do
+						vim.api.nvim_win_close(w, true)
+					end
+				end
+			end,
+		})
+
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "VeryLazy",
 			callback = function()
@@ -187,7 +226,7 @@ return {
 				Snacks.toggle.diagnostics():map("<leader>ud")
 				Snacks.toggle
 					.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
-					:map("<leader>uo") -- QUESTION: what's this?
+					:map("<leader>uo") -- hides characters like in markdown **bold**
 				Snacks.toggle.treesitter():map("<leader>uT")
 				-- Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
 				Snacks.toggle.inlay_hints():map("<leader>uh")
