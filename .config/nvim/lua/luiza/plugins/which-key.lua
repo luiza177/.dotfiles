@@ -30,19 +30,21 @@ return {
 
 		wk.add({
 			-- register key group names
-			{ "<leader>e", group = "explorer" },
+			{ "<leader>e", group = "explorer", icon = "󰙅" },
 			{ "<leader>f", group = "find" },
-			{ "<leader>s", group = "split" },
+			{ "<leader>s", group = "split", icon = "" },
 			{ "<leader>t", group = "tab" },
-			{ "<leader>x", group = "trouble" },
+			{ "<leader>x", group = "trouble", icon = "" },
 			{ "<leader>u", group = "ui" },
-			{ "<leader>b", group = "buffer" },
+			{ "<leader>b", group = "buffer", icon = "" },
 			{ "<leader>d", group = "diagnostics" },
-			{ "<leader>l", group = "lsp" }, -- QUESTION: change all to 'code'??
+			{ "<leader>l", group = "lsp", icon = "" }, -- QUESTION: change all to 'code'??
 			{ "<leader>c", group = "code" },
-			{ "<leader>r", group = "replace" },
+			{ "<leader>r", group = "replace", icon = "" },
 			{ "<leader>g", group = "git" },
-			-- { "<leader>m", group = "Mason" },
+
+			{ "<leader>L", desc = "Open Lazy package manager", icon = "" },
+			{ "<leader>M", desc = "Open Mason", icon = "" },
 
 			--------------- NORMAL VIM KEYS
 			-- g prefix
@@ -56,32 +58,32 @@ return {
 			-- { "gcc", desc = "Toggle comment line" },
 
 			-- z prefix
-			{ "z", group = "folds/view" },
+			{ "z", group = "folds/view", icon = "" },
 			{ "za", desc = "Toggle fold" },
-			{ "zo", desc = "Open fold" },
-			{ "zc", desc = "Close fold" },
-			{ "zR", desc = "Open all folds" },
-			{ "zM", desc = "Close all folds" },
-			{ "zz", desc = "Center cursor" },
-			{ "zt", desc = "Cursor to top of screen" },
-			{ "zb", desc = "Cursor to bottom of screen" },
-			{ "z=", desc = "Spelling suggestions" },
+			{ "zo", desc = "Open fold", icon = "" },
+			{ "zc", desc = "Close fold", icon = "" },
+			{ "zR", desc = "Open all folds", icon = "" },
+			{ "zM", desc = "Close all folds", icon = "󰄾" },
+			{ "zz", desc = "Center cursor", icon = "󰘢" },
+			{ "zt", desc = "Cursor to top of screen", icon = "󰘣" },
+			{ "zb", desc = "Cursor to bottom of screen", icon = "" },
+			{ "z=", desc = "Spelling suggestions", icon = "" },
 
 			-- [ and ] navigation
-			{ "[", group = "prev" },
-			{ "]", group = "next" },
+			{ "[", group = "prev", icon = "󰒮" },
+			{ "]", group = "next", icon = "󰒭" },
 			-- { "[d", desc = "Prev diagnostic" },
 			-- { "]d", desc = "Next diagnostic" },
 			-- { "[c", desc = "Prev git hunk" },
 			-- { "]c", desc = "Next git hunk" },
-			{ "[[", desc = "Prev function/class" },
-			{ "]]", desc = "Next function/class" },
+			{ "[[", desc = "Prev function/class", icon = "󰊕" },
+			{ "]]", desc = "Next function/class", icon = "󰊕" },
 
 			-- surround
-			{ "ys", desc = "Add surrounding" },
-			{ "ds", desc = "Delete surrounding" },
-			{ "cs", desc = "Change surrounding" },
-			{ "S", desc = "Surround selection", mode = "v" },
+			{ "ys", desc = "Add surrounding", icon = "+" },
+			{ "ds", desc = "Delete surrounding", icon = "-" },
+			{ "cs", desc = "Change surrounding", icon = "" },
+			{ "S", desc = "Surround selection", mode = "󰒉" },
 
 			-- text objects (visual reference)
 			-- { "y", group = "yank" },
@@ -103,7 +105,7 @@ return {
 
 			-- misc
 			{ "%", desc = "Jump to matching pair" },
-			{ "@:", desc = "Repeat last command" },
+			{ "@:", desc = "Repeat last command", icon = "" },
 		})
 	end,
 }
