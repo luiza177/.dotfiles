@@ -25,7 +25,7 @@ return {
 				-- set keybinds
 				opts.desc = "Show LSP references"
 				-- map("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
-				map("n", "<leader>cr", "<cmd>Telescope lsp_references<CR>", opts)
+				-- map("n", "<leader>cr", "<cmd>Telescope lsp_references<CR>", opts)
 
 				opts.desc = "Go to declaration"
 				-- map("n", "gD", vim.lsp.buf.declaration, opts)
@@ -33,15 +33,15 @@ return {
 
 				opts.desc = "Show LSP definitions"
 				-- map("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-				map("n", "<leader>cd", "<cmd>Telescope lsp_definitions<CR>", opts)
+				-- map("n", "<leader>cd", "<cmd>Telescope lsp_definitions<CR>", opts)
 
 				opts.desc = "Show LSP implementations"
 				-- map("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-				map("n", "<leader>ci", "<cmd>Telescope lsp_implementations<CR>", opts)
+				-- map("n", "<leader>ci", "<cmd>Telescope lsp_implementations<CR>", opts)
 
 				opts.desc = "Show LSP type definitions"
 				-- map("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
-				map("n", "<leader>ct", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+				-- map("n", "<leader>ct", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 
 				opts.desc = "See available code actions"
 				map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- INFO: in visual mode will apply to selection
@@ -50,7 +50,7 @@ return {
 				map("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
 				opts.desc = "Show diagnostics for buffer"
-				map("n", "<leader>db", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- originally: leader + D
+				-- map("n", "<leader>db", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- originally: leader + D
 
 				opts.desc = "Show diagnostics for current line"
 				map("n", "<leader>dd", vim.diagnostic.open_float, opts) -- originally: leader + d
@@ -70,16 +70,16 @@ return {
 				opts.desc = "Restart LSP"
 				map("n", "<leader>lr", ":LspRestart<CR>", opts) -- originally: leader + rs
 
-				opts.desc = "Toggle inlay hints"
-				map("n", "<leader>lh", function()
-					vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = ev.buf }), { bufnr = ev.buf })
-				end, opts)
+				-- opts.desc = "Toggle inlay hints"
+				-- map("n", "<leader>lh", function()
+				-- 	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = ev.buf }), { bufnr = ev.buf })
+				-- end, opts)
 
 				-- enable inlay hints
-				local client = vim.lsp.get_client_by_id(ev.data.client_id)
-				if client and client.supports_method("textDocument/inlayHint") then
-					vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
-				end
+				-- local client = vim.lsp.get_client_by_id(ev.data.client_id)
+				-- if client and client.supports_method("textDocument/inlayHint") then
+				-- 	vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+				-- end
 			end,
 		})
 

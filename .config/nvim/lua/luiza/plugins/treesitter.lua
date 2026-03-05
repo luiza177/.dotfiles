@@ -6,7 +6,7 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"windwp/nvim-ts-autotag",
-		"nvim-treesitter/nvim-treesitter-context",
+		-- "nvim-treesitter/nvim-treesitter-context",
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"HiPhish/rainbow-delimiters.nvim",
 	},
@@ -98,9 +98,9 @@ return {
 			end
 		end, { desc = "Toggle rainbow delimiters" })
 
-		require("treesitter-context").setup({
-			enable = true,
-			max_lines = 3,
-		})
+		-- require("treesitter-context").setup({
+		-- 	enable = true,
+		-- 	max_lines = 3,
+		-- })
 	end,
 }
