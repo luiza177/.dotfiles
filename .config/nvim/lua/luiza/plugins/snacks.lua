@@ -38,7 +38,7 @@ return {
 				{ section = "startup" },
 			},
 		},
-		dim = { enabled = false }, -- TODO: test and enable
+		dim = { enabled = true }, -- TODO: test
 		indent = {
 			enabled = true,
 			indent = {
@@ -65,16 +65,17 @@ return {
 		-- input = { enabled = true }, -- TODO: test and enable
 		-- notifier = { enabled = true }, -- maybe?
 		quickfile = { enabled = true },
+		rename = { enabled = true },
 		-- scope = { enabled = true }, -- TODO: see docs and maybe enable
 		-- statuscolumn = { enabled = true }, -- TODO: check for conflicts
-		toggle = { enabled = true }, -- TODO: toggle inlay hints, linenumber, option, words, diagnostics
+		toggle = { enabled = true, which_key = true }, -- TODO: toggle inlay hints, linenumber, option, words, diagnostics
 		-- words = { enabled = true }, -- TODO: replaces illuminate.lua?
 	},
 	keys = {
 		{
 			"<leader>ud",
 			function()
-				Snacks.dim.toggle()
+				Snacks.toggle.dim()
 			end,
 			desc = "Toggle dim",
 		},
