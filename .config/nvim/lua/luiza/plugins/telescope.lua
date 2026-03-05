@@ -27,6 +27,25 @@ return {
 				buffers = {
 					sort_lastused = true,
 					sort_mru = true,
+					theme = "dropdown",
+				},
+				old_files = {
+					theme = "dropdown",
+				},
+				help_tags = {
+					theme = "ivy",
+				},
+				keymaps = {
+					theme = "ivy",
+				},
+				git_commits = {
+					theme = "ivy",
+				},
+				git_branches = {
+					theme = "ivy",
+				},
+				command_history = {
+					theme = "cursor",
 				},
 			},
 			-- extensions = {
@@ -44,11 +63,13 @@ return {
 		map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Fuzzy find files in cwd" })
 		map("n", "<leader>fg", "<cmd>Telescope git_files<CR>", { desc = "Fuzzy find git-tracked files in cwd" })
 		map("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", { desc = "Fuzzy find recent files" })
-		map("n", "<leader>fs", "<cmd>Telescope live_grep<CR>", { desc = "Find string in cwd (LiveGrep)" })
-		map("n", "<leader>fc", "<cmd>Telescope grep_string<CR>", { desc = "Find string under cursor in cwd" })
+		map("n", "<leader>fl", "<cmd>Telescope live_grep<CR>", { desc = "Find string in cwd (LiveGrep)" })
+		map("n", "<leader>fw", "<cmd>Telescope grep_string<CR>", { desc = "Find string under cursor in cwd" })
 		map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Fuzzy find buffers" })
 		map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Telescope help tags" })
 		map("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { desc = "Search keymaps" })
+		map("n", "<leader>fc", "<cmd>Telescope command_history<CR>", { desc = "Command history" })
+		-- map("n", "<leader>ls", "<cmd>Telescope treesitter<CR>", { desc = "Search treesitter" })
 		map(
 			"n",
 			"<leader>ft",

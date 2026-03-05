@@ -83,7 +83,7 @@ return {
 			{ "ys", desc = "Add surrounding", icon = "+" },
 			{ "ds", desc = "Delete surrounding", icon = "-" },
 			{ "cs", desc = "Change surrounding", icon = "" },
-			{ "S", desc = "Surround selection", mode = "󰒉" },
+			{ "S", desc = "Surround selection", icon = "󰒉" },
 
 			-- text objects (visual reference)
 			-- { "y", group = "yank" },
