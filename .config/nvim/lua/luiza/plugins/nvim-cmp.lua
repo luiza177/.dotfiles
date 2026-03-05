@@ -52,7 +52,7 @@ return {
 				["<C-j>"] = cmp.mapping.select_next_item(),
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
-				["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+				["<M-space>"] = cmp.mapping.complete(), -- show completion suggestions, originally <C-Space>
 				["<C-e>"] = cmp.mapping.abort(), -- close completion window
 				["<Esc>"] = cmp.mapping(function(fallback)
 					-- if cmp.visible() then

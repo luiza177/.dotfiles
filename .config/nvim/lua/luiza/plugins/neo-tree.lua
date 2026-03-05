@@ -5,7 +5,7 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"MunifTanjim/nui.nvim",
-		"nvim-tree/nvim-web-devicons", -- optional, but recommended
+		"nvim-tree/nvim-web-devicons",
 	},
 	lazy = false, -- neo-tree will lazily load itself
 	keys = {
@@ -30,9 +30,7 @@ return {
 		vim.cmd([[Neotree close]])
 	end,
 	init = function() -- WARN: copied from LazyVim, untested
-		--[[ FIX: use `autocmd` for lazy-loading neo-tree instead of directly requiring it, 
-        because `cwd` is not set up properly.
-      ]]
+		-- FIX: use `autocmd` for lazy-loading neo-tree instead of directly requiring it, because `cwd` is not set up properly.
 		vim.api.nvim_create_autocmd("BufEnter", {
 			group = vim.api.nvim_create_augroup("Neotree_start_directory", { clear = true }),
 			desc = "Start Neo-tree with directory",
@@ -54,17 +52,25 @@ return {
 			indent = {
 				with_expanders = true,
 			},
+			git_status = {
+				symbols = {
+					ignored = "-",
+				},
+			},
 		},
 		source_selector = {
 			winbar = true,
 			statusline = false,
-			-- padding = 2,
 		},
 		filesystem = {
-			bind_to_cwd = false,
+			bind_to_cwd = true,
 			use_libuv_file_watcher = true,
+			cwd_target = { -- QUESTION: did I do this right? look up property better
+				sidebar = "global", -- sets new cwd for vim, as if using cd
+				current = "global",
+			},
 			filtered_items = {
-				visible = true, -- WARN: untested: show hidden files, but dimmed
+				visible = true,
 				hide_dotfiles = false, -- show dotfiles
 				hide_gitignored = false, -- show gitignored files
 			},
@@ -75,23 +81,23 @@ return {
 		close_if_last_window = true,
 		enable_cursor_hijack = true, -- keep cursor on first letter
 		window = {
-			auto_close = true, -- close when a file is picked
+			auto_close = true, -- close when a file is picked -- FIXME: doesn't work
 			position = "left",
 			width = 35,
 			mappings = {
-				-- ["."] = "set_root", -- QUESTION: add lsp root?
-				["."] = {
-					function(state)
-						local node = state.tree:get_node()
-						local path = node.type == "directory" and node:get_id()
-							or vim.fn.fnamemodify(node:get_id(), ":h")
-						-- call the built-in set_root action
-						require("neo-tree.sources.filesystem.commands").set_root(state)
-						vim.cmd("cd " .. path)
-						vim.cmd("LspRestart")
-					end,
-					desc = "Set root, cwd, and restart LSP",
-				},
+				["."] = "set_root", -- QUESTION: add lsp root?
+				-- ["."] = {
+				-- 	function(state)
+				-- 		local node = state.tree:get_node()
+				-- 		local path = node.type == "directory" and node:get_id()
+				-- 			or vim.fn.fnamemodify(node:get_id(), ":h")
+				-- 		-- call the built-in set_root action
+				-- 		require("neo-tree.sources.filesystem.commands").set_root(state)
+				-- 		vim.cmd("cd " .. path)
+				-- 		vim.cmd("LspRestart")
+				-- 	end,
+				-- 	desc = "Set root, cwd, and restart LSP",
+				-- },
 				["l"] = "open",
 				["h"] = "close_node",
 				["<space>"] = "none",
@@ -103,12 +109,6 @@ return {
 					end,
 					desc = "Copy Path to Clipboard",
 				},
-				["O"] = {
-					function(state)
-						require("lazy.util").open(state.tree:get_node().path, { system = true })
-					end,
-					desc = "Open with System Application",
-				},
 				["P"] = { "toggle_preview", config = { use_float = true } },
 			},
 		},
@@ -118,12 +118,18 @@ return {
 		-- 	Snacks.rename.on_rename_file(data.source, data.destination)
 		-- end
 
-		-- local events = require("neo-tree.events")
-		-- opts.event_handlers = opts.event_handlers or {}
-		-- vim.list_extend(opts.event_handlers, {
-		-- 	{ event = events.FILE_MOVED, handler = on_move },
-		-- 	{ event = events.FILE_RENAMED, handler = on_move },
-		-- })
+		local events = require("neo-tree.events")
+		opts.event_handlers = opts.event_handlers or {}
+		vim.list_extend(opts.event_handlers, {
+			-- 	{ event = events.FILE_MOVED, handler = on_move },
+			-- 	{ event = events.FILE_RENAMED, handler = on_move },
+			{
+				event = events.FILE_OPENED,
+				handler = function()
+					require("neo-tree.command").execute({ action = "close" })
+				end,
+			},
+		})
 		require("neo-tree").setup(opts)
 	end,
 }

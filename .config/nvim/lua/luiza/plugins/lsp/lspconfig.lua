@@ -47,7 +47,7 @@ return {
 				map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- INFO: in visual mode will apply to selection
 
 				opts.desc = "Smart rename"
-				map("n", "<leader>rn", vim.lsp.buf.rename, opts) -- originally: leader + rn
+				map("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
 				opts.desc = "Show diagnostics for buffer"
 				map("n", "<leader>db", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- originally: leader + D
