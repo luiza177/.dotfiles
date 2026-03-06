@@ -24,7 +24,7 @@ map("n", "<Esc>", ":nohl<CR>", { desc = "Clear search highlights" })
 
 --------- Window Management
 ---- Splits
-map("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
+map("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- TODO: add with which-key for better icons?
 map("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
 map("n", "<leader>se", "<C-w>=", { desc = "Make window splits equal" })
 map("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
@@ -44,8 +44,6 @@ map("n", "<leader>bx", "<cmd>bd<CR>", { desc = "Close buffer" })
 --------- Editor
 map("n", "<leader>/", "gcc", { remap = true, desc = "Toggle line comment" })
 map("v", "<leader>/", "gc", { remap = true, desc = "Toggle comment" })
-
--- TODO: indentation shortcuts?
 
 ---- Move lines
 map("n", "<M-j>", "<cmd>m .+1<cr>==", { desc = "Move line down" })

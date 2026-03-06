@@ -30,7 +30,7 @@ return {
 		})
 
 		-- manual trigger
-		vim.keymap.set("n", "<leader>ll", function()
+		vim.keymap.set("n", "<leader>cl", function()
 			lint.try_lint()
 		end, { desc = "Lint current file" })
 	end,

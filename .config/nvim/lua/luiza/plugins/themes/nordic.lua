@@ -5,11 +5,15 @@ return {
 	config = function()
 		require("nordic").load({
 			-- This callback can be used to override the colors used in the base palette.
-			-- on_palette = function(palette) end,
+			on_palette = function(palette) end,
 			-- This callback can be used to override the colors used in the extended palette.
-			-- after_palette = function(palette) end,
+			after_palette = function(palette) end,
 			-- This callback can be used to override highlights before they are applied.
-			-- on_highlight = function(highlights, palette) end,
+			on_highlight = function(highlights, palette)
+				highlights.TreeNormal = { fg = palette.white1, bg = palette.black1 }
+				highlights.TreeNormalNC = { fg = palette.white1, bg = palette.black1 }
+				-- highlights.EndOfBuffer = { bg = palette.black1 }
+			end,
 			-- Enable bold keywords.
 			bold_keywords = true,
 			-- Enable italic comments.
@@ -36,7 +40,7 @@ return {
 				-- Available styles: 'dark', 'light'.
 				theme = "dark",
 				-- Blending the cursorline bg with the buffer bg.
-				blend = 0.85,
+				blend = 0.95, -- NOTE: originally 0.85
 			},
 			-- Visual selection options.
 			visual = {
@@ -47,7 +51,7 @@ return {
 				-- Available styles: 'dark', 'light'.
 				theme = "dark",
 				-- Blending the visual selection bg with the buffer bg.
-				blend = 0.95, -- NOTE: originally 0.85
+				blend = 0.85,
 			},
 			noice = {
 				-- Available styles: `classic`, `flat`.
@@ -55,7 +59,7 @@ return {
 			},
 			telescope = {
 				-- Available styles: `classic`, `flat`.
-				style = "flat",
+				style = "classic",
 			},
 			leap = {
 				-- Dims the backdrop when using leap.

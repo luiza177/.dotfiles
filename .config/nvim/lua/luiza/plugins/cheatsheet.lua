@@ -1,5 +1,6 @@
 return {
 	"doctorfree/cheatsheet.nvim",
+	enabled = false,
 	event = "VeryLazy",
 	dependencies = {
 		{ "nvim-telescope/telescope.nvim" },
@@ -7,7 +8,7 @@ return {
 		{ "nvim-lua/plenary.nvim" },
 	},
 	config = function()
-		local ctactions = require("cheatsheet.telescope.actions")
+		-- local ctactions = require("cheatsheet.telescope.actions")
 		require("cheatsheet").setup({
 			bundled_cheatsheets = {
 				enabled = { "default", "lua", "markdown", "regex", "netrw", "nerd-fonts" },
@@ -25,12 +26,12 @@ return {
 				},
 			},
 			include_only_installed_plugins = true,
-			telescope_mappings = {
-				["<CR>"] = ctactions.select_or_fill_commandline,
-				["<A-CR>"] = ctactions.select_or_execute,
-				["<C-Y>"] = ctactions.copy_cheat_value,
-				["<C-E>"] = ctactions.edit_user_cheatsheet,
-			},
+			-- telescope_mappings = {
+			-- 	["<CR>"] = ctactions.select_or_fill_commandline,
+			-- 	["<A-CR>"] = ctactions.select_or_execute,
+			-- 	["<C-Y>"] = ctactions.copy_cheat_value,
+			-- 	["<C-E>"] = ctactions.edit_user_cheatsheet,
+			-- },
 		})
 	end,
 }
