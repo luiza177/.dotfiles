@@ -81,6 +81,7 @@ opt.fillchars = {
 	foldsep = "│",
 	fold = " ",
 }
+
 _G.foldtext = function()
 	local line = vim.fn.getline(vim.v.foldstart)
 	return " " .. line .. " …"
@@ -89,7 +90,20 @@ opt.foldtext = "v:lua.foldtext()"
 
 local function set_fold_hl()
 	local linenr_hl = vim.api.nvim_get_hl(0, { name = "LineNr" })
+	-- local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
+	-- local comment_hl = vim.api.nvim_get_hl(0, { name = "Comment" })
+	-- vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = comment_hl.fg })
+	-- vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { fg = comment_hl.fg })
 	vim.api.nvim_set_hl(0, "FoldColumn", { fg = linenr_hl.fg, bg = linenr_hl.bg })
+	vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", {
+		italic = true,
+		strikethrough = false,
+		underdotted = true,
+		underdashed = false,
+		undercurl = false,
+		sp = linenr_hl.fg,
+		-- blend = 50,
+	})
 end
 set_fold_hl()
 vim.api.nvim_create_autocmd("ColorScheme", { callback = set_fold_hl })

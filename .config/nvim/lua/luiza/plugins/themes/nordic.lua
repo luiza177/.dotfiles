@@ -12,7 +12,6 @@ return {
 			on_highlight = function(highlights, palette)
 				highlights.TreeNormal = { fg = palette.white1, bg = palette.black1 }
 				highlights.TreeNormalNC = { fg = palette.white1, bg = palette.black1 }
-				-- highlights.EndOfBuffer = { bg = palette.black1 }
 			end,
 			-- Enable bold keywords.
 			bold_keywords = true,
