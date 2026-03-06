@@ -32,7 +32,7 @@ return {
 							"table_constructor",
 							"object",
 							"dictionary",
-							"block",
+							-- "block",
 							"if_statement",
 							"for_statement",
 							"while_statement",

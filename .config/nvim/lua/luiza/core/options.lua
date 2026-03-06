@@ -14,14 +14,18 @@ local numbertoggle = vim.api.nvim_create_augroup("NumberToggle", { clear = true 
 vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 	group = numbertoggle,
 	callback = function()
-		vim.opt.relativenumber = false
+		if vim.bo.buftype == "" then
+			vim.opt.relativenumber = false
+		end
 	end,
 })
 
 vim.api.nvim_create_autocmd({ "InsertLeave" }, {
 	group = numbertoggle,
 	callback = function()
-		vim.opt.relativenumber = true
+		if vim.bo.buftype == "" then
+			vim.opt.relativenumber = true
+		end
 	end,
 })
 
@@ -67,9 +71,28 @@ opt.iskeyword:append("-") -- treat hyphenated-words as one word for w/b/e motion
 -------- Folds
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
--- opt.foldenable = false
+-- opt.foldcolumn = "auto:5"
+opt.foldenable = true
 opt.foldlevel = 99
 opt.foldlevelstart = 99
+opt.fillchars = {
+	foldopen = "",
+	foldclose = "",
+	foldsep = "│",
+	fold = " ",
+}
+_G.foldtext = function()
+	local line = vim.fn.getline(vim.v.foldstart)
+	return " " .. line .. " …"
+end
+opt.foldtext = "v:lua.foldtext()"
+
+local function set_fold_hl()
+	local linenr_hl = vim.api.nvim_get_hl(0, { name = "LineNr" })
+	vim.api.nvim_set_hl(0, "FoldColumn", { fg = linenr_hl.fg, bg = linenr_hl.bg })
+end
+set_fold_hl()
+vim.api.nvim_create_autocmd("ColorScheme", { callback = set_fold_hl })
 
 -------- No auto-comment
 vim.api.nvim_create_autocmd("BufEnter", {

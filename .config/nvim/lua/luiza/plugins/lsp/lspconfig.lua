@@ -65,7 +65,7 @@ return {
 
 				opts.desc = "Show documentation for what is under cursor"
 				map("n", "K", vim.lsp.buf.hover, opts)
-				map("n", "<C-space>", vim.lsp.buf.hover, opts) -- NOTE: does this actually work?
+				map("n", "<M-space>", vim.lsp.buf.hover, opts)
 
 				opts.desc = "Restart LSP"
 				map("n", "<leader>lr", ":LspRestart<CR>", opts) -- originally: leader + rs
