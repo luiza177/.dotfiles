@@ -5,7 +5,7 @@ local opt = vim.opt
 -------- Line numbers: hybrid in normal mode (rel + abs)
 opt.number = true
 opt.relativenumber = true
--- opt.numberwidth = 6           -- default is 4
+-- opt.numberwidth = 6 -- default is 4
 -- opt.statuscolumn = "%s %l %r "
 -- TODO: add back tildes ~ on empty lines
 
@@ -67,7 +67,9 @@ opt.iskeyword:append("-") -- treat hyphenated-words as one word for w/b/e motion
 -------- Folds
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
-opt.foldenable = false
+-- opt.foldenable = false
+opt.foldlevel = 99
+opt.foldlevelstart = 99
 
 -------- No auto-comment
 vim.api.nvim_create_autocmd("BufEnter", {

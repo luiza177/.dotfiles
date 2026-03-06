@@ -7,6 +7,7 @@ return {
 	},
 	opts = {
 		bigfile = { enabled = true },
+		---------
 		dashboard = {
 			enabled = true,
 			sections = {
@@ -31,9 +32,19 @@ return {
 				{ section = "startup" },
 			},
 		},
-		dim = { enabled = true }, -- TODO: needs animation adjust
+		---------
+		dim = {
+			enabled = true,
+			animate = {
+				duration = {
+					total = 100,
+				},
+			},
+		},
+		---------
 		explorer = { enabled = true },
-		indent = {
+		---------
+		indent = { -- TODO: go back to ibl
 			enabled = true,
 			indent = {
 				enabled = true,
@@ -45,7 +56,8 @@ return {
 			},
 			animate = { enabled = false },
 		},
-		input = { enabled = true }, -- QUESTION: what's this for?
+		input = { enabled = true }, -- QUESTION: really keep?
+		---------
 		picker = {
 			enabled = true,
 			sources = {
@@ -64,18 +76,23 @@ return {
 				},
 			},
 		},
+		---------
 		quickfile = { enabled = true },
+		---------
 		rename = { enabled = true },
-		scope = { enabled = true }, -- QUESTION: what's this for?
-		statuscolumn = { enabled = true }, -- FIXME: distance between rel and abs numbers
+		---------
+		statuscolumn = { -- WARN: no rel/abs number separation
+			enabled = false,
+			folds = { open = true },
+		},
+		---------
 		toggle = { enabled = true },
-		words = { enabled = true }, -- QUESTION: not working? replace illuminate?
 	},
 	keys = {
     -- stylua: ignore start
     -- Top Pickers & Explorer
-    { "<leader>fl", function() Snacks.picker.grep({ dirs = { vim.uv.cwd() } }) end, desc = "Grep" },
-    -- { "<leader>fl", function() Snacks.picker.grep({ hidden = true }) end, desc = "Grep" },
+    -- { "<leader>fl", function() Snacks.picker.grep({ dirs = { vim.uv.cwd() } }) end, desc = "Grep" },
+    { "<leader>fl", function() Snacks.picker.grep({ hidden = true }) end, desc = "Grep" }, -- HACK: in dotfiles repo, grep doesn't see config folder
     { "<leader>nh", function() Snacks.picker.notifications() end, desc = "Notification History" },
     -- { "<leader>nn", function() Snacks.notifier.show_history() end, desc = "Notification History" },
     { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
