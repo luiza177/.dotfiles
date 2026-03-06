@@ -61,7 +61,7 @@ return {
 		picker = {
 			enabled = true,
 			sources = {
-				explorer = { -- TODO: preview appears outside
+				explorer = { -- FIXME: preview appears outside
 					follow_file = false,
 					jump = {
 						close = true,
@@ -114,8 +114,8 @@ return {
       -- { '<leader>f/', function() Snacks.picker.search_history() end, desc = "Search History" },
       { "<leader>fc", function() Snacks.picker.command_history() end, desc = "Command History" },
       -- { "<leader>sC", function() Snacks.picker.commands() end, desc = "Commands" },
-      { "<leader>di", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" }, -- QUESTION: leave it to trouble??
-      { "<leader>db", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" }, -- QUESTION: leave it to trouble?
+      { "<leader>di", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" }, -- QUESTION: keep?
+      { "<leader>db", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" }, -- QUESTION: keep?
       { "<leader>fh", function() Snacks.picker.help() end, desc = "Help Pages" },
       -- { "<leader>fH", function() Snacks.picker.highlights() end, desc = "Highlights" },
       { "<leader>fi", function() Snacks.picker.icons() end, desc = "Icons" },
@@ -123,7 +123,7 @@ return {
       -- { "<leader>fk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
       { "<leader>fL", function() Snacks.picker.loclist() end, desc = "Location List" },
       { "<leader>fm", function() Snacks.picker.marks() end, desc = "Marks" },
-      { "<leader>fq", function() Snacks.picker.qflist() end, desc = "Quickfix List" }, -- QUESTION: leave it to trouble?
+      { "<leader>fq", function() Snacks.picker.qflist() end, desc = "Quickfix List" }, -- QUESTION:  keep or trouble?
       { "<leader>fu", function() Snacks.picker.undo() end, desc = "Undo History" },
       -- { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
 

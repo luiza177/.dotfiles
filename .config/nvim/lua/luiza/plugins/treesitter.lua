@@ -109,12 +109,14 @@ return {
 		local rd = require("rainbow-delimiters")
 		Snacks.toggle({
 			name = "Rainbow delimiters",
-			get = rd.enabled,
-			set = function()
-				if rd.is_enabled(0) then
-					rd.disable(0)
-				else
+			get = function()
+				return rd.is_enabled(0)
+			end,
+			set = function(state)
+				if state then
 					rd.enable(0)
+				else
+					rd.disable(0)
 				end
 			end,
 		}):map("<leader>ur")
