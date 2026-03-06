@@ -64,8 +64,12 @@ return {
 				map("n", "<leader>dn", vim.diagnostic.goto_next, opts)
 
 				opts.desc = "Show documentation for what is under cursor"
-				map("n", "K", vim.lsp.buf.hover, opts)
-				map("n", "<C-space>", vim.lsp.buf.hover, opts) -- NOTE: does this actually work?
+				map("n", "K", function()
+					vim.lsp.buf.hover({ border = "single" })
+				end, opts)
+				map("n", "<M-space>", function()
+					vim.lsp.buf.hover({ border = "single" })
+				end, opts)
 
 				opts.desc = "Restart LSP"
 				map("n", "<leader>lr", ":LspRestart<CR>", opts) -- originally: leader + rs
@@ -89,14 +93,14 @@ return {
 		-- local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 		local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 		vim.diagnostic.config({
-			-- virtual_lines = true, -- INFO: for underline diagnostics
-			virtual_text = { -- INFO: for inline diagnostics
-				-- spacing = 4,
-				source = "if_many",
-				prefix = "●",
-				-- this will set set the prefix to a function that returns the diagnostics icon based on the severity
-				-- prefix = "icons",
-			},
+			virtual_lines = true, -- INFO: for underline diagnostics
+			-- virtual_text = { -- INFO: for inline diagnostics (virtual_text)
+			-- 	-- spacing = 4,
+			-- 	source = "if_many",
+			-- 	prefix = "●",
+			-- 	-- this will set set the prefix to a function that returns the diagnostics icon based on the severity
+			-- 	-- prefix = "icons",
+			-- },
 			severity_sort = true,
 			signs = {
 				text = {
@@ -111,6 +115,10 @@ return {
 				numhl = {
 					[vim.diagnostic.severity.WARN] = "WarningMsg",
 				},
+			},
+			float = {
+				border = "single",
+				-- padding = 1,
 			},
 		})
 
