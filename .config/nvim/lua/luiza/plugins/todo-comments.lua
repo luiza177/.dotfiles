@@ -12,6 +12,8 @@ return {
 			TODO = { icon = " ", color = "todo" },
 			TEST = { icon = "󰙨 " },
 			HACK = { icon = "󰣈 " },
+			NOTE = { alt = { "INFO" }, color = "info" },
+			HINT = { color = "hint" },
 		},
 		colors = {
 			todo = { "#fab387" },
@@ -19,6 +21,22 @@ return {
 		},
 		highlight = {
 			multiline = false,
+		},
+	},
+	keys = {
+		{
+			"<leader>fT",
+			function()
+				Snacks.picker.todo_comments()
+			end,
+			desc = "Find all annotations",
+		},
+		{
+			"<leader>ft",
+			function()
+				Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME", "QUESTION" } })
+			end,
+			desc = "Todo/Fix/questions",
 		},
 	},
 }

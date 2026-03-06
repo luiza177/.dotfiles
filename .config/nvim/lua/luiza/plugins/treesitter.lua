@@ -6,8 +6,25 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"windwp/nvim-ts-autotag",
-		-- "nvim-treesitter/nvim-treesitter-context",
-		"nvim-treesitter/nvim-treesitter-textobjects",
+		{
+			"nvim-treesitter/nvim-treesitter-context",
+			opts = function()
+				local tsc = require("treesitter-context")
+				Snacks.toggle({
+					name = "Treesitter Context",
+					get = tsc.enabled,
+					set = function(state)
+						if state then
+							tsc.enable()
+						else
+							tsc.disable()
+						end
+					end,
+				}):map("<leader>ut")
+				return { mode = "cursor", max_lines = 3 }
+			end,
+		},
+		{ "nvim-treesitter/nvim-treesitter-textobjects" },
 		"HiPhish/rainbow-delimiters.nvim",
 	},
 	config = function()
@@ -89,18 +106,17 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<leader>ur", function()
-			local rd = require("rainbow-delimiters")
-			if rd.is_enabled(0) then
-				rd.disable(0)
-			else
-				rd.enable(0)
-			end
-		end, { desc = "Toggle rainbow delimiters" })
-
-		-- require("treesitter-context").setup({
-		-- 	enable = true,
-		-- 	max_lines = 3,
-		-- })
+		local rd = require("rainbow-delimiters")
+		Snacks.toggle({
+			name = "Rainbow delimiters",
+			get = rd.enabled,
+			set = function()
+				if rd.is_enabled(0) then
+					rd.disable(0)
+				else
+					rd.enable(0)
+				end
+			end,
+		}):map("<leader>ur")
 	end,
 }
