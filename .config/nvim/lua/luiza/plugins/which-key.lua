@@ -7,14 +7,15 @@ return {
 
 		wk.setup({
 			delay = 500,
+			preset = "helix",
 			plugins = {
 				marks = false, -- shows a list of your marks on ' and `
-				registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+				registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
 				-- the presets plugin, adds help for a bunch of default keybindings in Neovim
 				-- No actual key bindings are created
 				spelling = {
 					enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
-					suggestions = 20, -- how many suggestions should be shown in the list?
+					suggestions = 10, -- how many suggestions should be shown in the list?
 				},
 				presets = {
 					operators = false, -- adds help for operators like d, y, ...
@@ -22,7 +23,7 @@ return {
 					text_objects = false, -- help for text objects triggered after entering an operator
 					windows = false, -- default bindings on <c-w>
 					nav = false, -- misc bindings to work with windows
-					z = true, -- bindings for folds, spelling and others prefixed with z
+					z = false, -- bindings for folds, spelling and others prefixed with z
 					g = false, -- bindings for prefixed with g
 				},
 			},
@@ -38,10 +39,12 @@ return {
 			{ "<leader>u", group = "ui" },
 			{ "<leader>b", group = "buffer", icon = "" },
 			{ "<leader>d", group = "diagnostics" },
-			{ "<leader>l", group = "lsp", icon = "" }, -- QUESTION: change all to 'code'??
+			{ "<leader>l", group = "lsp", icon = "" },
 			{ "<leader>c", group = "code" },
 			{ "<leader>r", group = "replace", icon = "" },
 			{ "<leader>g", group = "git" },
+			{ "<leader>n", group = "notifications" },
+			{ "<leader>q", group = "Session (persistence)" },
 
 			{ "<leader>L", desc = "Open Lazy package manager", icon = "" },
 			{ "<leader>M", desc = "Open Mason", icon = "" },
