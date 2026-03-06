@@ -18,12 +18,19 @@ return {
 			end,
 			desc = "Toggle buffer list in Neotree",
 		},
+		-- {
+		-- 	"<leader>eg",
+		-- 	function()
+		-- 		require("neo-tree.command").execute({ source = "git_status", toggle = true })
+		-- 	end,
+		-- 	desc = "Toggle Git explorer in Neotree",
+		-- },
 		{
-			"<leader>eg",
+			"<leader>es",
 			function()
-				require("neo-tree.command").execute({ source = "git_status", toggle = true })
+				require("neo-tree.command").execute({ source = "document_symbols", toggle = true })
 			end,
-			desc = "Toggle Git explorer in Neotree",
+			desc = "Toggle Document Symbols in Neotree",
 		},
 	},
 	deactivate = function() -- INFO: copied from LazyVim
@@ -58,9 +65,28 @@ return {
 				},
 			},
 		},
+		sources = { "filesystem", "buffers", "document_symbols" },
 		source_selector = {
-			winbar = false, -- QUESTION: keep?
+			winbar = true, -- QUESTION: keep?
 			statusline = false,
+			sources = {
+				{
+					source = "filesystem", -- string
+					display_name = " 󰉓 Files ", -- string | nil
+				},
+				{
+					source = "buffers", -- string
+					display_name = " 󰈚 Buffers ", -- string | nil
+				},
+				-- {
+				-- 	source = "git_status", -- string
+				-- 	display_name = " 󰊢 Git ", -- string | nil
+				-- },
+				{
+					source = "document_symbols",
+					display_name = "  Symbols ",
+				},
+			},
 		},
 		filesystem = {
 			bind_to_cwd = true,
@@ -73,6 +99,9 @@ return {
 				visible = true,
 				hide_dotfiles = false, -- show dotfiles
 				hide_gitignored = false, -- show gitignored files
+				never_show = {
+					".DS_Store",
+				},
 			},
 			follow_current_file = {
 				enabled = true, -- highlight current file in tree
