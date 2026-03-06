@@ -42,49 +42,50 @@ return {
 			},
 		},
 		---------
-		explorer = { enabled = true },
+		-- explorer = { enabled = true },
 		---------
-		indent = { -- TODO: go back to ibl
-			enabled = true,
-			indent = {
-				enabled = true,
-				char = "┊",
-			},
-			scope = {
-				enabled = true, -- highlight current scope within indent guides
-				char = "┊",
-			},
-			animate = { enabled = false },
-		},
+		-- indent = {
+		-- 	enabled = true,
+		-- 	indent = {
+		-- 		enabled = true,
+		-- 		char = "┊",
+		-- 	},
+		-- 	scope = {
+		-- 		enabled = true, -- highlight current scope within indent guides
+		-- 		char = "┊",
+		-- 	},
+		-- 	animate = { enabled = false },
+		-- },
+		---------
 		input = { enabled = true }, -- QUESTION: really keep?
 		---------
 		picker = {
 			enabled = true,
-			sources = {
-				explorer = { -- FIXME: preview appears outside
-					follow_file = false,
-					jump = {
-						close = true,
-					},
-					win = {
-						input = {
-							keys = {
-								["<Esc>"] = "focus_input",
-							},
-						},
-					},
-				},
-			},
+			-- sources = {
+			-- 	explorer = { -- FIXME: preview appears outside
+			-- 		follow_file = false,
+			-- 		jump = {
+			-- 			close = true,
+			-- 		},
+			-- 		win = {
+			-- 			input = {
+			-- 				keys = {
+			-- 					["<Esc>"] = "focus_input",
+			-- 				},
+			-- 			},
+			-- 		},
+			-- 	},
+			-- },
 		},
 		---------
 		quickfile = { enabled = true },
 		---------
 		rename = { enabled = true },
 		---------
-		statuscolumn = { -- WARN: no rel/abs number separation
-			enabled = false,
-			folds = { open = true },
-		},
+		-- statuscolumn = { -- no rel/abs number separation
+		-- 	enabled = true,
+		-- 	folds = { open = true },
+		-- },
 		---------
 		toggle = { enabled = true },
 	},
@@ -96,8 +97,7 @@ return {
     { "<leader>nh", function() Snacks.picker.notifications() end, desc = "Notification History" },
     -- { "<leader>nn", function() Snacks.notifier.show_history() end, desc = "Notification History" },
       { "<leader>nn", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
-      { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" }, -- NOTE: compare to neo-tree more, hidden files, git signs etc
-      -- TODO: todo-comments picker
+      -- { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
 
 
       -- find
@@ -107,10 +107,10 @@ return {
       { "<leader>fC", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" }, -- HINT: good for neo vim plugin files
       -- { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
       -- { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" }, -- WARN: looks funny
-      { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
+      { "<leader>fr", function() Snacks.picker.recent({ matcher = { frencency = true }}) end, desc = "Recent" },
 
       -- search
-      { '<leader>fR"', function() Snacks.picker.registers() end, desc = "Registers" },
+      { "<leader>fR", function() Snacks.picker.registers() end, desc = "Registers" },
       -- { '<leader>f/', function() Snacks.picker.search_history() end, desc = "Search History" },
       { "<leader>fc", function() Snacks.picker.command_history() end, desc = "Command History" },
       -- { "<leader>sC", function() Snacks.picker.commands() end, desc = "Commands" },
@@ -149,7 +149,7 @@ return {
 
 
       -- grep
-      { "<leader>bl", function() Snacks.picker.lines() end, desc = "Buffer Lines" }, -- WARN: not sure what this is for
+      { "<leader>bl", function() Snacks.picker.lines() end, desc = "Buffer Lines" }, -- NOTE: not sure what this is for
       -- { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
       { "<leader>fw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
 
