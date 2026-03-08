@@ -67,7 +67,9 @@ font-thicken-strength = 255
 
 # theme = TokyoNight
 # theme = Kanagawa Wave
-theme = LoveLace
+# theme = LoveLace
+theme = Night Owl
+# theme = Cobalt2
 # theme = Catppuccin Mocha
 # theme = Everforest
 
