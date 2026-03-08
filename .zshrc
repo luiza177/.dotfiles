@@ -15,6 +15,8 @@ alias gs="git status"
 alias gc="git checkout"
 alias ga="git add ."
 alias gC="git commit -m"
+alias gp="git push"
+alias gP="git pull"
 
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
