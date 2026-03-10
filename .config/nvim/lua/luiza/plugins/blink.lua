@@ -1,14 +1,10 @@
 return {
 	"saghen/blink.cmp",
 	-- optional: provides snippets for the snippet source
-	dependencies = { "rafamadriz/friendly-snippets" },
+	dependencies = { "rafamadriz/friendly-snippets" }, -- TODO: add icons with dependencies etc, see https://cmp.saghen.dev/recipes#completion-menu-drawing
 
 	-- use a release tag to download pre-built binaries
 	version = "1.*",
-	-- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-	-- build = 'cargo build --release',
-	-- If you use nix, you can build from source using latest nightly rust with:
-	-- build = 'nix run .#build-plugin',
 
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
@@ -48,6 +44,11 @@ return {
 			["<C-j>"] = { "select_next", "fallback" }, -- QUESTION: or fallback_to_mappings?
 			["<C-k>"] = { "select_prev", "fallback" },
 			["<C-l>"] = { "show_documentation", "hide_documentation", "fallback" },
+			["<C-d>"] = { "show_documentation", "hide_documentation", "fallback" },
+
+			["<C-b>"] = { "scroll_documentation_up", "scroll_signature_up", "fallback" },
+			["<C-n>"] = { "scroll_documentation_down", "scroll_signature_down", "fallback" },
+			["<C-u>"] = {},
 		},
 
 		appearance = {
@@ -69,6 +70,9 @@ return {
 			menu = {
 				-- TODO: disable completion in comments and strings
 				-- auto_show = function() end,
+				draw = {
+					columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+				},
 			},
 			documentation = { auto_show = false },
 			list = {
