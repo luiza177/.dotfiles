@@ -28,12 +28,12 @@ return {
 		keymap = {
 			preset = "enter",
 			["<M-space>"] = { "show", "show_documentation", "hide_documentation" },
-			-- TODO: remap later, remove preset
 			-- ["<C-e>"] = { "hide", "fallback" },
 			-- ["<CR>"] = { "accept", "fallback" },
+			["<CR>"] = { "accept", "cancel", "fallback" },
 			--
-			-- ["<Tab>"] = { "snippet_forward", "fallback" },
-			-- ["<S-Tab>"] = { "snippet_backward", "fallback" },
+			["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+			["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
 			--
 			-- ["<Up>"] = { "select_prev", "fallback" },
 			-- ["<Down>"] = { "select_next", "fallback" },
@@ -46,6 +46,9 @@ return {
 			-- ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
 			-- ["<C-u>"] = { "scroll_signature_up", "fallback" },
 			-- ["<C-d>"] = { "scroll_signature_down", "fallback" },
+
+			["<C-j>"] = { "select_next", "fallback" }, -- QUESTION: or fallback_to_mappings?
+			["<C-k>"] = { "select_prev", "fallback" },
 		},
 
 		appearance = {
@@ -54,13 +57,21 @@ return {
 			nerd_font_variant = "mono",
 		},
 
+		-- Signature help
+		signature = {
+			enabled = true,
+			-- window = {
+			-- 	border = "single",
+			-- },
+		},
+
 		-- (Default) Only show the documentation popup when manually triggered -- CHANGED
 		completion = {
 			menu = {
 				-- TODO: disable completion in comments and strings
 				-- auto_show = function() end,
 			},
-			documentation = { auto_show = true },
+			documentation = { auto_show = false },
 			list = {
 				selection = {
 					preselect = false,
