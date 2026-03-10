@@ -43,12 +43,11 @@ return {
 			-- ["<C-b>"] = { "scroll_documentation_up", "fallback" },
 			-- ["<C-f>"] = { "scroll_documentation_down", "fallback" },
 			--
-			-- ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
 			-- ["<C-u>"] = { "scroll_signature_up", "fallback" },
 			-- ["<C-d>"] = { "scroll_signature_down", "fallback" },
-
 			["<C-j>"] = { "select_next", "fallback" }, -- QUESTION: or fallback_to_mappings?
 			["<C-k>"] = { "select_prev", "fallback" },
+			["<C-l>"] = { "show_documentation", "hide_documentation", "fallback" },
 		},
 
 		appearance = {
