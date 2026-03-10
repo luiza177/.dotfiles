@@ -19,13 +19,34 @@ return {
 		-- 'none' for no mappings
 		--
 		-- All presets have the following mappings:
-		-- C-space: Open menu or open docs if already open
+		-- C-space: Open menu or open docs if already open --> REMAPPED
 		-- C-n/C-p or Up/Down: Select next/previous item
 		-- C-e: Hide menu
 		-- C-k: Toggle signature help (if signature.enabled = true)
 		--
 		-- See :h blink-cmp-config-keymap for defining your own keymap
-		keymap = { preset = "enter" },
+		keymap = {
+			preset = "enter",
+			["<M-space>"] = { "show", "show_documentation", "hide_documentation" },
+			-- TODO: remap later, remove preset
+			-- ["<C-e>"] = { "hide", "fallback" },
+			-- ["<CR>"] = { "accept", "fallback" },
+			--
+			-- ["<Tab>"] = { "snippet_forward", "fallback" },
+			-- ["<S-Tab>"] = { "snippet_backward", "fallback" },
+			--
+			-- ["<Up>"] = { "select_prev", "fallback" },
+			-- ["<Down>"] = { "select_next", "fallback" },
+			-- ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
+			-- ["<C-n>"] = { "select_next", "fallback_to_mappings" },
+			--
+			-- ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+			-- ["<C-f>"] = { "scroll_documentation_down", "fallback" },
+			--
+			-- ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+			-- ["<C-u>"] = { "scroll_signature_up", "fallback" },
+			-- ["<C-d>"] = { "scroll_signature_down", "fallback" },
+		},
 
 		appearance = {
 			-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -33,8 +54,20 @@ return {
 			nerd_font_variant = "mono",
 		},
 
-		-- (Default) Only show the documentation popup when manually triggered
-		completion = { documentation = { auto_show = false } },
+		-- (Default) Only show the documentation popup when manually triggered -- CHANGED
+		completion = {
+			menu = {
+				-- TODO: disable completion in comments and strings
+				-- auto_show = function() end,
+			},
+			documentation = { auto_show = true },
+			list = {
+				selection = {
+					preselect = false,
+					auto_insert = true,
+				},
+			},
+		},
 
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
