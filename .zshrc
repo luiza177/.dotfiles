@@ -11,6 +11,12 @@ alias la="eza -F always -l -a --icons=auto --color-scale=age --hyperlink --no-us
 alias lat="eza -F always -l -T --level=2 -a --icons=auto --color-scale=age --hyperlink --no-user"
 alias l.="ls -d .* --color=auto"
 alias grep="grep --color=auto"
+alias gs="git status"
+alias gc="git checkout"
+alias ga="git add ."
+alias gC="git commit -m"
+alias gp="git push"
+alias gP="git pull"
 
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
