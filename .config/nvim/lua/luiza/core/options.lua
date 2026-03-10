@@ -69,8 +69,8 @@ opt.splitbelow = true -- horizontal splits below
 opt.iskeyword:append("-") -- treat hyphenated-words as one word for w/b/e motions
 
 -------- Folds
-opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- opt.foldmethod = "expr"
+-- opt.foldexpr = "nvim_treesitter#foldexpr()"
 -- opt.foldcolumn = "auto:5"
 opt.foldenable = true
 opt.foldlevel = 99
@@ -82,12 +82,13 @@ opt.fillchars = {
 	fold = " ",
 }
 
-_G.foldtext = function()
-	local line = vim.fn.getline(vim.v.foldstart)
-	return " " .. line .. " …"
-end
-opt.foldtext = "v:lua.foldtext()"
+-- _G.foldtext = function()
+-- 	local line = vim.fn.getline(vim.v.foldstart)
+-- 	return " " .. line .. " …"
+-- end
+-- opt.foldtext = "v:lua.foldtext()"
 
+--------- COLORSCHEME OVERRIDES -- TODO: Move to own file
 local function set_fold_hl()
 	local linenr_hl = vim.api.nvim_get_hl(0, { name = "LineNr" })
 	-- local normal = vim.api.nvim_get_hl(0, { name = "Normal" })

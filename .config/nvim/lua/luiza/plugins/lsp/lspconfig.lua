@@ -63,7 +63,7 @@ return {
 				map("n", "<leader>dn", vim.diagnostic.goto_next, opts)
 
 				opts.desc = "Show documentation for what is under cursor"
-				map("n", "K", function()
+				map("n", "K", function() -- QUESTION: do I still need this?
 					vim.lsp.buf.hover({ border = "single" })
 				end, opts)
 				map("n", "<M-space>", function()
@@ -88,17 +88,16 @@ return {
 
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-		-- local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 		local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 		vim.diagnostic.config({
-			virtual_lines = true, -- INFO: for underline diagnostics
-			-- virtual_text = { -- INFO: for inline diagnostics (virtual_text)
-			-- 	-- spacing = 4,
-			-- 	source = "if_many",
-			-- 	prefix = "●",
-			-- 	-- this will set set the prefix to a function that returns the diagnostics icon based on the severity
-			-- 	-- prefix = "icons",
-			-- },
+			-- virtual_lines = true, -- INFO: for underline diagnostics
+			virtual_text = { -- INFO: for inline diagnostics (virtual_text)
+				spacing = 4,
+				source = "if_many",
+				prefix = "●",
+				-- this will set set the prefix to a function that returns the diagnostics icon based on the severity
+				-- prefix = "icons",
+			},
 			severity_sort = true,
 			signs = {
 				text = {
@@ -156,7 +155,7 @@ return {
 					doc = { privateName = "^_" },
 					hint = {
 						enable = true, -- enables inlay hints globally
-						setType = false, -- don't show type hints on variable assignments
+						setType = true, -- show type hints on variable assignments
 						paramType = true, -- show parameter types in function calls
 						paramName = "Disable", -- don't show parameter *names* (would be redundant with paramType)
 						semicolon = "Disable", -- don't hint missing semicolons (irrelevant in Lua)

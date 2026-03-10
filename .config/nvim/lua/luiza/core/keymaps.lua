@@ -6,7 +6,6 @@ map("n", "q", "<nop>", { desc = "Disabled (macro record)" })
 --map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
 --map("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
 --map("n", "<leader>Q", "<cmd>qa<cr>", { desc = "Quit all" })
--- TODO: force quit q!
 
 -------- Search
 map("n", "<Esc>", ":nohl<CR>", { desc = "Clear search highlights" })
@@ -24,7 +23,7 @@ map("n", "<Esc>", ":nohl<CR>", { desc = "Clear search highlights" })
 
 --------- Window Management
 ---- Splits
-map("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- TODO: add with which-key for better icons?
+map("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
 map("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
 map("n", "<leader>se", "<C-w>=", { desc = "Make window splits equal" })
 map("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
