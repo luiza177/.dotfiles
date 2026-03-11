@@ -1,6 +1,7 @@
 export PATH="/opt/homebrew/opt/ruby/bin:$HOME/bin:$PATH"
 
 eval "$(starship init zsh)"
+# TODO: add non-starship prompt in comment
 
 # ----------- ALIASES
 # alias ll="ls -lhs --color=auto"
@@ -21,6 +22,7 @@ alias gP="git pull"
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
 
+# TODO: check josean and see how to use
 # HISTORY SETUP
 HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
@@ -39,3 +41,6 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # TODO: run tmux at startup
+
+# TODO: check josean again, for more aliases
+eval "$(zoxide init zsh)"
