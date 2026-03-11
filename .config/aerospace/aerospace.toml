@@ -1,3 +1,6 @@
+# TODO: fix padding above for notch, need cheat sheet
+# TODO: finder is always a floater?
+# QUESTION: add arrow version of moving?
 # Config version for compatibility and deprecations
 # Fallback value (if you omit the key): config-version = 1
 config-version = 2
@@ -8,7 +11,7 @@ after-startup-command = []
 # TODO: eventually: add janky borders
 
 # Start AeroSpace at login
-start-at-login = false
+start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 # Unless you’re hardcore i3 user who knows what they are doing, it’s recommended to keep the normalizations enabled. 
@@ -18,7 +21,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
 # You can set 0 to disable the padding feature
-accordion-padding = 30
+accordion-padding = 100 # TODO: adjust
 
 # Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
@@ -103,7 +106,7 @@ inner.horizontal = 4
 inner.vertical = 4
 outer.left = 4
 outer.bottom = 4
-outer.top = [{ monitor.buit-in = 0 }, 15]
+outer.top = [{ monitor."built-in" = 0 }, 24] # TODO: for eventual SketchyBar
 outer.right = 4
 
 # 'main' binding mode declaration
@@ -244,7 +247,7 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 alt-shift-semicolon = 'mode service'
 
 ctrl-alt-cmd-space = 'mode app' # HINT:
-ctrl-alt-space = 'mode launch'  # HINT:
+cmd-alt-space = 'mode launch'   # HINT:
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -272,6 +275,7 @@ ctrl-esc = ['mode main']
 [mode.launch.binding] # INFO: launch apps
 esc = ['mode main']
 # TODO: add exec-and-forget commands here to launch Reaper, Librewolf/zen, ghostty, notes, vlc/foobar2000?
+# NOTE: everything should go back to main
 # r = exec-and-forget # REAPER
 # l = exec-and-forget # librewolf
 # z = exec-and-forget zen # zen browser
