@@ -120,7 +120,7 @@ return {
       -- { "<leader>fH", function() Snacks.picker.highlights() end, desc = "Highlights" },
       { "<leader>fi", function() Snacks.picker.icons() end, desc = "Icons" },
       { "<leader>fj", function() Snacks.picker.jumps() end, desc = "Jumps" },
-      -- { "<leader>fk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
+      { "<leader>fk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
       { "<leader>fL", function() Snacks.picker.loclist() end, desc = "Location List" },
       { "<leader>fm", function() Snacks.picker.marks() end, desc = "Marks" },
       { "<leader>fq", function() Snacks.picker.qflist() end, desc = "Quickfix List" }, -- QUESTION:  keep or trouble?

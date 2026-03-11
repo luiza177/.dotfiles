@@ -63,7 +63,7 @@ cursor-style = block
 cursor-style-blink = false
 font-thicken = true
 font-thicken-strength = 255
-# macos-option-as-alt = true
+macos-option-as-alt = left
 
 # theme = TokyoNight
 # theme = Kanagawa Wave

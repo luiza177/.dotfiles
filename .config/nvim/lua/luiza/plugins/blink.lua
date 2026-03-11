@@ -71,7 +71,7 @@ return {
 				-- TODO: disable completion in comments and strings
 				-- auto_show = function() end,
 				draw = {
-					columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+					-- columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
 				},
 			},
 			documentation = { auto_show = false },
