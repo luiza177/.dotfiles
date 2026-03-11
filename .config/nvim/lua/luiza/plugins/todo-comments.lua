@@ -27,7 +27,9 @@ return {
 		{
 			"<leader>fT",
 			function()
-				Snacks.picker.todo_comments()
+				Snacks.picker.todo_comments({
+					keywords = { "TODO", "FIX", "FIXME", "QUESTION", "WARN", "NOTE", "HINT", "INFO", "TEST", "HACK" },
+				})
 			end,
 			desc = "Find all annotations",
 		},
