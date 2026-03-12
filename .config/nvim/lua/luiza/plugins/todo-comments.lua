@@ -5,7 +5,7 @@ return {
 	opts = {
 		keywords = {
 			QUESTION = {
-				icon = " ",
+				icon = " ",
 				color = "blue",
 				alt = { "Q", "Q%?" },
 			},
@@ -13,7 +13,7 @@ return {
 			TEST = { icon = "󰙨 " },
 			HACK = { icon = "󰣈 " },
 			NOTE = { alt = { "INFO" }, color = "info" },
-			HINT = { color = "hint" },
+			HINT = { color = "hint", icon = " " },
 		},
 		colors = {
 			todo = { "#fab387" },
