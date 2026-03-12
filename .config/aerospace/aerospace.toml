@@ -1,5 +1,3 @@
-# TODO: fix padding above for notch, need cheat sheet
-# TODO: finder is always a floater?
 # QUESTION: add arrow version of moving?
 # Config version for compatibility and deprecations
 # Fallback value (if you omit the key): config-version = 1
@@ -7,8 +5,9 @@ config-version = 2
 
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
-# TODO: eventually: add janky borders
+after-startup-command = [
+  'exec-and-forget borders active_color=0xffe1e4e4 inactive_color=0xff414550 width=5.0', # JankyBorders
+]
 
 # Start AeroSpace at login
 start-at-login = true
@@ -37,6 +36,7 @@ default-root-container-orientation = 'auto'
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = "move-mouse window-lazy-center"
 
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
@@ -49,7 +49,7 @@ automatically-unhide-macos-hidden-apps = false
 # This config version is only available since 'config-version = 2'
 # Fallback value (if you omit the key): persistent-workspaces = []
 persistent-workspaces = [
-  "1",
+  "1", # main
   # "2",
   # "3",
   # "4",
@@ -59,21 +59,21 @@ persistent-workspaces = [
   # "8",
   # "9",
   # "A",
-  "B",
-  "C",
+  "B", # browser
+  "C", # code?
   # "D",
   # "E",
   # "F",
   # "G",
   # "I",
-  "M",
+  "M", # music
   # "N",
   # "O",
   # "P",
   # "Q",
-  "R",
+  "R", # reaper
   # "S",
-  "T",
+  "T", # "terminal"
   # "U",
   # "V",
   # "W",
@@ -100,7 +100,6 @@ preset = 'qwerty'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
-# TODO: assign workspace to monitors?
 [gaps]
 inner.horizontal = 4
 inner.vertical = 4
@@ -141,10 +140,7 @@ outer.right = 4
 #     activate
 # end tell'
 # '''
-
-# TODO: all alt becomes ctrl-alt like Magnet? check REAPER conflicts
-# WARN: do I then also need to disable the default alt- bindings?
-# QUESTION: in order to avoid REAPER conflicts, create new binding mode "reaper" or "app", with only a "go back to main mapping?"
+alt-shift-equal = 'fullscreen'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
@@ -166,7 +162,6 @@ alt-shift-l = 'move right'
 alt-minus = 'resize smart -50'
 alt-equal = 'resize smart +50'
 
-# WARN: really need to check REAPER conflicts here
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
@@ -234,12 +229,10 @@ alt-shift-t = 'move-node-to-workspace T'
 # alt-shift-y = 'move-node-to-workspace Y'
 # alt-shift-z = 'move-node-to-workspace Z'
 
-# TODO: librewolf/zen goes to B, reaper goes to R, ghostty goes to T? Main = 1? and browser and terminal go there?
-
-# QUESTION: alt-cmd instead of ctrl+alt?
+# TODO: assign workspace to monitors?
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
-# QUESTION: ctrl-alt-cmd something?
+# QUESTION: how does this work?
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
@@ -274,13 +267,52 @@ ctrl-esc = ['mode main']
 
 [mode.launch.binding] # INFO: launch apps
 esc = ['mode main']
-# TODO: add exec-and-forget commands here to launch Reaper, Librewolf/zen, ghostty, notes, vlc/foobar2000?
 # NOTE: everything should go back to main
-# r = exec-and-forget # REAPER
-# l = exec-and-forget # librewolf
-# z = exec-and-forget zen # zen browser
+r = ['exec-and-forget open /Applications/REAPER.app', 'mode main']
+l = ['exec-and-forget open /Applications/LibreWolf.app', 'mode main']
+z = ['exec-and-forget open /Applications/Zen.app', 'mode main']
 # foobar 
-# vlc
-# ghostty
-# ghostty stuff
-# notes
+v = ['exec-and-forget open /Applications/VLC.app', 'mode main']
+g = ['exec-and-forget open /Applications/Ghostty.app', 'mode main']
+# aerospace list-apps / list-windows / etc in quick terminal from ghostty?
+n = ['exec-and-forget open /System/Applications/Notes.app/', 'mode main']
+
+# QUESTION: Main = 1? and browser and terminal go there?
+# [[on-window-detected]]
+# if.app-id = 'com.mozilla.librewolf'
+# run = ["move-node-to-workspace B"]
+
+#
+# [[on-window-detected]]
+# if.app-id = 'com.mozilla.zen-browser'
+# run = ["move-node-to-workspace B"]
+#
+# [[on-window-detected]]
+# if.app-id = 'com.mitchellh.ghostty'
+# run = ["move-node-to-workspace T"]
+
+[[on-window-detected]]
+if.app-id = "com.cockos.reaper"
+run = ["move-node-to-workspace  R", "workspace R"]
+
+[[on-window-detected]]
+if.app-id = "org.videolan.vlc"
+run = ["move-node-to-workspace  M", "workspace M"]
+
+[[on-window-detected]]
+if.app-id = "com.spotify.client"
+run = ["move-node-to-workspace  M", "workspace M"]
+
+# [[on-window-detected]]
+# if.app-id = "" # foobar2000
+# run = ["move-node-to-workspace  M", "workspace M"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.Notes"
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = "com.apple.Finder"
+run = 'layout floating'
+
+# TODO: when empty workspace, go back to main
