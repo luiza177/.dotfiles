@@ -294,7 +294,7 @@ n = ['exec-and-forget open /System/Applications/Notes.app/', 'mode main']
 
 [[on-window-detected]]
 if.app-id = "com.cockos.reaper"
-run = ["move-node-to-workspace  R", "workspace R"]
+run = ["move-node-to-workspace  R", "workspace R", "mode app"]
 
 [[on-window-detected]]
 if.app-id = "org.videolan.vlc"
