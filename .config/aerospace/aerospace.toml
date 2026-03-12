@@ -38,6 +38,7 @@ default-root-container-orientation = 'auto'
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = "move-mouse window-lazy-center"
+# TODO: if not REAPER, go back to normal mode, callback?
 
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
@@ -60,21 +61,21 @@ persistent-workspaces = [
   # "8",
   # "9",
   # "A",
-  "B", # browser
-  "C", # code?
+  # "B", # browser
+  # "C", # code?
   # "D",
   # "E",
   # "F",
   # "G",
   # "I",
-  "M", # music
+  # "M", # music
   # "N",
   # "O",
   # "P",
   # "Q",
-  "R", # reaper
+  # "R", # reaper
   # "S",
-  "T", # "terminal"
+  # "T", # "terminal"
   # "U",
   # "V",
   # "W",
