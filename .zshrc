@@ -12,17 +12,19 @@ alias la="eza -F always -l -a --icons=auto --color-scale=age --hyperlink --no-us
 alias lat="eza -F always -l -T --level=2 -a --icons=auto --color-scale=age --hyperlink --no-user"
 alias l.="ls -d .* --color=auto"
 alias grep="grep --color=auto"
+alias g="git"
 alias gs="git status"
 alias gc="git checkout"
 alias ga="git add ."
 alias gC="git commit -m"
 alias gp="git push"
 alias gP="git pull"
+alias z="cd"
 
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
 
-# TODO: check josean and see how to use
+# HINT: type command (eg. "nvim") then use arrows to go up/down in history
 # HISTORY SETUP
 HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
@@ -36,11 +38,21 @@ setopt hist_verify
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
-# --------------
+  # --------------
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # TODO: run tmux at startup
 
-# TODO: check josean again, for more aliases
+# FZF stuff
+eval "$(fzf" --zsh)"
+
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# export FZF_ALT_C_COMMAND="fs --type d --hidden --strip-cwd-prefix --exclude .git" # WARN: conflicts with aerospace
+# TODO: fzf git?
+
+# Q: fd compgen path and dir ??
+
+# --------------
 eval "$(zoxide init zsh)"

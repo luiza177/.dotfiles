@@ -1,9 +1,10 @@
 return {
 	"NvChad/nvim-colorizer.lua",
+	-- enabled = false,
 	event = "BufEnter",
 	config = true,
 	keys = {
-		{ "<leader>uc", "<cmd>ColorizerToggle<cr>", desc = "Toggle colorizer" },
+		{ "<leader>uc", "<cmd>ColorizerToggle<cr>", desc = "Toggle colorizer" }, -- TODO: integrate snacks toggle
 	},
 	opts = {
 		filetypes = {

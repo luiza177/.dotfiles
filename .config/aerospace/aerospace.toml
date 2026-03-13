@@ -1,4 +1,3 @@
-# QUESTION: add arrow version of moving?
 # Config version for compatibility and deprecations
 # Fallback value (if you omit the key): config-version = 1
 config-version = 2
@@ -6,8 +5,7 @@ config-version = 2
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-  # TODO: separate config for colors?
-  'exec-and-forget borders active_color=0xffe7eaea inactive_color=0xff414550 width=5.0', # JankyBorders
+  'exec-and-forget borders', # JankyBorders
 ]
 
 # Start AeroSpace at login
@@ -16,7 +14,7 @@ start-at-login = true
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 # Unless you’re hardcore i3 user who knows what they are doing, it’s recommended to keep the normalizations enabled. 
 enable-normalization-flatten-containers = true
-enable-normalization-opposite-orientation-for-nested-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = false
 
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
@@ -44,7 +42,6 @@ on-focus-changed = "move-mouse window-lazy-center"
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
 automatically-unhide-macos-hidden-apps = false
-# QUESTION: need this?
 
 # List of workspaces that should stay alive even when they contain no windows,
 # even when they are invisible.
@@ -234,7 +231,6 @@ alt-shift-t = 'move-node-to-workspace T'
 # TODO: assign workspace to monitors?
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
-# QUESTION: how does this work?
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
@@ -266,6 +262,7 @@ alt-shift-l = ['join-with right', 'mode main']
 
 [mode.app.binding] # INFO: 'disable' aerospace bindings to avoid conflicts (eg in REAPER)
 ctrl-esc = ['mode main']
+cmd-q = ['mode main']
 
 [mode.launch.binding] # INFO: launch apps
 esc = ['mode main']
@@ -279,7 +276,6 @@ g = ['exec-and-forget open /Applications/Ghostty.app', 'mode main']
 # aerospace list-apps / list-windows / etc in quick terminal from ghostty?
 n = ['exec-and-forget open /System/Applications/Notes.app/', 'mode main']
 
-# QUESTION: Main = 1? and browser and terminal go there?
 # [[on-window-detected]]
 # if.app-id = 'com.mozilla.librewolf'
 # run = ["move-node-to-workspace B"]
@@ -315,6 +311,10 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = "com.apple.Finder"
+run = 'layout floating'
+
+[[on-window-detected]]
+if.window-title-regex-substring = "bitwarden"
 run = 'layout floating'
 
 # TODO: when empty workspace, go back to main

@@ -43,6 +43,7 @@ map("n", "<leader>bx", "<cmd>bd<CR>", { desc = "Close buffer" })
 --------- Editor
 map("n", "<leader>/", "gcc", { remap = true, desc = "Toggle line comment" })
 map("v", "<leader>/", "gc", { remap = true, desc = "Toggle comment" })
+map("i", "jj", "<ESC>", { silent = true })
 
 ---- Move lines
 map("n", "<M-j>", "<cmd>m .+1<cr>==", { desc = "Move line down" })

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# FIXME: blacklist not working
+options=(
+  style=round
+  width=5.0
+  hidpi=on
+  active_color=0xef04e0e0
+  inactive_color=0x6f414550
+  blacklist="REAPER"
+)
+
+borders "${options[@]}"
