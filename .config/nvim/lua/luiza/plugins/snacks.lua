@@ -1,3 +1,7 @@
+local function prevent_insert()
+	vim.cmd.stopinsert()
+end
+
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
@@ -94,7 +98,7 @@ return {
     -- Top Pickers & Explorer
     -- { "<leader>fl", function() Snacks.picker.grep({ dirs = { vim.uv.cwd() } }) end, desc = "Grep" },
     { "<leader>fl", function() Snacks.picker.grep({ hidden = true }) end, desc = "Grep" }, -- HACK: in dotfiles repo, grep doesn't see config folder
-    { "<leader>nh", function() Snacks.picker.notifications() end, desc = "Notification History" },
+    { "<leader>nh", function() Snacks.picker.notifications({ on_show = prevent_insert }) end, desc = "Notification History" },
     -- { "<leader>nn", function() Snacks.notifier.show_history() end, desc = "Notification History" },
       { "<leader>nn", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
       -- { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
@@ -103,25 +107,25 @@ return {
       -- find
       { "<leader>ff", function() Snacks.picker.smart() end, desc = "Smart Find Files" }, -- why exactly is it smart?
       -- { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
-      { "<leader>fb", function() Snacks.picker.buffers({ sort_lastused = true, layout = "vscode", current = false }) end, desc = "Buffers" },
+      { "<leader>fb", function() Snacks.picker.buffers({ sort_lastused = true, layout = "vscode", current = false, on_show = prevent_insert }) end, desc = "Buffers" },
       { "<leader>fC", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" }, -- HINT: good for neo vim plugin files
       -- { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
       -- { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" }, -- WARN: looks funny
       { "<leader>fr", function() Snacks.picker.recent({ matcher = { frencency = true }}) end, desc = "Recent" },
 
       -- search
-      { "<leader>fR", function() Snacks.picker.registers() end, desc = "Registers" },
+      { "<leader>fR", function() Snacks.picker.registers({ on_show = prevent_insert }) end, desc = "Registers" },
       -- { '<leader>f/', function() Snacks.picker.search_history() end, desc = "Search History" },
-      { "<leader>fc", function() Snacks.picker.command_history() end, desc = "Command History" },
+      { "<leader>fc", function() Snacks.picker.command_history({ on_show = prevent_insert }) end, desc = "Command History" },
       -- { "<leader>sC", function() Snacks.picker.commands() end, desc = "Commands" },
-      { "<leader>di", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" }, -- QUESTION: keep?
-      { "<leader>db", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" }, -- QUESTION: keep?
+      { "<leader>di", function() Snacks.picker.diagnostics({ on_show = prevent_insert }) end, desc = "Diagnostics" }, -- QUESTION: keep?
+      { "<leader>db", function() Snacks.picker.diagnostics_buffer({ on_show = prevent_insert }) end, desc = "Buffer Diagnostics" }, -- QUESTION: keep?
       { "<leader>fh", function() Snacks.picker.help() end, desc = "Help Pages" },
       -- { "<leader>fH", function() Snacks.picker.highlights() end, desc = "Highlights" },
       { "<leader>fi", function() Snacks.picker.icons() end, desc = "Icons" },
-      { "<leader>fj", function() Snacks.picker.jumps() end, desc = "Jumps" },
+      { "<leader>fj", function() Snacks.picker.jumps({ on_show = prevent_insert }) end, desc = "Jumps" },
       { "<leader>fk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
-      { "<leader>fL", function() Snacks.picker.loclist() end, desc = "Location List" },
+      { "<leader>fL", function() Snacks.picker.loclist({ on_show = prevent_insert }) end, desc = "Location List" },
       { "<leader>fm", function() Snacks.picker.marks() end, desc = "Marks" },
       { "<leader>fq", function() Snacks.picker.qflist() end, desc = "Quickfix List" }, -- QUESTION:  keep or trouble?
       { "<leader>fu", function() Snacks.picker.undo() end, desc = "Undo History" },
@@ -130,21 +134,21 @@ return {
 
       -- git
       { "<leader>gG", function() Snacks.lazygit() end, desc = "Lazygit" },
-      { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
+      { "<leader>gb", function() Snacks.picker.git_branches({ on_show = prevent_insert}) end, desc = "Git Branches" },
 
-      { "<leader>gL", function() Snacks.picker.git_log() end, desc = "Git Log" },
-      { "<leader>gl", function() Snacks.picker.git_log_line() end, desc = "Git Log Line" },
-      { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File" },
+      { "<leader>gL", function() Snacks.picker.git_log({ on_show = prevent_insert}) end, desc = "Git Log" },
+      { "<leader>gl", function() Snacks.picker.git_log_line({ on_show = prevent_insert}) end, desc = "Git Log Line" },
+      { "<leader>gf", function() Snacks.picker.git_log_file({ on_show = prevent_insert}) end, desc = "Git Log File" },
 
       { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git Status" },
-      { "<leader>gS", function() Snacks.picker.git_stash() end, desc = "Git Stash" },
-      { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
+      { "<leader>gS", function() Snacks.picker.git_stash({ on_show = prevent_insert}) end, desc = "Git Stash" },
+      { "<leader>gd", function() Snacks.picker.git_diff({ on_show = prevent_insert}) end, desc = "Git Diff (Hunks)" },
 
       -- [g]it[h]ub
       -- { "<leader>gi", function() Snacks.picker.gh_issue() end, desc = "GitHub Issues (open)" },
       -- { "<leader>gI", function() Snacks.picker.gh_issue({ state = "all" }) end, desc = "GitHub Issues (all)" },
       { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" } },
-      { "<leader>gpp", function() Snacks.picker.gh_pr() end, desc = "GitHub Pull Requests (open)" },
+      { "<leader>gpp", function() Snacks.picker.gh_pr({ on_show = prevent_insert}) end, desc = "GitHub Pull Requests (open)" },
       { "<leader>gpP", function() Snacks.picker.gh_pr({ state = "all" }) end, desc = "GitHub Pull Requests (all)" },
 
 
