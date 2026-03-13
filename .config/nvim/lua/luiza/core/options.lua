@@ -53,8 +53,8 @@ opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes" -- column to the left of numbers for LSP diagnostics, always show
 opt.cursorline = true
-opt.scrolloff = 8 -- always keep 8 lines above/below cursor
-opt.sidescrolloff = 8 -- same as above, but for horizontal, useful for wrap = true
+opt.scrolloff = 10 -- always keep 8 lines above/below cursor
+opt.sidescrolloff = 10 -- same as above, but for horizontal, useful for wrap = true
 opt.wrap = false
 
 -------- Behavior

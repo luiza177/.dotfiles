@@ -3,24 +3,16 @@ return {
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
-	enabled = false,
-	-- opts = function(_, opts)
-	-- 	if vim.g.theme == "catppuccin" then
-	-- 		opts.highlights = require("catppuccin.special.bufferline").get_theme()
-	-- 	end
-	-- end,
+	-- enabled = false,
 	opts = {
 		options = {
 			diagnostics = "nvim_lsp",
 			offsets = {
 				{
 					filetype = "neo-tree",
-					-- filetype = "nvim-tree",
 					text = "Neo-tree",
-					-- text = "Nvim-tree",
 					highlight = "Directory",
 					text_align = "center",
-					-- text_align = "left",
 				},
 				{
 					filetype = "snacks_layout_box",
