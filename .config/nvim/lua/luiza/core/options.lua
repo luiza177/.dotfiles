@@ -7,7 +7,6 @@ opt.number = true
 opt.relativenumber = true
 -- opt.numberwidth = 6 -- default is 4
 -- opt.statuscolumn = "%s %l %r "
--- TODO: add back tildes ~ on empty lines
 
 -------- Switch to abs when in insert mode
 local numbertoggle = vim.api.nvim_create_augroup("NumberToggle", { clear = true })
@@ -63,7 +62,6 @@ opt.clipboard = "unnamedplus" -- merge system and vim clipboard. Or use `"+y`
 --opt.undofile = true           -- persistent undo history across sessions
 --opt.backup = false            -- no backup files
 --opt.updatetime = 250          -- faster CursorHold events (used by LSP, gitsigns) ???
--- opt.timeoutlen = 5000         -- ms to wait for key sequence (affects which-key pop up)
 opt.splitright = true -- vertical splits to the right
 opt.splitbelow = true -- horizontal splits below
 opt.iskeyword:append("-") -- treat hyphenated-words as one word for w/b/e motions
@@ -81,35 +79,6 @@ opt.fillchars = {
 	foldsep = "│",
 	fold = " ",
 }
-
--- _G.foldtext = function()
--- 	local line = vim.fn.getline(vim.v.foldstart)
--- 	return " " .. line .. " …"
--- end
--- opt.foldtext = "v:lua.foldtext()"
-
---------- COLORSCHEME OVERRIDES -- TODO: Move to own file
-local function set_fold_hl()
-	local linenr_hl = vim.api.nvim_get_hl(0, { name = "LineNr" })
-	-- local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
-	-- local comment_hl = vim.api.nvim_get_hl(0, { name = "Comment" })
-	-- vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = comment_hl.fg })
-	-- vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { fg = comment_hl.fg })
-	local cursorline_hl = vim.api.nvim_get_hl(0, { name = "CursorLine", link = false })
-	vim.api.nvim_set_hl(0, "FoldColumn", { fg = linenr_hl.fg, bg = linenr_hl.bg })
-	vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", {
-		italic = true,
-		strikethrough = false,
-		underdotted = true,
-		underdashed = false,
-		undercurl = false,
-		sp = linenr_hl.fg,
-		-- blend = 50,
-	})
-	vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", { bg = cursorline_hl.bg })
-end
-set_fold_hl()
-vim.api.nvim_create_autocmd("ColorScheme", { callback = set_fold_hl })
 
 -------- No auto-comment
 vim.api.nvim_create_autocmd("BufEnter", {
