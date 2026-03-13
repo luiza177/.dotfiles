@@ -1,5 +1,6 @@
 return {
 	"sainnhe/everforest",
+	enabled = vim.g.theme == "everforest",
 	lazy = false,
 	priority = 1000,
 	config = function()

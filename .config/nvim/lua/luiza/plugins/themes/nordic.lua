@@ -1,5 +1,6 @@
 return {
 	"AlexvZyl/nordic.nvim",
+	enabled = vim.g.theme == "nordic",
 	lazy = false,
 	priority = 1000,
 	config = function()
