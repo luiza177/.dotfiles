@@ -1,4 +1,8 @@
+tap "felixkratz/formulae"
 tap "jesseduffield/lazygit"
+tap "nikitabobko/tap"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Arbitrary precision numeric processing language
@@ -35,6 +39,8 @@ brew "luacheck"
 brew "neovim"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
+# Retrieves currently playing media, and simulates media actions
+brew "nowplaying-cli"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
 # Theme for zsh
@@ -49,10 +55,14 @@ brew "ripgrep"
 brew "ruby"
 # 7-Zip is a file archiver with a high compression ratio
 brew "sevenzip"
+# Command-line tool to customize Spotify client
+brew "spicetify-cli"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
+# Official tldr client written in Rust
+brew "tlrc"
 # Terminal multiplexer
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
@@ -69,16 +79,23 @@ brew "zoxide"
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
+# A window border system for macOS
+brew "felixkratz/formulae/borders"
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "nikitabobko/tap/aerospace"
 # Desktop password and login vault
 cask "bitwarden"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
+cask "font-hack-nerd-font"
 cask "font-meslo-lg-nerd-font"
 cask "font-monaspice-nerd-font"
 cask "font-noto-sans-symbols-2"
 cask "font-symbols-only-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
+# Sheet music editor software for guitar, bass, keyboards, drums and more
+cask "guitar-pro"
 # Software for iLok devices
 cask "ilok-license-manager"
 # Terminal emulator as alternative to Apple's Terminal app
@@ -107,6 +124,8 @@ cask "steinberg-download-assistant"
 cask "visual-studio-code"
 # Multimedia player
 cask "vlc"
+# Gecko based web browser
+cask "zen"
 vscode "aaron-bond.better-comments"
 vscode "adalinesimonian.reabank-syntax-highlighting"
 vscode "antoinebalaine.reascript-docs"

@@ -66,9 +66,9 @@ font-thicken-strength = 255
 macos-option-as-alt = left
 
 # theme = TokyoNight
-# theme = Kanagawa Wave
+theme = Kanagawa Wave
 # theme = LoveLace
-theme = Night Owl
+# theme = Night Owl
 # theme = Cobalt2
 # theme = Catppuccin Mocha
 # theme = Everforest
