@@ -152,6 +152,7 @@ alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
 alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
+# INFO: normal aerospace doesn't wraparound
 alt-h = 'focus --boundaries-action wrap-around-the-workspace left'
 alt-j = 'focus --boundaries-action wrap-around-the-workspace down'
 alt-k = 'focus --boundaries-action wrap-around-the-workspace up'
@@ -168,8 +169,8 @@ alt-minus = 'resize smart -50'
 alt-equal = 'resize smart +50'
 
 # i3 splits
-alt-backslash = 'split horizontal'
-alt-slash = 'split vertical'
+alt-shift-backslash = 'split horizontal'
+alt-backslash = 'split vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
@@ -255,7 +256,6 @@ cmd-alt-space = 'mode launch'   # HINT:
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
-# shirt-r = ['flatten bla', 'mode main'] -- TODO: for i3 mode, reset or remove tiling node
 # f = [
 #   'layout floating tiling',
 #   'mode main',
