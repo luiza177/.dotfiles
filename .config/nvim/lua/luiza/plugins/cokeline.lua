@@ -39,16 +39,16 @@ return {
 				},
 			},
 			components = {
-				-- {
-				-- 	text = function(buffer)
-				-- 		return (buffer.index ~= 1) and "│" or ""
-				-- 	end,
-				-- 	-- text = "│",
-				-- 	fg = function()
-				-- 		return get_hex("LineNr", "fg")
-				-- 		-- return buffer.is_focused and get_hex("String", "fg") or get_hex("LineNr", "fg")
-				-- 	end,
-				-- },
+				{ -- "▌", "▐", "▏"
+					text = function(buffer)
+						-- return (buffer.index ~= 1) and "│" or ""
+						return buffer.is_focused and "▌" or "▏"
+					end,
+					fg = function(buffer)
+						-- return get_hex("LineNr", "fg")
+						return buffer.is_focused and get_hex("String", "fg") or get_hex("LineNr", "fg")
+					end,
+				},
 				{
 					text = function(buffer)
 						return "  " .. buffer.devicon.icon
@@ -89,10 +89,10 @@ return {
 					end,
 				},
 				{
-					text = "  │",
+					-- text = "  │",
+					text = " ▕",
 					fg = function()
 						return get_hex("LineNr", "fg")
-						-- return buffer.is_focused and get_hex("String", "fg") or get_hex("LineNr", "fg")
 					end,
 				},
 			},
