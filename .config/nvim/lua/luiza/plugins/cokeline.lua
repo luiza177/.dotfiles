@@ -22,7 +22,7 @@ return {
 			},
 			fill_hl = "WinSeparator",
 			sidebar = {
-				filetype = { " neo-tree" },
+				filetype = { "neo-tree" },
 				components = {
 					{
 						text = "              Neo-tree",
