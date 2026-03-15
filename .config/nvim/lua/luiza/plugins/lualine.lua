@@ -25,9 +25,12 @@ return {
 					{ "diagnostics" },
 					{ "filetype" },
 				},
-				--lualine_y = { "filetype" },
-				--lualine_z = { "progress", "location" },
+				--lualine_y = { "progress" },
+				--lualine_z = { "location" },
 			},
+			-- tabline = {
+			-- 	lualine_b = { "buffers" },
+			-- },
 		})
 	end,
 }

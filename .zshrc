@@ -1,4 +1,4 @@
-export PATH="/opt/homebrew/opt/ruby/bin:$HOME/bin:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:$HOME/.local/bin:$HOME/bin:$PATH"
 
 eval "$(starship init zsh)"
 # TODO: add non-starship prompt in comment
@@ -19,10 +19,13 @@ alias ga="git add ."
 alias gC="git commit -m"
 alias gP="git push"
 alias gp="git pull"
-alias z="cd"
+alias cd="z"
 
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # HINT: type command (eg. "nvim") then use arrows to go up/down in history
 # HISTORY SETUP
@@ -45,7 +48,7 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # TODO: run tmux at startup
 
 # FZF stuff
-eval "$(fzf" --zsh)"
+eval "$(fzf --zsh)"
 
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
