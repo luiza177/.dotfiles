@@ -14,7 +14,7 @@ return {
 					return buffer.is_focused and get_hex("Normal", "fg") or get_hex("LineNr", "fg")
 				end,
 				bg = function(buffer)
-					return buffer.is_focused and get_hex("Normal", "bg") or get_hex("WinSeparator", "bg") -- TODO: until the end
+					return buffer.is_focused and get_hex("Normal", "bg") or get_hex("WinSeparator", "bg")
 					-- return buffer.is_focused and get_hex("CursorLine", "bg") or get_hex("Normal", "bg")
 				end,
 				-- underline = true,
@@ -41,11 +41,16 @@ return {
 			components = {
 				{ -- "▌", "▐", "▏"
 					text = function(buffer)
-						-- return (buffer.index ~= 1) and "│" or ""
-						return buffer.is_focused and "▌" or "▏"
+						if buffer.is_focused then
+							-- return buffer.is_focused and "▌" or "▏"
+							return "▌"
+						elseif buffer.index ~= 1 then
+							return "▏"
+						else
+							return "│"
+						end
 					end,
 					fg = function(buffer)
-						-- return get_hex("LineNr", "fg")
 						return buffer.is_focused and get_hex("String", "fg") or get_hex("LineNr", "fg")
 					end,
 				},
@@ -69,7 +74,6 @@ return {
 					end,
 				},
 				{
-					-- text = "󰖭",
 					text = function(buffer)
 						return buffer.is_modified and "" or "󰖭"
 					end,
