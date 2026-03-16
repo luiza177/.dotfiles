@@ -111,7 +111,7 @@ return {
       { "<leader>fC", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" }, -- HINT: good for neo vim plugin files
       -- { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
       -- { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" }, -- WARN: looks funny
-      { "<leader>fr", function() Snacks.picker.recent({ matcher = { frencency = true }}) end, desc = "Recent" },
+      { "<leader>fr", function() Snacks.picker.recent({ matcher = { history_bonus = true}}) end, desc = "Recent" },
 
       -- search
       { "<leader>fR", function() Snacks.picker.registers({ on_show = prevent_insert }) end, desc = "Registers" },
