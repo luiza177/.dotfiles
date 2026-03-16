@@ -19,7 +19,6 @@ alias ga="git add ."
 alias gC="git commit -m"
 alias gP="git push"
 alias gp="git pull"
-alias cd="z"
 
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
@@ -50,8 +49,8 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # FZF stuff
 eval "$(fzf --zsh)"
 
-export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # export FZF_ALT_C_COMMAND="fs --type d --hidden --strip-cwd-prefix --exclude .git" # WARN: conflicts with aerospace
 # TODO: fzf git?
 
@@ -59,3 +58,4 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # --------------
 eval "$(zoxide init zsh)"
+alias cd="z"
