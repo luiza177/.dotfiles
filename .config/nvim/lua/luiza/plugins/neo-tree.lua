@@ -18,13 +18,6 @@ return {
 			end,
 			desc = "Toggle buffer list in Neotree",
 		},
-		-- {
-		-- 	"<leader>eg",
-		-- 	function()
-		-- 		require("neo-tree.command").execute({ source = "git_status", toggle = true })
-		-- 	end,
-		-- 	desc = "Toggle Git explorer in Neotree",
-		-- },
 		{
 			"<leader>es",
 			function()
@@ -78,10 +71,6 @@ return {
 					source = "buffers", -- string
 					display_name = " 󰈚 Buffers ", -- string | nil
 				},
-				-- {
-				-- 	source = "git_status", -- string
-				-- 	display_name = " 󰊢 Git ", -- string | nil
-				-- },
 				{
 					source = "document_symbols",
 					display_name = "  Symbols ",
@@ -91,7 +80,7 @@ return {
 		filesystem = {
 			bind_to_cwd = true,
 			use_libuv_file_watcher = true,
-			cwd_target = { -- QUESTION: did I do this right? look up property better
+			cwd_target = {
 				sidebar = "global", -- sets new cwd for vim, as if using cd
 				current = "global",
 			},
@@ -129,7 +118,7 @@ return {
 			},
 		},
 	},
-	config = function(_, opts) -- TODO: add snacks rename stuff
+	config = function(_, opts)
 		local function on_move(data)
 			Snacks.rename.on_rename_file(data.source, data.destination)
 		end

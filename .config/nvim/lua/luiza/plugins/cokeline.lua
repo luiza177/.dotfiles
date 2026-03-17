@@ -44,8 +44,8 @@ return {
 						if buffer.is_focused then
 							-- return buffer.is_focused and "▌" or "▏"
 							return "▌"
-						elseif buffer.index ~= 1 then
-							return "▏"
+						-- elseif buffer.index ~= 1 then
+						-- 	return "▏"
 						else
 							return "│"
 						end
@@ -93,8 +93,10 @@ return {
 					end,
 				},
 				{
-					-- text = "  │",
 					text = " ▕",
+					-- text = function(buffer)
+					-- 	return buffer.is_last and " ▕" or "  "
+					-- end,
 					fg = function()
 						return get_hex("LineNr", "fg")
 					end,
