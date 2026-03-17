@@ -121,7 +121,7 @@ return {
       { "<leader>di", function() Snacks.picker.diagnostics({ on_show = prevent_insert }) end, desc = "Diagnostics" }, -- QUESTION: keep?
       { "<leader>db", function() Snacks.picker.diagnostics_buffer({ on_show = prevent_insert }) end, desc = "Buffer Diagnostics" }, -- QUESTION: keep?
       { "<leader>fh", function() Snacks.picker.help() end, desc = "Help Pages" },
-      -- { "<leader>fH", function() Snacks.picker.highlights() end, desc = "Highlights" },
+      { "<leader>fH", function() Snacks.picker.highlights() end, desc = "Highlights" },
       { "<leader>fi", function() Snacks.picker.icons() end, desc = "Icons" },
       { "<leader>fj", function() Snacks.picker.jumps({ on_show = prevent_insert }) end, desc = "Jumps" },
       { "<leader>fk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },

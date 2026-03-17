@@ -1,7 +1,6 @@
 return {
 	"mcauley-penney/visual-whitespace.nvim",
-	-- event = "ModeChanged *:[vV\22]", -- optionally, lazy load on entering visual mode
-	event = "VisualEnter",
+	event = "ModeChanged *:[vV\22]", -- optionally, lazy load on entering visual mode
 
 	-- This can go in your color scheme or in your plugin config: -- TODO: highlight whitespace
 	-- vim.api.nvim_set_hl(0, "VisualNonText", { fg = "#5D5F71", bg = "#24282d"})
