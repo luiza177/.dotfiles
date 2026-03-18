@@ -7,23 +7,20 @@ return {
 		overrides = {
 			-- SignColumn = { bg = "#282828" }, -- dark0
 
-			-- EndOfBuffer = { fg = "#282828" }, -- dark0
 			EndOfBuffer = { fg = "#3c3836" }, -- dark1
 			-- NeoTreeEndOfBuffer = { fg = "#3c3836" }, -- dark1
 
-			-- NeoTreeWinSeparator = { bg = "#3c3836", fg = "#3c3836" }, -- dark1
-			-- NeoTreeNormal = { bg = "#3c3836" }, --dark1
-			-- NeoTreeNormalNC = { bg = "#3c3836" }, --dark1
+			MatchParen = { link = "GruvBoxGreenBold" },
 
-			-- NeoTreeTabActive = { bg = "#3c3836", bold = true }, --dark1
-			-- NeoTreeTabSeparatorActive = { bg = "#3c3836" }, --dark1
+			NeoTreeTabInactive = { bg = "#504945" }, --dark2
+			NeoTreeTabSeparatorInactive = { bg = "#504945" }, --dark2
 
-			NeoTreeTabInactive = { fg = "#504945" }, --dark2
-			NeoTreeTabSeparatorInactive = { fg = "#504945" }, --dark2
-			-- NeoTreeTabInactive = { bg = "#282828" }, -- dark0
-			-- NeoTreeTabSeparatorInactive = { bg = "#282828" }, --dark0
-			-- NeoTreeTabInactive = { bg = "#1d2021" }, -- dark0_hard
-			-- NeoTreeTabSeparatorInactive = { bg = "#1d2021" }, --dark0_hard
+			-- TODO: invert for all themes
+			DiagnosticVirtualTextError = { link = "ErrorMsg" }, -- TODO: change fg to lighter red or something
+			DiagnosticVirtualTextWarn = { link = "WarningMsg" },
+			-- DiagnosticVirtualTextHint = {""},
+			-- DiagnosticVirtualTextOk = { ""},
+			-- DiagnosticVirtualTextInfo = { ""},
 		},
 	},
 }

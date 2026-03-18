@@ -13,6 +13,7 @@ return {
 				set_hl(0, "NeoTreeWinSeparator", { fg = "#171922" })
 				set_hl(0, "Comment", { link = "LineNr", italic = true }) -- FIXME: why no italic?
 				set_hl(0, "FloatBorder", { link = "FloatTitle" }) -- TODO: only the pickers
+				--MatchParen for active border
 				set_hl(0, "NeoTreeNormal", { bg = "#171922" })
 				set_hl(0, "NeoTreeNormalNC", { bg = "#171922" })
 				set_hl(0, "NeoTreeTabActive", { bg = "#171922" })
