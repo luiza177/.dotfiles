@@ -7,7 +7,7 @@ vim.g.maplocalleader = " "
 -- vim.g.theme = "tokyonight"
 -- vim.g.theme = "vague"
 -- vim.g.theme = "blue-moon"
--- vim.g.theme = "gruvbox"
+vim.g.theme = "gruvbox"
 -- vim.g.theme = "palenight"
 -- vim.g.theme = "nordic"
 -- vim.g.theme = "kanagawa"
@@ -16,7 +16,7 @@ vim.g.maplocalleader = " "
 -- vim.g.theme = "sonokai"
 -- vim.g.theme = "everforest"
 -- vim.g.theme = "edge"
-vim.g.theme = "poimandres"
+-- vim.g.theme = "poimandres"
 ---
 
 require("luiza.core.options")

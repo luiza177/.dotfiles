@@ -9,8 +9,8 @@ return {
 			callback = function()
 				local set_hl = vim.api.nvim_set_hl
 
-				set_hl(0, "EndOfBuffer", { link = "LineNr" }) -- TODO: remove, AKA set to bg
-				set_hl(0, "WinSeparator", { fg = "#171922" })
+				set_hl(0, "EndOfBuffer", { bg = "#303340" })
+				set_hl(0, "NeoTreeWinSeparator", { fg = "#171922" })
 				set_hl(0, "Comment", { link = "LineNr", italic = true }) -- FIXME: why no italic?
 				set_hl(0, "FloatBorder", { link = "FloatTitle" }) -- TODO: only the pickers
 				set_hl(0, "NeoTreeNormal", { bg = "#171922" })
