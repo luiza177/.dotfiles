@@ -3,6 +3,25 @@ return {
 	lazy = false,
 	priority = 1000,
 	enabled = vim.g.theme == "poimandres",
+	init = function()
+		vim.api.nvim_create_autocmd("ColorScheme", {
+			pattern = "poimandres",
+			callback = function()
+				local set_hl = vim.api.nvim_set_hl
+
+				set_hl(0, "EndOfBuffer", { link = "LineNr" }) -- TODO: remove, AKA set to bg
+				set_hl(0, "WinSeparator", { fg = "#171922" })
+				set_hl(0, "Comment", { link = "LineNr", italic = true }) -- FIXME: why no italic?
+				set_hl(0, "FloatBorder", { link = "FloatTitle" }) -- TODO: only the pickers
+				set_hl(0, "NeoTreeNormal", { bg = "#171922" })
+				set_hl(0, "NeoTreeNormalNC", { bg = "#171922" })
+				set_hl(0, "NeoTreeTabActive", { bg = "#171922" })
+				-- set_hl(0, "NeoTreeTabSeparatorActive", { bg = "#171922" })
+				-- set_hl(0, "NeoTreeTabInactive", { bg = "" })
+				-- set_hl(0, "NeoTreeTabSeparatorInactive", { bg = "" })
+			end,
+		})
+	end,
 	config = function()
 		require("poimandres").setup({
 			-- leave this setup function empty for default config
@@ -15,7 +34,6 @@ return {
 			-- disable_float_background = false, -- disable background for floats
 			-- disable_italics = false, -- disable italics
 
-			-- TODO: write overrides for EndOfBuffer, WinSeparator, Cokeline, NeoTree Tabs and bg
 			-- TODO: override all git highlighting, diff, Lazygit window etc, it sucks
 			-- TODO: make comments darker, less contrast
 		})
