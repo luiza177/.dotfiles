@@ -13,9 +13,6 @@ return {
 			typescriptreact = { "eslint_d" },
 			bash = { "shellcheck" },
 			sh = { "shellcheck" },
-			cpp = { "cpplint" },
-			c = { "cpplint" },
-			-- cs = { "csharpier" },
 			cs = { "dotnet-csharp" },
 		}
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

@@ -34,6 +34,7 @@ return {
 				"vim",
 				"vimdoc",
 				"cpp",
+				"c",
 				-- "latex",
 				"python",
 				"bash",

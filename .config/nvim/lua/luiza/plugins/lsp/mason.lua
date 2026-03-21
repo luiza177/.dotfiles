@@ -34,7 +34,7 @@ return {
 				"latexindent",
 				-- linters:
 				"shellcheck",
-				"cpplint",
+				-- "cpplint",
 				"pylint",
 				"eslint_d",
 			},

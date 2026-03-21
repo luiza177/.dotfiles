@@ -123,10 +123,8 @@ return {
 			ensure_installed = {
 				"html",
 				"cssls",
-				"tailwindcss",
 				"svelte",
 				"lua_ls",
-				"graphql",
 				"emmet_ls",
 				"pyright",
 				"ruby_lsp", -- or solargraph
