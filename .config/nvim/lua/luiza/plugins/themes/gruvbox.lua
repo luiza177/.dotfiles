@@ -12,8 +12,10 @@ return {
 
 			MatchParen = { link = "GruvBoxGreenBold" },
 
-			NeoTreeTabInactive = { bg = "#504945" }, --dark2
-			NeoTreeTabSeparatorInactive = { bg = "#504945" }, --dark2
+			-- NeoTreeTabInactive = { bg = "#504945" }, --dark2
+			-- NeoTreeTabSeparatorInactive = { bg = "#504945" }, --dark2
+			NeoTreeTabInactive = { bg = "#3c3836" }, -- dark1
+			NeoTreeTabSeparatorInactive = { bg = "#3c3836" }, --dark1
 
 			-- TODO: invert for all themes
 			DiagnosticVirtualTextError = { link = "ErrorMsg" }, -- TODO: change fg to lighter red or something
@@ -21,6 +23,8 @@ return {
 			-- DiagnosticVirtualTextHint = {""},
 			-- DiagnosticVirtualTextOk = { ""},
 			-- DiagnosticVirtualTextInfo = { ""},
+
+			-- WarningMessage = { bg = "GruvBoxGreenBold" }
 		},
 	},
 }
