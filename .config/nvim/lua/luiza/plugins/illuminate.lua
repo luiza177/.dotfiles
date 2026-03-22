@@ -1,6 +1,6 @@
 return {
 	"RRethy/vim-illuminate",
-	enabled = false,
+	enabled = true,
 	event = "BufEnter",
 	config = function()
 		require("illuminate").configure()

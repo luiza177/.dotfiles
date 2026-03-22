@@ -1,6 +1,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- TODO: reorganize plugins in folders, eg. UI, coding, workflow, etc
+-- TODO: replace persistence, surround??
+-- TODO: revisit ALT keymaps
+
 -- ACTIVE THEME:
 --vim.g.theme = "default"
 -- vim.g.theme = "catppuccin"
