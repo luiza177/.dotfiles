@@ -7,6 +7,10 @@ return {
 
 		wk.setup({
 			delay = 500,
+			win = {
+				border = require("luiza.core.borders").border_chars_outer_thin,
+				padding = { 0, 0 },
+			},
 			preset = "helix",
 			plugins = {
 				marks = false, -- shows a list of your marks on ' and `

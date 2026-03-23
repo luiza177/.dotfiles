@@ -70,11 +70,13 @@ return {
 			menu = {
 				-- TODO: disable completion in comments and strings
 				-- auto_show = function() end,
-				draw = {
-					-- columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
-				},
+				-- TODO: Border color in addition to outer
+				-- border = require("luiza.core.borders").border_chars_outer_thin,
 			},
-			documentation = { auto_show = false },
+			documentation = {
+				auto_show = true,
+				auto_show_delay_ms = 200,
+			},
 			list = {
 				selection = {
 					preselect = false,
