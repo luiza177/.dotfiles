@@ -48,7 +48,16 @@ return {
 		---------
 		input = { enabled = true },
 		---------
-		picker = { enabled = true },
+		picker = {
+			enabled = true,
+			layouts = {
+				default = {
+					layout = {
+						-- border = require("luiza.core.borders").border_chars_outer_thin,
+					},
+				},
+			},
+		},
 		---------
 		quickfile = { enabled = true },
 		---------

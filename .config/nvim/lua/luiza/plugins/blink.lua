@@ -60,9 +60,9 @@ return {
 		-- Signature help
 		signature = {
 			enabled = true,
-			-- window = {
-			-- 	border = "single",
-			-- },
+			window = {
+				border = require("luiza.core.borders").border_chars_outer_thin,
+			},
 		},
 
 		-- (Default) Only show the documentation popup when manually triggered -- CHANGED
@@ -71,11 +71,14 @@ return {
 				-- TODO: disable completion in comments and strings
 				-- auto_show = function() end,
 				-- TODO: Border color in addition to outer
-				-- border = require("luiza.core.borders").border_chars_outer_thin,
+				border = require("luiza.core.borders").border_chars_outer_thin,
 			},
 			documentation = {
 				auto_show = true,
 				auto_show_delay_ms = 200,
+				window = {
+					border = require("luiza.core.borders").border_chars_outer_thin,
+				},
 			},
 			list = {
 				selection = {

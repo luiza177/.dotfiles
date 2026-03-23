@@ -114,7 +114,8 @@ return {
 				},
 			},
 			float = {
-				border = "single",
+				-- border = "single",
+				border = require("luiza.core.borders").border_chars_outer_thin,
 				-- padding = 1,
 			},
 		})

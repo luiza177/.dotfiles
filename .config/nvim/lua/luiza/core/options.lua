@@ -70,6 +70,8 @@ opt.iskeyword:append("-") -- treat hyphenated-words as one word for w/b/e motion
 -- opt.foldmethod = "expr"
 -- opt.foldexpr = "nvim_treesitter#foldexpr()"
 -- opt.foldcolumn = "auto:5"
+local borders = require("luiza.core.borders")
+
 opt.foldenable = true
 opt.foldlevel = 99
 opt.foldlevelstart = 99
@@ -78,6 +80,15 @@ opt.fillchars = {
 	foldclose = "",
 	foldsep = "│",
 	fold = " ",
+   horiz = borders.bottom_thin,
+    horizup = borders.bottom_thin,
+    horizdown = borders.right_thick,
+    vert = borders.right_thick,
+    vertleft = borders.right_thick,
+    vertright = borders.right_thick,
+    verthoriz = borders.right_thick,
+    -- eob = " ",
+    diff = "╱",
 }
 
 -------- No auto-comment
