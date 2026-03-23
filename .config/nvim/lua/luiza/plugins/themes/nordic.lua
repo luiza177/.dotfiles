@@ -11,8 +11,9 @@ return {
 			after_palette = function(palette) end,
 			-- This callback can be used to override highlights before they are applied.
 			on_highlight = function(highlights, palette)
-				highlights.TreeNormal = { fg = palette.white1, bg = palette.black1 }
-				highlights.TreeNormalNC = { fg = palette.white1, bg = palette.black1 }
+				-- highlights.TreeNormal = { fg = palette.white1, bg = palette.black1 }
+				-- highlights.TreeNormalNC = { fg = palette.white1, bg = palette.black1 }
+				-- Also tabs and
 			end,
 			-- Enable bold keywords.
 			bold_keywords = true,

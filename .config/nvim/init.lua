@@ -2,8 +2,11 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- TODO: reorganize plugins in folders, eg. UI, coding, workflow, etc
--- TODO: replace persistence, surround??
+-- TODO: replace persistence
 -- TODO: revisit ALT keymaps
+
+-- TODO: borders: blink, which-key, telescope/picker, trouble, neo-tree/cokeline
+-- TODO: blink: border color highlight?
 
 -- ACTIVE THEME:
 --vim.g.theme = "default"
@@ -11,9 +14,9 @@ vim.g.maplocalleader = " "
 -- vim.g.theme = "tokyonight"
 -- vim.g.theme = "vague"
 -- vim.g.theme = "blue-moon"
-vim.g.theme = "gruvbox"
+-- vim.g.theme = "gruvbox"
 -- vim.g.theme = "palenight"
--- vim.g.theme = "nordic"
+vim.g.theme = "nordic"
 -- vim.g.theme = "kanagawa"
 -- vim.g.theme = "nightfox"
 -- vim.g.theme = "lovelace"

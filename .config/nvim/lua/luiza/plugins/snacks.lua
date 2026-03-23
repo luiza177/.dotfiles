@@ -46,50 +46,13 @@ return {
 			},
 		},
 		---------
-		-- explorer = { enabled = true },
+		input = { enabled = true },
 		---------
-		-- indent = {
-		-- 	enabled = true,
-		-- 	indent = {
-		-- 		enabled = true,
-		-- 		char = "┊",
-		-- 	},
-		-- 	scope = {
-		-- 		enabled = true, -- highlight current scope within indent guides
-		-- 		char = "┊",
-		-- 	},
-		-- 	animate = { enabled = false },
-		-- },
-		---------
-		input = { enabled = true }, -- QUESTION: really keep?
-		---------
-		picker = {
-			enabled = true,
-			-- sources = {
-			-- 	explorer = { -- FIXME: preview appears outside
-			-- 		follow_file = false,
-			-- 		jump = {
-			-- 			close = true,
-			-- 		},
-			-- 		win = {
-			-- 			input = {
-			-- 				keys = {
-			-- 					["<Esc>"] = "focus_input",
-			-- 				},
-			-- 			},
-			-- 		},
-			-- 	},
-			-- },
-		},
+		picker = { enabled = true },
 		---------
 		quickfile = { enabled = true },
 		---------
 		rename = { enabled = true },
-		---------
-		-- statuscolumn = { -- no rel/abs number separation
-		-- 	enabled = true,
-		-- 	folds = { open = true },
-		-- },
 		---------
 		toggle = { enabled = true },
 	},
