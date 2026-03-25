@@ -53,6 +53,51 @@ return {
 			layouts = {
 				default = {
 					layout = {
+						-- {
+						-- 	box = "vertical",
+						-- 	border = require("luiza.core.borders").border_chars_outer_thin,
+						-- 	title = "{title} {live} {flags}",
+						-- 	{ win = "input", height = 1, border = "bottom" },
+						-- 	{ win = "list", border = "none" },
+						-- },
+						-- {
+						-- 	win = "preview",
+						-- 	title = "{preview}",
+						-- 	border = require("luiza.core.borders").border_chars_outer_thin,
+						-- 	width = 0.5,
+						-- },
+					},
+				},
+				select = {
+					layout = {
+						border = require("luiza.core.borders").border_chars_outer_thin,
+					},
+				},
+				dropdown = {
+					layout = {
+						-- {
+						-- 	win = "preview",
+						-- 	title = "{preview}",
+						-- 	height = 0.4,
+						-- 	border = require("luiza.core.borders").border_chars_outer_thin,
+						-- },
+						-- {
+						-- 	box = "vertical",
+						-- 	border = require("luiza.core.borders").border_chars_outer_thin,
+						-- 	title = "{title} {live} {flags}",
+						-- 	title_pos = "center",
+						-- 	{ win = "input", height = 1, border = "bottom" },
+						-- 	{ win = "list", border = require("luiza.core.borders").border_chars_outer_thin },
+						-- },
+					},
+				},
+				vertical = {
+					layout = {
+						-- { win = "list", border = require("luiza.core.borders").border_chars_outer_thin },
+					},
+				},
+				vscode = {
+					layout = {
 						-- border = require("luiza.core.borders").border_chars_outer_thin,
 					},
 				},

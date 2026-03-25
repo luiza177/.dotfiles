@@ -14,6 +14,7 @@ return {
 				-- highlights.TreeNormal = { fg = palette.white1, bg = palette.black1 }
 				-- highlights.TreeNormalNC = { fg = palette.white1, bg = palette.black1 }
 				-- Also tabs and
+				highlights.PmenuThumb = { fg = palette.black0 }
 			end,
 			-- Enable bold keywords.
 			bold_keywords = true,
@@ -70,6 +71,19 @@ return {
 				-- Enables dark background for treesitter-context window
 				dark_background = true,
 			},
+		})
+
+		vim.api.nvim_create_autocmd("ColorScheme", {
+			pattern = "nordic",
+			callback = function()
+				local palette = require("nordic.colors")
+				local set_hl = vim.api.nvim_set_hl
+				set_hl(0, "NeoTreeTabInactive", { fg = palette.gray2 })
+				set_hl(0, "NeoTreeTabSeparatorInactive", { fg = palette.gray2 })
+				set_hl(0, "BlinkCmpMenuBorder", { link = "FloatBorder" })
+				set_hl(0, "BlinkCmpDocBorder", { link = "FloatBorder" })
+				set_hl(0, "BlinkCmpSignatureHelpBorder", { link = "FloatBorder" })
+			end,
 		})
 	end,
 }

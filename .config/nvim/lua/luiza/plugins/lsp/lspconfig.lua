@@ -64,10 +64,10 @@ return {
 
 				opts.desc = "Show documentation for what is under cursor"
 				map("n", "K", function() -- QUESTION: do I still need this?
-					vim.lsp.buf.hover({ border = "single" })
+					vim.lsp.buf.hover()
 				end, opts)
 				map("n", "<M-space>", function()
-					vim.lsp.buf.hover({ border = "single" })
+					vim.lsp.buf.hover()
 				end, opts)
 
 				opts.desc = "Restart LSP"
