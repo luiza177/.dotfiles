@@ -82,7 +82,7 @@ return {
 							if buffer.is_modified then
 								return get_hex("String", "fg")
 							else
-								return get_hex("Normal", "fg") -- TODO: red
+								return get_hex("Red", "fg")
 							end
 						else
 							return get_hex("LineNr", "fg")

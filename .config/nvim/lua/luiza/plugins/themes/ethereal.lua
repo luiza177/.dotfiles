@@ -14,6 +14,7 @@ return {
 
 				set_hl(0, "PMenu", { bg = palette.bg1 })
 				set_hl(0, "PMenuSbar", { bg = palette.bg1 })
+				set_hl(0, "MatchParen", { fg = palette.yellow }) -- lazygit actitve border color
 				set_hl(0, "NeoTreeTabActive", { bg = palette.bg0, fg = palette.fg, bold = true })
 				set_hl(0, "NeoTreeTabInactive", { bg = palette.bg1, fg = palette.black })
 				set_hl(0, "NeoTreeTabSeparatorInactive", { link = "NeoTreeTabInactive" })
