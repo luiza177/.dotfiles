@@ -39,6 +39,7 @@ map("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new
 map("n", "<leader>bp", "<cmd>bp<CR>", { desc = "Previous buffer" })
 map("n", "<leader>bn", "<cmd>bn<CR>", { desc = "Next buffer" })
 map("n", "<leader>bx", "<cmd>bd<CR>", { desc = "Close buffer" })
+map("n", "<leader>bb", "<cmd>b#<CR>", { desc = "Toggle last focused buffer" })
 
 --------- Editor
 map("n", "<leader>/", "gcc", { remap = true, desc = "Toggle line comment" })
