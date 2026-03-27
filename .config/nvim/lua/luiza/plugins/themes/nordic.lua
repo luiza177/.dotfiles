@@ -83,6 +83,7 @@ return {
 				set_hl(0, "BlinkCmpMenuBorder", { link = "FloatBorder" })
 				set_hl(0, "BlinkCmpDocBorder", { link = "FloatBorder" })
 				set_hl(0, "BlinkCmpSignatureHelpBorder", { link = "FloatBorder" })
+				-- TODO: override floatborder for lazygit inactive border
 			end,
 		})
 	end,

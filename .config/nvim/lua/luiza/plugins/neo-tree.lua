@@ -1,3 +1,4 @@
+-- TODO: NeoTreeEndOfBuffer, fb = bg
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	enabled = true,

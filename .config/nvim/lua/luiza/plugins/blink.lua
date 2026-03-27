@@ -77,7 +77,7 @@ return {
 				auto_show = true,
 				auto_show_delay_ms = 200,
 				window = {
-					border = require("luiza.core.borders").border_chars_outer_thin,
+					border = require("luiza.core.borders").border_chars_empty,
 				},
 			},
 			list = {
