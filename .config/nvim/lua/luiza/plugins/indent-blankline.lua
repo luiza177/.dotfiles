@@ -25,6 +25,8 @@ return {
 			indent = { char = "┊" },
 			scope = {
 				show_exact_scope = true,
+				-- char = "┋",
+				-- char = "┊",
 				highlight = highlight,
 				include = {
 					node_type = {
