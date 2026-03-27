@@ -14,23 +14,24 @@ return {
 					return buffer.is_focused and get_hex("Normal", "fg") or get_hex("LineNr", "fg")
 				end,
 				bg = function(buffer)
-					return buffer.is_focused and get_hex("Normal", "bg") or get_hex("WinSeparator", "bg")
+					return buffer.is_focused and get_hex("Normal", "bg") or get_hex("VertSplit", "bg")
 					-- return buffer.is_focused and get_hex("CursorLine", "bg") or get_hex("Normal", "bg")
 				end,
 				-- underline = true,
 				-- sp = get_hex("LineNr", "fg"),
 			},
-			fill_hl = "WinSeparator",
+			fill_hl = "StatusLine",
 			sidebar = {
 				filetype = { "neo-tree" },
 				components = {
 					{
-						text = "              Neo-tree",
+						-- text = "              Neo-tree",
+						text = " 󰙅  Neo-tree ",
 						fg = function()
-							return get_hex("NeoTreeNormal", "fg")
+							return get_hex("NeoTreeNormal", "fg") -- TODO: change to yellow or string
 						end,
 						bg = function()
-							return get_hex("NeoTreeNormalNC", "bg")
+							return get_hex("StatusLine", "bg")
 						end,
 						bold = function(buffer)
 							return buffer.is_focused
@@ -51,7 +52,7 @@ return {
 						end
 					end,
 					fg = function(buffer)
-						return buffer.is_focused and get_hex("String", "fg") or get_hex("LineNr", "fg")
+						return buffer.is_focused and get_hex("String", "fg") or get_hex("VertSplit", "fg")
 					end,
 				},
 				{
@@ -98,7 +99,7 @@ return {
 					-- 	return buffer.is_last and " ▕" or "  "
 					-- end,
 					fg = function()
-						return get_hex("LineNr", "fg")
+						return get_hex("VertSplit", "fg")
 					end,
 				},
 			},

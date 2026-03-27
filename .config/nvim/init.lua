@@ -5,9 +5,6 @@ vim.g.maplocalleader = " "
 -- TODO: replace persistence
 -- TODO: revisit ALT keymaps
 
--- TODO: borders: blink, which-key, telescope/picker, trouble, neo-tree/cokeline
--- TODO: blink: border color highlight?
-
 -- ACTIVE THEME:
 --vim.g.theme = "default"
 -- vim.g.theme = "catppuccin"

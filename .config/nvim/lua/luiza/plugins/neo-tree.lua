@@ -53,31 +53,41 @@ return {
 			indent = {
 				with_expanders = true,
 			},
+			modified = {
+				symbol = "●", -- or "󰝶" "✎" "+" ""
+			},
 			git_status = {
 				symbols = {
+					added = "󰐕", -- or "✚" "+"
+					modified = "󰏫", -- or "" "~"
+					unstaged = "",
+					deleted = "󰩺", -- or "✖" "-"
+					renamed = "󰁕", -- or "➜"
+					untracked = "?", -- or "?" "★"
+					conflict = "󱒿", -- or ""
 					ignored = "-",
 				},
 			},
 		},
-		sources = { "filesystem", "buffers", "document_symbols" },
-		source_selector = {
-			winbar = true, -- QUESTION: keep?
-			statusline = false,
-			sources = {
-				{
-					source = "filesystem", -- string
-					display_name = " 󰉓 Files ", -- string | nil
-				},
-				{
-					source = "buffers", -- string
-					display_name = " 󰈚 Buffers ", -- string | nil
-				},
-				{
-					source = "document_symbols",
-					display_name = "  Symbols ",
-				},
-			},
-		},
+		-- sources = { "filesystem", "buffers", "document_symbols" },
+		-- source_selector = {
+		-- 	winbar = true,
+		-- 	statusline = false,
+		-- 	sources = {
+		-- 		{
+		-- 			source = "filesystem", -- string
+		-- 			display_name = " 󰉓 Files ", -- string | nil
+		-- 		},
+		-- 		{
+		-- 			source = "buffers", -- string
+		-- 			display_name = " 󰈚 Buffers ", -- string | nil
+		-- 		},
+		-- 		{
+		-- 			source = "document_symbols",
+		-- 			display_name = "  Symbols ",
+		-- 		},
+		-- 	},
+		-- },
 		filesystem = {
 			bind_to_cwd = true,
 			use_libuv_file_watcher = true,
