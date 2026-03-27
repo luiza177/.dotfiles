@@ -1,6 +1,6 @@
 local map = vim.keymap.set
 
-map("n", "q", "<nop>", { desc = "Disabled (macro record)" })
+-- map("n", "q", "<nop>", { desc = "Disabled (macro record)" })
 
 -------- File Operations
 --map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
@@ -45,6 +45,8 @@ map("n", "<leader>bb", "<cmd>b#<CR>", { desc = "Toggle last focused buffer" })
 map("n", "<leader>/", "gcc", { remap = true, desc = "Toggle line comment" })
 map("v", "<leader>/", "gc", { remap = true, desc = "Toggle comment" })
 map("i", "jj", "<ESC>", { silent = true })
+map("n", "gl", "$", { desc = "Go to end of line" })
+map("n", "gh", "^", { desc = "Go to first character in line" })
 
 ---- Move lines
 map("n", "<M-j>", "<cmd>m .+1<cr>==", { desc = "Move line down" })
