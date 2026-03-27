@@ -47,6 +47,8 @@ map("v", "<leader>/", "gc", { remap = true, desc = "Toggle comment" })
 map("i", "jj", "<ESC>", { silent = true })
 map("n", "gl", "$", { desc = "Go to end of line" })
 map("n", "gh", "^", { desc = "Go to first character in line" })
+map("v", "gl", "$", { desc = "Select until the end of line" })
+map("v", "gh", "^", { desc = "Select back until first character in line" })
 
 ---- Move lines
 map("n", "<M-j>", "<cmd>m .+1<cr>==", { desc = "Move line down" })
