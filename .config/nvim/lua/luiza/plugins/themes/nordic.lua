@@ -14,7 +14,8 @@ return {
 				-- highlights.TreeNormal = { fg = palette.white1, bg = palette.black1 }
 				-- highlights.TreeNormalNC = { fg = palette.white1, bg = palette.black1 }
 				-- Also tabs and
-				highlights.PmenuThumb = { fg = palette.black0 }
+				-- highlights.PmenuThumb = { fg = palette.black0 }
+				highlights.MatchParen = { fg = palette.yellow.base }
 			end,
 			-- Enable bold keywords.
 			bold_keywords = true,
@@ -83,7 +84,8 @@ return {
 				set_hl(0, "BlinkCmpMenuBorder", { link = "FloatBorder" })
 				set_hl(0, "BlinkCmpDocBorder", { link = "FloatBorder" })
 				set_hl(0, "BlinkCmpSignatureHelpBorder", { link = "FloatBorder" })
-				-- TODO: override floatborder for lazygit inactive border
+
+				set_hl(0, "LazyGitInactiveBorder", { fg = palette.cyan.base })
 			end,
 		})
 	end,

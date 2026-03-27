@@ -1,3 +1,5 @@
+vim.api.nvim_set_hl(0, "LazyGitInactiveBorder", { link = "FloatBorder" })
+
 local function colorscheme_overrides()
 	---- GETS
 	local linenr_hl = vim.api.nvim_get_hl(0, { name = "LineNr" })

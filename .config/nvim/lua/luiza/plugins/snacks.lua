@@ -196,6 +196,12 @@ return {
 		---------
 		rename = { enabled = true },
 		---------
+		lazygit = {
+			theme = {
+				inactiveBorderColor = { fg = "LazyGitInactiveBorder" },
+			},
+		},
+		---------
 		toggle = { enabled = true },
 	},
 	keys = {
