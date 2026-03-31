@@ -38,6 +38,9 @@ return {
 			skip_unbalanced = true,
 			-- Handle markdown code fences gracefully
 			markdown = true,
+			mappings = {
+				[" "] = { action = "open", pair = "  ", neigh_pattern = "[%(%[{][%)%]}]" },
+			},
 		},
 	},
 
@@ -94,11 +97,11 @@ return {
 					side = "right",
 					width = 10,
 					winblend = 15,
-					show_integration_count = false,
+					show_integration_count = true,
 				},
 			})
 
-			-- Toggle / refresh keymaps
+			-- Toggle / refresh keymaps -- TODO: add to which-key, integrate snacks.toggle?
 			vim.keymap.set("n", "<leader>mm", map.toggle, { desc = "Toggle minimap" })
 			vim.keymap.set("n", "<leader>mf", map.toggle_focus, { desc = "Focus minimap" })
 			vim.keymap.set("n", "<leader>mr", map.refresh, { desc = "Refresh minimap" })

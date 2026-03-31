@@ -2,11 +2,8 @@ vim.g.mapleader = " "
 -- vim.g.maplocalleader = " "
 
 -- TODO: reorganize plugins in folders, eg. UI, coding, workflow, etc
--- TODO: replace persistence
 -- TODO: revisit ALT keymaps
-
--- TODO: borders: blink, which-key, telescope/picker, trouble, neo-tree/cokeline
--- TODO: blink: border color highlight?
+-- TODO: which-key: brackets ][ and other stuff
 
 -- ACTIVE THEME:
 --vim.g.theme = "default"

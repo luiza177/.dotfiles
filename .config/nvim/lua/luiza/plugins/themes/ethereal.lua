@@ -4,6 +4,8 @@ return {
 	opts = {
 		-- Options for customization go here.
 		-- TODO:  cokeline overrides
+		-- TODO:  Rainbow delim overrides
+		-- TODO:  virtual text background or invert
 	},
 	init = function()
 		vim.api.nvim_create_autocmd("ColorScheme", {
