@@ -279,15 +279,14 @@ t = ['exec-and-forget open /Applications/Ghostty.app', 'mode main']
 # aerospace list-apps / list-windows / etc in quick terminal from ghostty?
 n = ['exec-and-forget open /System/Applications/Notes.app/', 'mode main']
 
-# [[on-window-detected]]
-# if.app-id = 'com.mozilla.librewolf'
-# run = ["move-node-to-workspace B"]
+[[on-window-detected]]
+if.app-id = 'com.mozilla.zen-browser'
+run = ["move-node-to-workspace B", "layout accordion"]
 
-#
-# [[on-window-detected]]
-# if.app-id = 'com.mozilla.zen-browser'
-# run = ["move-node-to-workspace B"]
-#
+[[on-window-detected]]
+if.app-id = 'com.vivaldi.Vivaldi'
+run = ["move-node-to-workspace B", "layout accordion"]
+
 # [[on-window-detected]]
 # if.app-id = 'com.mitchellh.ghostty'
 # run = ["move-node-to-workspace T"]
