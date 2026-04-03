@@ -1,0 +1,109 @@
+;; kanata.kbd — ISO MacBook homerow mods + custom tweaks
+;; Layout: ISO (UK/EU MacBook)
+;;
+;; Tweaks summary:
+;;   - Homerow mods:  A=LMet  S=LAlt  D=LCtl  F=LSft  J=RSft  K=RCtl  L=RAlt  ;=RMet
+;;   - lsgt (key left of 1, ±/§ on ISO Mac) → tap: grv/`~   (replaces grv position)
+;;   - grv  (key left of Z, `~  on ISO Mac) → LShift (one-shot or hold)
+;;   - F3–F6 → always emit real F3–F6 (bypass media key behaviour)
+;;   - Numbers 1–0: tap = digit, hold = F1–F10
+
+;; ─────────────────────────────────────────────────────────────────────────────
+;; GLOBAL CONFIG
+;; ─────────────────────────────────────────────────────────────────────────────
+(defcfg
+  process-unmapped-keys yes
+  ;; Only intercept the built-in keyboard; leave external keyboards alone.
+  macos-dev-names-include ("Apple Internal Keyboard / Trackpad")
+  ;; Allows simultaneous tap+hold processing (helps with fast typing + HRM).
+  concurrent-tap-hold yes
+)
+
+;; ─────────────────────────────────────────────────────────────────────────────
+;; TIMING VARIABLES
+;; ─────────────────────────────────────────────────────────────────────────────
+(defvar
+  tap-time  200   ;; max ms for a tap before it's treated as a hold
+  hold-time 230   ;; ms to wait before triggering the hold action
+  num-hold  400   ;; longer hold for number→Fkey (avoids accidental triggers)
+)
+
+;; ─────────────────────────────────────────────────────────────────────────────
+;; SOURCE KEYS  (physical ISO MacBook layout, top-left → bottom-right)
+;;
+;;  Row 0 (fn row):  esc  f1  f2  f3  f4  f5  f6  f7  f8  f9  f10 f11 f12
+;;  Row 1 (number):  lsgt  1   2   3   4   5   6   7   8   9   0   -   =  bspc
+;;    ^ lsgt = the ±/§ key left of 1 on ISO Mac
+;;  Row 2 (QWERTY):  tab  q  w  e  r  t  y  u  i  o  p  [  ]
+;;  Row 3 (caps):    caps  a  s  d  f  g  h  j  k  l  ;  '  \  ret
+;;  Row 4 (shift):   lsft  grv  z  x  c  v  b  n  m  ,  .  /  rsft
+;;    ^ grv = the `/~ key left of Z on ISO Mac
+;;  Row 5 (bottom):  fn  lctl  lalt  lmet  spc  rmet  ralt
+;; ─────────────────────────────────────────────────────────────────────────────
+(defsrc
+  esc   f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
+  lsgt  1     2     3     4     5     6     7     8     9     0     -     =     bspc
+  tab   q     w     e     r     t     y     u     i     o     p     [     ]
+  caps  a     s     d     f     g     h     j     k     l     ;     '     \     ret
+  lsft  grv   z     x     c     v     b     n     m     ,     .     /     rsft
+  fn    lctl  lalt  lmet             spc                rmet  ralt
+)
+
+;; ─────────────────────────────────────────────────────────────────────────────
+;; ALIASES
+;; ─────────────────────────────────────────────────────────────────────────────
+(defalias
+  ;; ── Homerow mods (tap-hold-release = more responsive than plain tap-hold) ──
+  ;; Left hand:  A=LMeta(Cmd)  S=LAlt(Opt)  D=LCtl  F=LSft
+  a-cmd   (tap-hold-release $tap-time $hold-time a    lmet)
+  s-opt   (tap-hold-release $tap-time $hold-time s    lalt)
+  d-ctl   (tap-hold-release $tap-time $hold-time d    lctl)
+  f-sft   (tap-hold-release $tap-time $hold-time f    lsft)
+  ;; Right hand: J=RSft  K=RCtl  L=RAlt(Opt)  ;=RMeta(Cmd)
+  j-sft   (tap-hold-release $tap-time $hold-time j    rsft)
+  k-ctl   (tap-hold-release $tap-time $hold-time k    rctl)
+  l-opt   (tap-hold-release $tap-time $hold-time l    ralt)
+  ;-cmd   (tap-hold-release $tap-time $hold-time ;    rmet)
+
+  ;; ── grv (left of Z) → one-shot LShift on tap, held LShift on hold ─────────
+  ;; one-shot-press means: tap gives you a single shifted keypress;
+  ;; holding it works like a normal shift.
+  grv-ls  (tap-hold-release $tap-time $hold-time (one-shot 2000 lsft) lsft)
+
+  ;; ── lsgt (left of 1) → grave/tilde ────────────────────────────────────────
+  ;; Tap = ` (grv), Shift+tap = ~ automatically because grv is the base key.
+  lsgt-grv grv
+
+  ;; ── Numbers: tap = digit, hold = Fkey ─────────────────────────────────────
+  n1  (tap-hold $tap-time $num-hold 1 f1)
+  n2  (tap-hold $tap-time $num-hold 2 f2)
+  n3  (tap-hold $tap-time $num-hold 3 f3)
+  n4  (tap-hold $tap-time $num-hold 4 f4)
+  n5  (tap-hold $tap-time $num-hold 5 f5)
+  n6  (tap-hold $tap-time $num-hold 6 f6)
+  n7  (tap-hold $tap-time $num-hold 7 f7)
+  n8  (tap-hold $tap-time $num-hold 8 f8)
+  n9  (tap-hold $tap-time $num-hold 9 f9)
+  n0  (tap-hold $tap-time $num-hold 0 f10)
+  -   (tap-hold $tap-time $num-hold 0 f11)
+  =  (tap-hold $tap-time $num-hold 0 f12)
+)
+;; TODO: number/symbol toggle for qwer row. Other symbols for asdf and zxcx rows
+
+;; ─────────────────────────────────────────────────────────────────────────────
+;; BASE LAYER
+;; ─────────────────────────────────────────────────────────────────────────────
+(deflayer base
+  ;; fn row — F3–F6 sent as real Fkeys; rest pass through transparently TODO: is this actually working?
+  esc       f1      f2     f3     f4     f5  f6  f7     f8     f9     f10    f11    f12
+
+  @lsgt-grv @n1     @n2    @n3    @n4    @n5 @n6 @n7    @n8    @n9    @n0    -      =   bspc
+
+  tab       q       w      e      r      t   y   u      i      o      p      [      ]
+
+  esc       @a-cmd  @s-opt @d-ctl @f-sft g   h   @j-sft @k-ctl @l-opt @;-cmd '   \    ret
+
+  lsft      @grv-ls z      x      c      v   b   n      m      ,      .      /      rsft
+
+  fn        lctl    lalt   lmet              spc           rmet   ralt
+)
