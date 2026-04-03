@@ -25,7 +25,7 @@
 (defvar
   tap-time  200   ;; max ms for a tap before it's treated as a hold
   hold-time 230   ;; ms to wait before triggering the hold action
-  num-hold  400   ;; longer hold for number→Fkey (avoids accidental triggers)
+  num-hold  60    ;; longer hold for number→Fkey (avoids accidental triggers)
 )
 
 ;; ─────────────────────────────────────────────────────────────────────────────
@@ -86,24 +86,25 @@
   n9  (tap-hold $tap-time $num-hold 9 f9)
   n0  (tap-hold $tap-time $num-hold 0 f10)
   -   (tap-hold $tap-time $num-hold 0 f11)
-  =  (tap-hold $tap-time $num-hold 0 f12)
+  =   (tap-hold $tap-time $num-hold 0 f12)
 )
-;; TODO: number/symbol toggle for qwer row. Other symbols for asdf and zxcx rows
 
 ;; ─────────────────────────────────────────────────────────────────────────────
 ;; BASE LAYER
 ;; ─────────────────────────────────────────────────────────────────────────────
 (deflayer base
-  ;; fn row — F3–F6 sent as real Fkeys; rest pass through transparently TODO: is this actually working?
+  ;; FIXME: MEDIA KEYS NOT WORKING
   esc       f1      f2     f3     f4     f5  f6  f7     f8     f9     f10    f11    f12
 
-  @lsgt-grv @n1     @n2    @n3    @n4    @n5 @n6 @n7    @n8    @n9    @n0    -      =   bspc
+  @lsgt-grv @n1     @n2    @n3    @n4    @n5 @n6 @n7    @n8    @n9    @n0    -      =    bspc
 
   tab       q       w      e      r      t   y   u      i      o      p      [      ]
 
-  esc       @a-cmd  @s-opt @d-ctl @f-sft g   h   @j-sft @k-ctl @l-opt @;-cmd '   \    ret
+  esc       @a-cmd  @s-opt @d-ctl @f-sft g   h   @j-sft @k-ctl @l-opt @;-cmd '      \    ret
 
   lsft      @grv-ls z      x      c      v   b   n      m      ,      .      /      rsft
 
   fn        lctl    lalt   lmet              spc           rmet   ralt
-)
+) ;; TODO: new file: windows version
+
+;; TODO: number/symbol toggle for qwer row. Other symbols for asdf and zxcx rows
