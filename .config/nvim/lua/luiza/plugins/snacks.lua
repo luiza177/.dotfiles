@@ -148,8 +148,8 @@ return {
 
       -- { "<c-/>", function() Snacks.terminal() end, desc = "Toggle Terminal" },
       -- { "<c-_>", function() Snacks.terminal() end, desc = "which_key_ignore" },
-      { "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
-      { "[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
+      { "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n" } },
+      { "[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n" } },
       { "<leader>N", function()
           Snacks.win({
               file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
