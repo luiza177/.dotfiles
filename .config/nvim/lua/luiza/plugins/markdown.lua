@@ -1,3 +1,6 @@
+-- TODO: setup key commands for live-preview, obsidian, etc
+-- TODO: install normal markdown.nvim?
+-- TODO: configure render-markdown
 return {
 	{
 		"yousefhadder/markdown-plus.nvim",
@@ -22,7 +25,7 @@ return {
 		"obsidian-nvim/obsidian.nvim",
 		version = "*",
 		opts = {
-			legacy_commands = false, -- this will be removed in the next major release
+			legacy_commands = false, -- this will be removed in the next major release, Q: still needed?
 			workspaces = {
 				{
 					name = "NOTES",
