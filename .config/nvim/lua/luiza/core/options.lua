@@ -53,3 +53,7 @@ opt.fillchars = {
 	fold = " ",
 	eob = " ",
 }
+
+vim.filetype.add({
+	extension = { kbd = "scheme", plist = "xml" },
+})

@@ -16,8 +16,15 @@ return {
 
 		ufo.setup({
 			provider_selector = function(bufnr, filetype, buftype)
+				-- Use treesitter for markdown so headings fold correctly;
+				-- fall back to indent for everything else
+				if filetype == "markdown" then
+					return { "treesitter", "indent" }
+				end
 				return { "lsp", "indent" }
 			end,
+			-- Fold headings: collapse on load for markdown buffers
+			open_fold_hl_timeout = 150,
 		})
 	end,
 }
