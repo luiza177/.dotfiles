@@ -13,7 +13,7 @@ return {
 				c = { "clang_format" },
 				cs = { "csharpier" },
 				bash = { "shfmt" },
-				markdown = { "prettier" },
+				-- markdown = { "prettier" },
 				json = { "prettier" },
 				yaml = { "prettier" },
 				html = { "prettier" },
