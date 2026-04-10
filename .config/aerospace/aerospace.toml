@@ -11,7 +11,6 @@ after-startup-command = [
 # Start AeroSpace at login
 start-at-login = true
 
-# TODO: try i3 mode
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 # Unless you’re hardcore i3 user who knows what they are doing, it’s recommended to keep the normalizations enabled. 
 enable-normalization-flatten-containers = true
@@ -20,7 +19,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
 # You can set 0 to disable the padding feature
-accordion-padding = 100 # TODO: adjust
+accordion-padding = 40
 
 # Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
@@ -101,12 +100,12 @@ preset = 'qwerty'
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 5
-inner.vertical = 5
-outer.left = 5
-outer.bottom = 5
+inner.horizontal = 8
+inner.vertical = 8
+outer.left = 8
+outer.bottom = 8
 outer.top = [{ monitor."built-in" = 2 }, 24] # TODO: for eventual SketchyBar
-outer.right = 5
+outer.right = 8
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -246,7 +245,6 @@ cmd-alt-space = 'mode launch'   # HINT:
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
-# shirt-r = ['flatten bla', 'mode main'] -- TODO: for i3 mode, reset or remove tiling node
 f = [
   'layout floating tiling',
   'mode main',
@@ -327,5 +325,3 @@ run = 'layout floating'
 [[on-window-detected]]
 if.window-title-regex-substring = "bitwarden"
 run = 'layout floating'
-
-# TODO: when empty workspace, go back to main
