@@ -45,20 +45,12 @@ return {
 			{ "<leader>g", group = "git" },
 			{ "<leader>n", group = "notifications" },
 			{ "<leader>q", group = "Session (persistence)" },
+			{ "<leader>o", group = "Obsidian", icon = "" },
 
 			{ "<leader>L", desc = "Open Lazy package manager", icon = "" },
 			{ "<leader>M", desc = "Open Mason", icon = "" },
 
 			--------------- NORMAL VIM KEYS
-			-- g prefix
-			-- { "g", group = "goto/comment" },
-			-- { "gg", desc = "Go to top of file" },
-			-- { "G", desc = "Go to bottom of file" },
-			-- { "ge", desc = "Go to end of previous word" },
-			-- { "gf", desc = "Go to file under cursor" },
-			-- { "g;", desc = "Go to last edit position" },
-			-- { "gc", desc = "Toggle comment (operator)" },
-			-- { "gcc", desc = "Toggle comment line" },
 
 			-- z prefix
 			{ "z", group = "folds/view", icon = "" },
@@ -75,36 +67,13 @@ return {
 			-- [ and ] navigation
 			{ "[", group = "prev", icon = "󰒮" },
 			{ "]", group = "next", icon = "󰒭" },
-			-- { "[d", desc = "Prev diagnostic" },
-			-- { "]d", desc = "Next diagnostic" },
-			-- { "[c", desc = "Prev git hunk" },
-			-- { "]c", desc = "Next git hunk" },
-			{ "[[", desc = "Prev function/class", icon = "󰊕" },
-			{ "]]", desc = "Next function/class", icon = "󰊕" },
-
-			-- surround
-			{ "ys", desc = "Add surrounding", icon = "+" },
-			{ "ds", desc = "Delete surrounding", icon = "-" },
-			{ "cs", desc = "Change surrounding", icon = "" },
-			{ "S", desc = "Surround selection", icon = "󰒉" },
-
-			-- text objects (visual reference)
-			-- { "y", group = "yank" },
-			-- { "yiw", desc = "Yank inner word" },
-			-- { "yaw", desc = "Yank around word" },
-			-- { 'yi"', desc = "Yank inner quotes" },
-			-- { 'ya"', desc = "Yank around quotes" },
-			-- { "yi(", desc = "Yank inner parens" },
-			-- { "ya(", desc = "Yank around parens" },
-			-- { "yif", desc = "Yank inner function" },
-			-- { "yaf", desc = "Yank around function" },
 
 			-- Ctrl prefixed
-			-- { "<C-d>", desc = "Scroll down" },
-			-- { "<C-u>", desc = "Scroll up" },
-			-- { "<C-o>", desc = "Jump back" },
-			-- { "<C-i>", desc = "Jump forward" },
-			-- { "<C-^>", desc = "Alternate buffer" },
+			{ "<C-d>", desc = "Scroll down" },
+			{ "<C-u>", desc = "Scroll up" },
+			{ "<C-o>", desc = "Jump back" },
+			{ "<C-i>", desc = "Jump forward" },
+			{ "<C-^>", desc = "Alternate buffer" },
 
 			-- misc
 			{ "%", desc = "Jump to matching pair" },
