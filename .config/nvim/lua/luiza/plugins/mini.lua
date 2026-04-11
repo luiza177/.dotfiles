@@ -101,7 +101,7 @@ return {
         },
       })
 
-      -- Toggle / refresh keymaps -- TODO: add to which-key, integrate snacks.toggle?
+      -- Toggle / refresh keymaps
       vim.keymap.set("n", "<leader>mm", map.toggle, { desc = "Toggle minimap" })
       vim.keymap.set("n", "<leader>mf", map.toggle_focus, { desc = "Focus minimap" })
       vim.keymap.set("n", "<leader>mr", map.refresh, { desc = "Refresh minimap" })
