@@ -23,7 +23,7 @@ return {
     -- See :h blink-cmp-config-keymap for defining your own keymap
     keymap = {
       preset = "enter",
-      ["<M-space>"] = { "show", "show_documentation", "hide_documentation" },
+      ["<S-space>"] = { "show", "show_documentation", "hide_documentation" }, -- TEST:
       -- ["<C-e>"] = { "hide", "fallback" },
       -- ["<CR>"] = { "accept", "fallback" },
       ["<CR>"] = { "accept", "cancel", "fallback" },

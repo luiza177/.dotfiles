@@ -51,6 +51,17 @@ return {
       { "<leader>L", desc = "Open Lazy package manager", icon = "" },
       { "<leader>M", desc = "Open Mason", icon = "" },
 
+      -- markdown (markdown-plus.nvim)
+      { "<localleader>m", group = "Markdown formatting...", icon = "󰽛" },
+      { "<localleader>mQ", group = "Callouts...", icon = "" },
+      { "<localleader>mf", group = "Footnotes...", icon = "󰽒" },
+      { "<localleader>h", group = "Markdown headings...", icon = "" },
+      { "<localleader>t", group = "Markdown tables...", icon = "" },
+      { "<localleader>tm", group = "Move...", icon = "" },
+      { "<localleader>ts", group = "Sort...", icon = "" },
+      { "<localleader>tv", group = "CSV", icon = "" },
+      { "<leader>um", group = "Live preview", icon = "" },
+
       --------------- NORMAL VIM KEYS
 
       -- z prefix
@@ -79,16 +90,6 @@ return {
       -- misc
       { "%", desc = "Jump to matching pair" },
       { "@:", desc = "Repeat last command", icon = "" },
-
-      -- markdown (markdown-plus.nvim)
-      { "<localleader>m", group = "Markdown formatting...", icon = "󰽛" },
-      { "<localleader>mQ", group = "Callouts...", icon = "" },
-      { "<localleader>mf", group = "Footnotes...", icon = "󰽒" },
-      { "<localleader>h", group = "Markdown headings...", icon = "" },
-      { "<localleader>t", group = "Markdown tables...", icon = "" },
-      { "<localleader>tm", group = "Move...", icon = "" },
-      { "<localleader>ts", group = "Sort...", icon = "" },
-      { "<localleader>tv", group = "CSV", icon = "" },
     })
   end,
 }

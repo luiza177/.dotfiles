@@ -114,7 +114,7 @@ return {
   {
     "nvim-mini/mini.files",
     version = false,
-    lazy = true,
+    lazy = false,
     keys = {
       {
         "<leader>e",
@@ -171,22 +171,22 @@ return {
       -- ── Auto-create a cwd-based session if none exists ──────────────────
       -- This bridges the gap with persistence.nvim's fully-automatic behavior.
       -- Remove this block if you prefer to name sessions manually.
-      vim.api.nvim_create_autocmd("VimEnter", {
-        once = true,
-        callback = function()
-          -- Only act if nvim was opened with no file arguments
-          if vim.fn.argc() == 0 then
-            local sessions = MiniSessions.detected
-            -- If there's no local session, write one named after the cwd
-            if not sessions["Session.vim"] then
-              local name = vim.fn.getcwd():gsub("/", "%%") -- unique per directory
-              vim.defer_fn(function()
-                MiniSessions.write(name)
-              end, 100)
-            end
-          end
-        end,
-      })
+      -- vim.api.nvim_create_autocmd("VimEnter", {
+      --   once = true,
+      --   callback = function()
+      --     -- Only act if nvim was opened with no file arguments
+      --     if vim.fn.argc() == 0 then
+      --       local sessions = MiniSessions.detected
+      --       -- If there's no local session, write one named after the cwd
+      --       if not sessions["Session.vim"] then
+      --         local name = vim.fn.getcwd():gsub("/", "%%") -- unique per directory
+      --         vim.defer_fn(function()
+      --           MiniSessions.write(name)
+      --         end, 100)
+      --       end
+      --     end
+      --   end,
+      -- })
 
       -- ── Keymaps ─────────────────────────────────────────────────────────
       vim.keymap.set("n", "<leader>qs", function()

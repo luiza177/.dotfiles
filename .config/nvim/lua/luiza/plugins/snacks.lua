@@ -1,62 +1,62 @@
 local function prevent_insert()
-	vim.cmd.stopinsert()
+  vim.cmd.stopinsert()
 end
 
 return {
-	"folke/snacks.nvim",
-	priority = 1000,
-	lazy = false,
-	dependencies = {
-		"nvim-tree/nvim-web-devicons",
-	},
-	opts = {
-		bigfile = { enabled = true },
-		---------
-		dashboard = {
-			enabled = true,
-			sections = {
-				{ section = "header" },
-				{ section = "keys", gap = 1, padding = 1 },
-				{ pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-				{ pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
-				{
-					pane = 2,
-					icon = " ",
-					title = "Git Status",
-					section = "terminal",
-					enabled = function()
-						return Snacks.git.get_root() ~= nil
-					end,
-					cmd = "git status --short --branch --renames",
-					height = 5,
-					padding = 1,
-					ttl = 5 * 60,
-					indent = 3,
-				},
-				{ section = "startup" },
-			},
-		},
-		---------
-		dim = {
-			enabled = true,
-			animate = {
-				duration = {
-					total = 100,
-				},
-			},
-		},
-		---------
-		input = { enabled = true },
-		---------
-		picker = { enabled = true },
-		---------
-		quickfile = { enabled = true },
-		---------
-		rename = { enabled = true },
-		---------
-		toggle = { enabled = true },
-	},
-	keys = {
+  "folke/snacks.nvim",
+  priority = 1000,
+  lazy = false,
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+  },
+  opts = {
+    bigfile = { enabled = true },
+    ---------
+    dashboard = {
+      enabled = true,
+      sections = {
+        { section = "header" },
+        { section = "keys", gap = 1, padding = 1 },
+        { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+        { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+        {
+          pane = 2,
+          icon = " ",
+          title = "Git Status",
+          section = "terminal",
+          enabled = function()
+            return Snacks.git.get_root() ~= nil
+          end,
+          cmd = "git status --short --branch --renames",
+          height = 5,
+          padding = 1,
+          ttl = 5 * 60,
+          indent = 3,
+        },
+        { section = "startup" },
+      },
+    },
+    ---------
+    dim = {
+      enabled = true,
+      animate = {
+        duration = {
+          total = 100,
+        },
+      },
+    },
+    ---------
+    input = { enabled = true },
+    ---------
+    picker = { enabled = true },
+    ---------
+    quickfile = { enabled = true },
+    ---------
+    rename = { enabled = true },
+    ---------
+    toggle = { enabled = true },
+  },
+  keys = {
     -- stylua: ignore start
     -- Top Pickers & Explorer
     -- { "<leader>fl", function() Snacks.picker.grep({ dirs = { vim.uv.cwd() } }) end, desc = "Grep" },
@@ -157,65 +157,123 @@ return {
               wo = { spell = false, wrap = false, signcolumn = "yes", statuscolumn = " ", conceallevel = 3 },
           })
       end, desc = "Neovim News" },
-		-- stylua: ignore end
-	},
-	init = function()
-		vim.api.nvim_create_autocmd("QuitPre", {
-			callback = function()
-				local snacks_wins = {}
-				local floating_wins = {}
-				local wins = vim.api.nvim_list_wins()
-				for _, w in ipairs(wins) do
-					local ft = vim.api.nvim_get_option_value("filetype", { buf = vim.api.nvim_win_get_buf(w) })
-					if ft:match("snacks_") ~= nil then
-						table.insert(snacks_wins, w)
-					elseif vim.api.nvim_win_get_config(w).relative ~= "" then
-						table.insert(floating_wins, w)
-					end
-				end
-				if #wins - #floating_wins - #snacks_wins == 1 then
-					for _, w in ipairs(snacks_wins) do
-						vim.api.nvim_win_close(w, true)
-					end
-				end
-			end,
-		})
+    -- stylua: ignore end
+  },
+  init = function()
+    vim.api.nvim_create_autocmd("QuitPre", {
+      callback = function()
+        local snacks_wins = {}
+        local floating_wins = {}
+        local wins = vim.api.nvim_list_wins()
+        for _, w in ipairs(wins) do
+          local ft = vim.api.nvim_get_option_value("filetype", { buf = vim.api.nvim_win_get_buf(w) })
+          if ft:match("snacks_") ~= nil then
+            table.insert(snacks_wins, w)
+          elseif vim.api.nvim_win_get_config(w).relative ~= "" then
+            table.insert(floating_wins, w)
+          end
+        end
+        if #wins - #floating_wins - #snacks_wins == 1 then
+          for _, w in ipairs(snacks_wins) do
+            vim.api.nvim_win_close(w, true)
+          end
+        end
+      end,
+    })
 
-		vim.api.nvim_create_autocmd("User", {
-			pattern = "VeryLazy",
-			callback = function()
-				-- Setup some globals for debugging (lazy-loaded)
-				_G.dd = function(...)
-					Snacks.debug.inspect(...)
-				end
-				_G.bt = function()
-					Snacks.debug.backtrace()
-				end
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "VeryLazy",
+      callback = function()
+        -- Setup some globals for debugging (lazy-loaded)
+        _G.dd = function(...)
+          Snacks.debug.inspect(...)
+        end
+        _G.bt = function()
+          Snacks.debug.backtrace()
+        end
 
-				-- Override print to use snacks for `:=` command
-				if vim.fn.has("nvim-0.11") == 1 then
-					vim._print = function(_, ...)
-						dd(...)
-					end
-				else
-					vim.print = _G.dd
-				end
+        -- Override print to use snacks for `:=` command
+        if vim.fn.has("nvim-0.11") == 1 then
+          vim._print = function(_, ...)
+            dd(...)
+          end
+        else
+          vim.print = _G.dd
+        end
 
-				-- Create some toggle mappings
-				Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
-				Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
-				Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
-				Snacks.toggle.line_number():map("<leader>ul")
-				Snacks.toggle.diagnostics():map("<leader>ud")
-				Snacks.toggle
-					.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
-					:map("<leader>uo") -- hides characters like in markdown **bold**
-				Snacks.toggle.treesitter():map("<leader>uT")
-				-- Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
-				Snacks.toggle.inlay_hints():map("<leader>uh")
-				-- Snacks.toggle.indent():map("<leader>ug")
-				Snacks.toggle.dim():map("<leader>uD")
-			end,
-		})
-	end,
+        -- create some toggle mappings
+        Snacks.toggle.option("spell", { name = "spelling" }):map("<leader>us")
+        Snacks.toggle.option("wrap", { name = "wrap" }):map("<leader>uw")
+        Snacks.toggle.option("relativenumber", { name = "relative number" }):map("<leader>ul")
+        Snacks.toggle.line_number():map("<leader>ul")
+        Snacks.toggle.diagnostics():map("<leader>ud")
+        Snacks.toggle
+          .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
+          :map("<leader>uo") -- hides characters like in markdown **bold**
+        Snacks.toggle.treesitter():map("<leader>ut")
+        -- snacks.toggle.option("background", { off = "light", on = "dark", name = "dark background" }):map("<leader>ub")
+        Snacks.toggle.inlay_hints():map("<leader>uh")
+        -- snacks.toggle.indent():map("<leader>ug")
+        Snacks.toggle.dim():map("<leader>ud")
+
+        -- custom toggles:
+
+        -- virtual text
+
+        -- git signs
+
+        -- format on save
+
+        -- true/false, yes/no, active/inactive, enable(d)/disable(d), on/off
+        local toggles = {
+          ["true"] = "false",
+          ["always"] = "never",
+          ["yes"] = "no",
+          ["on"] = "off",
+          ["enable"] = "disable",
+          ["enabled"] = "disabled",
+          ["active"] = "inactive",
+        }
+
+        Snacks.toggle
+          .new({
+            id = "switch",
+            name = "Switch",
+            get = function()
+              local cword = vim.fn.expand("<cword>")
+              for word, opposite in pairs(toggles) do
+                if cword == word then
+                  return true
+                end
+                if cword == opposite then
+                  return false
+                end
+              end
+              return nil
+            end,
+            set = function(state)
+              local cword = vim.fn.expand("<cword>")
+              local newWord
+              for word, opposite in pairs(toggles) do
+                if cword == word then
+                  newWord = state and word or opposite
+                end
+                if cword == opposite then
+                  newWord = state and word or opposite
+                end
+              end
+
+              if newWord then
+                local prevCursor = vim.api.nvim_win_get_cursor(0)
+                vim.cmd.normal({ '"_ciw' .. newWord, bang = true })
+                vim.api.nvim_win_set_cursor(0, prevCursor)
+              end
+            end,
+          })
+          :map("<leader>cc")
+
+        -- virt column
+      end,
+    })
+  end,
 }
