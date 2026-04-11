@@ -140,6 +140,7 @@ return {
       options = {
         use_as_default_explorer = true, -- hijacks netrw
       },
+      -- TODO: see linkarzu's remaps
     },
   },
 
@@ -158,39 +159,20 @@ return {
   {
     "nvim-mini/mini.sessions",
     version = false,
+    enabled = false, -- FIXME: doees not work
     lazy = false, -- must load early for autoread to work on startup
     opts = {
       autoread = true, -- restore last session when nvim opened with no args
       autowrite = true, -- save session on exit (only if one is active)
       directory = vim.fn.stdpath("data") .. "/sessions/",
-      file = "Session.vim", -- local session file name (in cwd)
+      -- file = "Session.vim", -- local session file name (in cwd)
     },
     config = function(_, opts)
       require("mini.sessions").setup(opts)
 
-      -- ── Auto-create a cwd-based session if none exists ──────────────────
-      -- This bridges the gap with persistence.nvim's fully-automatic behavior.
-      -- Remove this block if you prefer to name sessions manually.
-      -- vim.api.nvim_create_autocmd("VimEnter", {
-      --   once = true,
-      --   callback = function()
-      --     -- Only act if nvim was opened with no file arguments
-      --     if vim.fn.argc() == 0 then
-      --       local sessions = MiniSessions.detected
-      --       -- If there's no local session, write one named after the cwd
-      --       if not sessions["Session.vim"] then
-      --         local name = vim.fn.getcwd():gsub("/", "%%") -- unique per directory
-      --         vim.defer_fn(function()
-      --           MiniSessions.write(name)
-      --         end, 100)
-      --       end
-      --     end
-      --   end,
-      -- })
-
       -- ── Keymaps ─────────────────────────────────────────────────────────
       vim.keymap.set("n", "<leader>qs", function()
-        MiniSessions.write(nil) -- write active session (or prompt for name)
+        MiniSessions.write() -- write active session (or prompt for name)
       end, { desc = "Save session" })
 
       vim.keymap.set("n", "<leader>ql", function()
@@ -200,6 +182,58 @@ return {
       vim.keymap.set("n", "<leader>qd", function()
         MiniSessions.select("delete")
       end, { desc = "Delete session" })
+    end,
+  },
+  {
+    "nvim-mini/mini.clue",
+    version = false,
+    enable = true,
+    config = function()
+      local miniclue = require("mini.clue")
+      miniclue.setup({
+        window = { delay = 500 }, -- TODO: add more width
+        triggers = {
+          -- Leader triggers
+          { mode = { "n", "x" }, keys = "<Leader>" },
+
+          -- `[` and `]` keys
+          { mode = "n", keys = "[" },
+          { mode = "n", keys = "]" },
+
+          -- Built-in completion
+          { mode = "i", keys = "<C-x>" },
+
+          -- `g` key
+          { mode = { "n", "x" }, keys = "g" },
+
+          -- Marks
+          { mode = { "n", "x" }, keys = "'" },
+          { mode = { "n", "x" }, keys = "`" },
+
+          -- Registers
+          { mode = { "n", "x" }, keys = '"' },
+          { mode = { "i", "c" }, keys = "<C-r>" },
+
+          -- Window commands
+          { mode = "n", keys = "<C-w>" },
+
+          -- `z` key
+          { mode = { "n", "x" }, keys = "z" },
+        },
+
+        clues = {
+          -- Enhance this by adding descriptions for <Leader> mapping groups
+          miniclue.gen_clues.square_brackets(),
+          miniclue.gen_clues.builtin_completion(),
+          miniclue.gen_clues.g(),
+          miniclue.gen_clues.marks(),
+          miniclue.gen_clues.registers(),
+          miniclue.gen_clues.windows(),
+          miniclue.gen_clues.z(),
+          { mode = "n", keys = "<leader>b", desc = "+Buffers" },
+          -- TODO: add more
+        },
+      })
     end,
   },
 }

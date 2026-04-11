@@ -27,7 +27,7 @@ return {
     end,
   },
   {
-    "MeanderingProgrammer/render-markdown.nvim",
+    "MeanderingProgrammer/render-markdown.nvim", -- FIX: strikethrough not working
     enabled = true,
     ft = "markdown",
     dependencies = { "nvim-treesitter/nvim-treesitter" },

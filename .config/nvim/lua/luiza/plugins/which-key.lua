@@ -1,5 +1,6 @@
 return {
   "folke/which-key.nvim",
+  enabled = false,
   event = "VeryLazy",
   -- event = "VimEnter",
   config = function()
@@ -31,7 +32,6 @@ return {
 
     wk.add({
       -- register key group names
-      { "<leader>e", group = "explorer", icon = "󰙅" },
       { "<leader>f", group = "find", icon = "󰈞" },
       { "<leader>s", group = "split", icon = "" },
       { "<leader>t", group = "tab", icon = "󰓩" },
@@ -50,6 +50,9 @@ return {
 
       { "<leader>L", desc = "Open Lazy package manager", icon = "" },
       { "<leader>M", desc = "Open Mason", icon = "" },
+
+      { "<leader>e", desc = "explorer", icon = "󰙅" },
+      { "<leader>E", desc = "explorer (cwd)", icon = "󰙅" },
 
       -- markdown (markdown-plus.nvim)
       { "<localleader>m", group = "Markdown formatting...", icon = "󰽛" },
