@@ -4,7 +4,6 @@ local function colorscheme_overrides()
   -- local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
   -- local comment_hl = vim.api.nvim_get_hl(0, { name = "Comment" })
   local cursorline_hl = vim.api.nvim_get_hl(0, { name = "CursorLine", link = false })
-  local visual_hl = vim.api.nvim_get_hl(0, { name = "Visual" })
 
   -- diagnostics
   -- TODO: invert virtual text bg/fg
@@ -23,7 +22,6 @@ local function colorscheme_overrides()
     -- blend = 50,
   })
   vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", { bg = cursorline_hl.bg })
-  vim.api.nvim_set_hl(0, "VisualNonText", { bg = visual_hl.bg, fg = linenr_hl.fg })
 end
 
 vim.api.nvim_create_autocmd("ColorScheme", { callback = colorscheme_overrides })
