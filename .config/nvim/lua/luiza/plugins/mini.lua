@@ -132,6 +132,13 @@ return {
       },
     },
     opts = {
+      mappings = {
+        close = "<esc>",
+        go_in_plus = "<CR>",
+        go_out = "H",
+        go_out_plus = "h",
+        reveal_cwd = ".",
+      },
       windows = {
         preview = true, -- show file preview in rightmost column
         width_focus = 30,
@@ -140,7 +147,6 @@ return {
       options = {
         use_as_default_explorer = true, -- hijacks netrw
       },
-      -- TODO: see linkarzu's remaps
     },
   },
 
