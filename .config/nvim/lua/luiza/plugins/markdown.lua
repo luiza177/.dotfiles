@@ -28,7 +28,7 @@ return {
   },
   {
     "MeanderingProgrammer/render-markdown.nvim", -- FIX: strikethrough not working
-    enabled = true,
+    enabled = false,
     ft = "markdown",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     keys = {
@@ -60,7 +60,7 @@ return {
   {
     "brianhuster/live-preview.nvim",
     -- FIXME: not working in obsidian note
-    enabled = true,
+    enabled = false,
     dependencies = {
       "folke/snacks.nvim",
     },
@@ -80,7 +80,7 @@ return {
     },
     opts = {
       legacy_commands = false,
-      ui = { enable = false }, -- NOTE: render-markdown does all rendering
+      ui = { enable = true }, -- NOTE: render-markdown does all rendering?
       workspaces = {
         {
           name = "NOTES",

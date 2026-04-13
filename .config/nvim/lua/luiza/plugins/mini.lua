@@ -242,4 +242,37 @@ return {
       })
     end,
   },
+  {
+    "nvim-mini/mini.cursorword",
+    version = false,
+    enabled = false,
+    config = function()
+      _G.cursorword_blocklist = function()
+        local curword = vim.fn.expand("<cword>")
+        local filetype = vim.bo.filetype
+
+        local blocklist = {}
+        if filetype == "lua" then
+          blocklist = { "local", "require", "--" }
+        elseif filetype == "javascript" or filetype == "typescript" or filetype == "tsx" or filetype == "jsx" then
+          blocklist = { "import", "$/$/", "const", "let" }
+        elseif filetype == "cpp" or filetype == "c" then
+          blocklist = { "$/$/", "const" }
+        end
+
+        vim.b.minicursorword_disable = vim.tbl_contains(blocklist, curword)
+      end
+
+      vim.api.nvim_create_autocmd("CursorMoved", {
+        callback = _G.cursorword_blocklist,
+      })
+      -----
+      vim.keymap.set("n", "<leader>uH", function()
+        vim.g.minicursorword_disable = not vim.g.minicursorword_disable
+        vim.notify("cursorword " .. (vim.g.minicursorword_disable and "disabled" or "enabled"))
+      end, { desc = "Toggle mini.cursorword highlighting" })
+      -----
+      require("mini.cursorwor").setup({})
+    end,
+  },
 }

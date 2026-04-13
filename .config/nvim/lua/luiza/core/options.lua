@@ -28,6 +28,7 @@ opt.cursorline = true
 opt.scrolloff = 10 -- always keep 8 lines above/below cursor
 opt.sidescrolloff = 10 -- same as above, but for horizontal, useful for wrap = true
 opt.wrap = false
+opt.conceallevel = 2
 
 -------- Behavior
 opt.clipboard = "unnamedplus" -- merge system and vim clipboard. Or use `"+y`
