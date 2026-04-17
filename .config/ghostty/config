@@ -66,7 +66,7 @@ font-thicken = true
 font-thicken-strength = 255
 macos-option-as-alt = left
 
-theme = TokyoNight
+# theme = TokyoNight
 # theme = Kanagawa Wave
 # theme = LoveLace
 # theme = Night Owl
@@ -128,6 +128,62 @@ theme = TokyoNight
 # palette = 14=#9FC6C5
 # palette = 15=#D8DEE9
 
-#-------------------------
-adjust-cell-height = -25%
-adjust-cursor-height = -25%
+# --------- NAGAI POOLSIDE
+# background = #0F1B22
+# foreground = #E6F1F4
+# cursor-color = #58AFD8
+# selection-background = #243C47
+# selection-foreground = #E6F1F4
+# bold-is-bright = true
+#
+# palette = 0=#0B141A
+# palette = 1=#FF6B6B
+# palette = 2=#7CA348
+# palette = 3=#EED59A
+# palette = 4=#2295D9
+# palette = 5=#58AFD8
+# palette = 6=#3A9FB7
+# palette = 7=#E6F1F4
+# palette = 8=#2A4652
+# palette = 9=#FF8A8A
+# palette = 10=#85DCC0
+# palette = 11=#F4E2B7
+# palette = 12=#58AFD8
+# palette = 13=#58AFD8
+# palette = 14=#5EC2D6
+# palette = 15=#FFFFFF
+#
+# adjust-cell-height = -25%
+# adjust-cursor-height = -25%
+
+# ----------- MODUS-VIVENDI-TINTED COLORS
+background = #0d0e1c
+foreground = #ffffff
+selection-background = #555a66
+selection-foreground = #ffffff
+cursor-color = #ffffff
+
+# black
+palette = 0=#1d2235
+palette = 8=#4a4f69
+# red
+palette = 1=#ff5f59
+palette = 9=#ff7f9f
+# green
+palette = 2=#44bc44
+palette = 10=#00c06f
+# yellow
+palette = 3=#d0bc00
+palette = 11=#dfaf7a
+# blue
+palette = 4=#2fafff
+palette = 12=#00bcff
+# magenta
+palette = 5=#feacd0
+palette = 13=#b6a0ff
+# cyan
+palette = 6=#00d3d0
+palette = 14=#6ae4b9
+# white
+palette = 7=#ffffff
+palette = 15=#989898
