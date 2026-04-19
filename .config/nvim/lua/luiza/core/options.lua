@@ -25,9 +25,10 @@ opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes" -- column to the left of numbers for LSP diagnostics, always show
 opt.cursorline = true
--- opt.scrolloff = 10 -- always keep 8 lines above/below cursor
--- opt.sidescrolloff = 10 -- same as above, but for horizontal, useful for wrap = true
+opt.scrolloff = 10 -- always keep 8 lines above/below cursor
+opt.sidescrolloff = 10 -- same as above, but for horizontal, useful for wrap = true
 opt.wrap = false
+opt.conceallevel = 2
 
 -------- Behavior
 opt.clipboard = "unnamedplus" -- merge system and vim clipboard. Or use `"+y`
@@ -47,13 +48,13 @@ opt.foldenable = true
 opt.foldlevel = 99
 opt.foldlevelstart = 99
 opt.fillchars = {
-	foldopen = "",
-	foldclose = "",
-	foldsep = "│",
-	fold = " ",
-	eob = " ",
+  foldopen = "",
+  foldclose = "",
+  foldsep = "│",
+  fold = " ",
+  eob = " ", -- TODO: add back tildes ~ on empty lines
 }
 
 vim.filetype.add({
-	extension = { kbd = "scheme", plist = "xml" },
+  extension = { kbd = "scheme", plist = "xml" },
 })

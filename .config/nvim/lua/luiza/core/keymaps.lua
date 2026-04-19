@@ -11,8 +11,8 @@ local map = vim.keymap.set
 map("n", "<Esc>", ":nohl<CR>", { desc = "Clear search highlights" })
 
 ---- keep cursor centered when jumping through search
---map("n", "n", "nzzzv", { desc = "Next result (centered)" })
---map("n", "n", "Nzzzv", { desc = "Prev result (centered)" })
+map("n", "n", "nzzzv", { desc = "Next result (centered)" })
+map("n", "n", "Nzzzv", { desc = "Prev result (centered)" })
 
 -------- Navigation
 ---- keep cursor centered when scrolling
