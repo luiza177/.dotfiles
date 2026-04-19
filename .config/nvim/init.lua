@@ -21,7 +21,11 @@ vim.g.mapleader = " "
 -- vim.g.theme = "everforest"
 -- vim.g.theme = "edge"
 -- vim.g.theme = "poimandres"
-vim.g.theme = "ethereal"
+-- vim.g.theme = "ethereal"
+-- vim.g.theme = "ayu"
+vim.g.theme = "teide-darker"
+-- vim.g.theme = "nagai-poolside"
+-- vim.g.theme = "modus_vivendi"
 ---
 
 require("luiza.core.options")
