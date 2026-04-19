@@ -132,23 +132,35 @@ return {
         desc = "Open mini.files (cwd)",
       },
     },
-    opts = {
-      mappings = {
-        close = "<esc>",
-        go_in_plus = "<CR>",
-        go_out = "H",
-        go_out_plus = "h",
-        reveal_cwd = ".",
-      },
-      windows = {
-        preview = true, -- show file preview in rightmost column
-        width_focus = 30,
-        width_preview = 60,
-      },
-      options = {
-        use_as_default_explorer = true, -- hijacks netrw
-      },
-    },
+    config = function()
+      require("mini.files").setup({
+        mappings = {
+          close = "<esc>",
+          go_in_plus = "<CR>",
+          go_out = "H",
+          go_out_plus = "h",
+          reveal_cwd = ".",
+        },
+        windows = {
+          preview = true,
+          width_focus = 30,
+          width_preview = 60,
+        },
+        options = {
+          use_as_default_explorer = true,
+        },
+      })
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "MiniFilesWindowOpen",
+        callback = function(args)
+          local win_id = args.data.win_id
+          local config = vim.api.nvim_win_get_config(win_id)
+          config.border = require("luiza.core.borders").border_chars_square
+          vim.api.nvim_win_set_config(win_id, config)
+        end,
+      })
+    end,
   },
 
   -- ── mini.sessions ───────────────────────────────────────────────────────
@@ -192,13 +204,18 @@ return {
     end,
   },
   {
-    "nvim-mini/mini.clue",
+    "nvim-mini/mini.clue", -- TODO: snacks rename
     version = false,
     enable = true,
     config = function()
       local miniclue = require("mini.clue")
       miniclue.setup({
-        window = { delay = 500 }, -- TODO: add more width
+        window = {
+          delay = 500,
+          config = {
+            border = require("luiza.core.borders").border_chars_square,
+          },
+        }, -- TODO: add more width
         triggers = {
           -- Leader triggers
           { mode = { "n", "x" }, keys = "<Leader>" },

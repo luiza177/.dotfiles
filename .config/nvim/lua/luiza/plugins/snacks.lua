@@ -5,206 +5,206 @@ end
 local borders = require("luiza.core.borders")
 
 return {
-	"folke/snacks.nvim",
-	priority = 1000,
-	lazy = false,
-	dependencies = {
-		"nvim-tree/nvim-web-devicons",
-	},
-	opts = {
-		bigfile = { enabled = true },
-		---------
-		dashboard = {
-			enabled = true,
-			sections = {
-				{ section = "header" },
-				{ section = "keys", gap = 1, padding = 1 },
-				{ pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-				{ pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
-				{
-					pane = 2,
-					icon = " ",
-					title = "Git Status",
-					section = "terminal",
-					enabled = function()
-						return Snacks.git.get_root() ~= nil
-					end,
-					cmd = "git status --short --branch --renames",
-					height = 5,
-					padding = 1,
-					ttl = 5 * 60,
-					indent = 3,
-				},
-				{ section = "startup" },
-			},
-		},
-		---------
-		dim = {
-			enabled = true,
-			animate = {
-				duration = {
-					total = 100,
-				},
-			},
-		},
-		---------
-		input = { enabled = true },
-		---------
-		picker = {
-			enabled = true,
-			-- layout = {
-			-- preset = "telescope",
-			-- },
-			layouts = {
-				default = {
-					layout = {
-						box = "horizontal",
-						width = 0.8,
-						min_width = 120,
-						height = 0.8,
-						{
-							box = "vertical",
-							border = borders.border_chars_outer_thin,
-							title = "{title} {live} {flags}",
-							{
-								win = "input",
-								height = 1,
-								border = borders.border_chars_square,
-							},
-							{ win = "list", border = "none" },
-						},
-						{
-							win = "preview",
-							title = "{preview}",
-							border = borders.border_chars_outer_thin,
-							width = 0.5,
-						},
-					},
-				},
-				select = {
-					layout = {
-						border = borders.border_chars_outer_thin,
-					},
-				},
-				dropdown = {
-					layout = {
-						backdrop = false,
-						row = 1,
-						width = 0.4,
-						min_width = 80,
-						height = 0.8,
-						border = "none",
-						box = "vertical",
-						{
-							win = "preview",
-							title = "{preview}",
-							height = 0.4,
-							border = borders.border_chars_square,
-						},
-						{
-							box = "vertical",
-							border = borders.border_chars_square,
-							title = "{title} {live} {flags}",
-							title_pos = "center",
-							{ win = "input", height = 1, border = "bottom" },
-							{ win = "list", border = "none" },
-						},
-					},
-				},
-				vertical = {
-					layout = {
-						backdrop = false,
-						width = 0.5,
-						min_width = 80,
-						height = 0.8,
-						min_height = 30,
-						box = "vertical",
-						border = borders.border_chars_square,
-						title = "{title} {live} {flags}",
-						title_pos = "center",
-						{ win = "input", height = 1, border = "bottom" },
-						{ win = "list", border = "none" },
-						{
-							win = "preview",
-							title = "{preview}",
-							height = 0.4,
-							border = "top",
-						},
-					},
-				},
-				vscode = {
-					layout = {
-						-- border = "none",
-						border = borders.border_chars_outer_thin,
-						backdrop = false,
-						row = 1,
-						width = 0.4,
-						min_width = 80,
-						height = 0.4,
-						box = "vertical",
-						title = "{title}",
-						title_pos = "center",
-						{
-							win = "input",
-							height = 1,
-							-- border = borders.border_chars_square,
-							border = "bottom",
-							-- title = "{title} {live} {flags}",
-							-- title_pos = "center",
-						},
-						{ win = "list", border = "hpad" }, -- Q: or "none"
-						{ win = "preview", title = "{preview}", border = "top" },
-					},
-				},
-				telescope = {
-					reverse = true,
-					layout = {
-						box = "horizontal",
-						backdrop = false,
-						width = 0.8,
-						height = 0.9,
-						border = "none",
-						{
-							box = "vertical",
-							{
-								win = "list",
-								title = " Results ",
-								title_pos = "center",
-								border = borders.border_chars_square,
-							},
-							{
-								win = "input",
-								height = 1,
-								border = borders.border_chars_square,
-								title = "{title} {live} {flags}",
-								title_pos = "center",
-							},
-						},
-						{
-							win = "preview",
-							title = "{preview:Preview}",
-							width = 0.45,
-							border = borders.border_chars_square,
-							title_pos = "center",
-						},
-					},
-				},
-			},
-		},
-		---------
-		quickfile = { enabled = true },
-		---------
-		rename = { enabled = true },
-		---------
-		lazygit = {
-			theme = {
-				inactiveBorderColor = { fg = "LazyGitInactiveBorder" },
-			},
-		},
-		---------
-		toggle = { enabled = true },
-	},
-	keys = {
+  "folke/snacks.nvim",
+  priority = 1000,
+  lazy = false,
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+  },
+  opts = {
+    bigfile = { enabled = true },
+    ---------
+    dashboard = {
+      enabled = true,
+      sections = {
+        { section = "header" },
+        { section = "keys", gap = 1, padding = 1 },
+        { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+        { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+        {
+          pane = 2,
+          icon = " ",
+          title = "Git Status",
+          section = "terminal",
+          enabled = function()
+            return Snacks.git.get_root() ~= nil
+          end,
+          cmd = "git status --short --branch --renames",
+          height = 5,
+          padding = 1,
+          ttl = 5 * 60,
+          indent = 3,
+        },
+        { section = "startup" },
+      },
+    },
+    ---------
+    dim = {
+      enabled = true,
+      animate = {
+        duration = {
+          total = 100,
+        },
+      },
+    },
+    ---------
+    input = { enabled = true },
+    ---------
+    picker = {
+      enabled = true,
+      -- layout = {
+      -- preset = "telescope",
+      -- },
+      layouts = {
+        default = {
+          layout = {
+            box = "horizontal",
+            width = 0.8,
+            min_width = 120,
+            height = 0.8,
+            {
+              box = "vertical",
+              border = borders.border_chars_square,
+              title = "{title} {live} {flags}",
+              {
+                win = "input",
+                height = 1,
+                border = borders.border_chars_square,
+              },
+              { win = "list", border = "none" },
+            },
+            {
+              win = "preview",
+              title = "{preview}",
+              border = borders.border_chars_square,
+              width = 0.5,
+            },
+          },
+        },
+        select = {
+          layout = {
+            border = borders.border_chars_square,
+          },
+        },
+        dropdown = {
+          layout = {
+            backdrop = false,
+            row = 1,
+            width = 0.4,
+            min_width = 80,
+            height = 0.8,
+            border = "none",
+            box = "vertical",
+            {
+              win = "preview",
+              title = "{preview}",
+              height = 0.4,
+              border = borders.border_chars_square,
+            },
+            {
+              box = "vertical",
+              border = borders.border_chars_square,
+              title = "{title} {live} {flags}",
+              title_pos = "center",
+              { win = "input", height = 1, border = "bottom" },
+              { win = "list", border = "none" },
+            },
+          },
+        },
+        vertical = {
+          layout = {
+            backdrop = false,
+            width = 0.5,
+            min_width = 80,
+            height = 0.8,
+            min_height = 30,
+            box = "vertical",
+            border = borders.border_chars_square,
+            title = "{title} {live} {flags}",
+            title_pos = "center",
+            { win = "input", height = 1, border = "bottom" },
+            { win = "list", border = "none" },
+            {
+              win = "preview",
+              title = "{preview}",
+              height = 0.4,
+              border = "top",
+            },
+          },
+        },
+        vscode = {
+          layout = {
+            -- border = "none",
+            border = borders.border_chars_square,
+            backdrop = false,
+            row = 1,
+            width = 0.4,
+            min_width = 80,
+            height = 0.4,
+            box = "vertical",
+            title = "{title}",
+            title_pos = "center",
+            {
+              win = "input",
+              height = 1,
+              -- border = borders.border_chars_square,
+              border = "bottom",
+              -- title = "{title} {live} {flags}",
+              -- title_pos = "center",
+            },
+            { win = "list", border = "hpad" }, -- Q: or "none"
+            { win = "preview", title = "{preview}", border = "top" },
+          },
+        },
+        telescope = {
+          reverse = true,
+          layout = {
+            box = "horizontal",
+            backdrop = false,
+            width = 0.8,
+            height = 0.9,
+            border = "none",
+            {
+              box = "vertical",
+              {
+                win = "list",
+                title = " Results ",
+                title_pos = "center",
+                border = borders.border_chars_square,
+              },
+              {
+                win = "input",
+                height = 1,
+                border = borders.border_chars_square,
+                title = "{title} {live} {flags}",
+                title_pos = "center",
+              },
+            },
+            {
+              win = "preview",
+              title = "{preview:Preview}",
+              width = 0.45,
+              border = borders.border_chars_square,
+              title_pos = "center",
+            },
+          },
+        },
+      },
+    },
+    ---------
+    quickfile = { enabled = true },
+    ---------
+    rename = { enabled = true },
+    ---------
+    lazygit = {
+      theme = {
+        inactiveBorderColor = { fg = "LazyGitInactiveBorder" },
+      },
+    },
+    ---------
+    toggle = { enabled = true },
+  },
+  keys = {
     -- stylua: ignore start
     -- Top Pickers & Explorer
     -- { "<leader>fl", function() Snacks.picker.grep({ dirs = { vim.uv.cwd() } }) end, desc = "Grep" },

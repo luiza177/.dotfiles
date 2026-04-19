@@ -57,36 +57,35 @@ return {
       nerd_font_variant = "mono",
     },
 
-		-- Signature help
-		signature = {
-			enabled = true,
-			window = {
-				border = require("luiza.core.borders").border_chars_outer_thin,
-			},
-		},
+    -- Signature help
+    signature = {
+      enabled = true,
+      window = {
+        -- border = require("luiza.core.borders").border_chars_outer_thin,
+      },
+    },
 
-		-- (Default) Only show the documentation popup when manually triggered -- CHANGED
-		completion = {
-			menu = {
-				-- TODO: disable completion in comments and strings
-				-- auto_show = function() end,
-				-- TODO: Border color in addition to outer
-				border = require("luiza.core.borders").border_chars_empty,
-			},
-			documentation = {
-				auto_show = true,
-				auto_show_delay_ms = 200,
-				window = {
-					border = require("luiza.core.borders").border_chars_outer_thin,
-				},
-			},
-			list = {
-				selection = {
-					preselect = false,
-					auto_insert = true,
-				},
-			},
-		},
+    -- (Default) Only show the documentation popup when manually triggered -- CHANGED
+    completion = {
+      menu = {
+        -- TODO: disable completion in comments and strings
+        -- auto_show = function() end,
+        -- border = require("luiza.core.borders").border_chars_empty,
+      },
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 200,
+        window = {
+          -- border = require("luiza.core.borders").border_chars_outer_thin,
+        },
+      },
+      list = {
+        selection = {
+          preselect = false,
+          auto_insert = true,
+        },
+      },
+    },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
