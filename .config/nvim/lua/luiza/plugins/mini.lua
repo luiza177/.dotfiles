@@ -6,6 +6,7 @@ return {
   {
     "nvim-mini/mini.surround",
     version = false,
+    enabled = false,
     event = "VeryLazy",
     opts = {
       -- Remap to 'gz' prefix if you want to keep 's' for substitute:
