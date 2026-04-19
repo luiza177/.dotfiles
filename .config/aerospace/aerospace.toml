@@ -11,7 +11,6 @@ after-startup-command = [
 # Start AeroSpace at login
 start-at-login = true
 
-# TODO: try i3 mode
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 # Unless you’re hardcore i3 user who knows what they are doing, it’s recommended to keep the normalizations enabled. 
 enable-normalization-flatten-containers = true
@@ -20,7 +19,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
 # You can set 0 to disable the padding feature
-accordion-padding = 100 # TODO: adjust
+accordion-padding = 40
 
 # Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
@@ -101,12 +100,12 @@ preset = 'qwerty'
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 4
-inner.vertical = 4
-outer.left = 4
-outer.bottom = 4
+inner.horizontal = 8
+inner.vertical = 8
+outer.left = 8
+outer.bottom = 8
 outer.top = [{ monitor."built-in" = 2 }, 24] # TODO: for eventual SketchyBar
-outer.right = 4
+outer.right = 8
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -174,7 +173,7 @@ alt-5 = 'workspace 5'
 # alt-9 = 'workspace 9'
 # alt-a = 'workspace A' # In your config, you can drop workspace bindings that you don't need
 alt-b = 'workspace B'
-alt-c = 'workspace C'
+# alt-c = 'workspace C'
 # alt-d = 'workspace D'
 # alt-e = 'workspace E'
 # alt-f = 'workspace F'
@@ -246,7 +245,6 @@ cmd-alt-space = 'mode launch'   # HINT:
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
-# shirt-r = ['flatten bla', 'mode main'] -- TODO: for i3 mode, reset or remove tiling node
 f = [
   'layout floating tiling',
   'mode main',
@@ -279,22 +277,26 @@ t = ['exec-and-forget open /Applications/Ghostty.app', 'mode main']
 # aerospace list-apps / list-windows / etc in quick terminal from ghostty?
 n = ['exec-and-forget open /System/Applications/Notes.app/', 'mode main']
 
-# [[on-window-detected]]
-# if.app-id = 'com.mozilla.librewolf'
-# run = ["move-node-to-workspace B"]
+[[on-window-detected]]
+if.app-id = 'com.mozilla.zen-browser'
+run = ["move-node-to-workspace B", "layout accordion"]
 
-#
-# [[on-window-detected]]
-# if.app-id = 'com.mozilla.zen-browser'
-# run = ["move-node-to-workspace B"]
-#
+[[on-window-detected]]
+if.app-id = 'com.vivaldi.Vivaldi'
+run = ["move-node-to-workspace B", "layout accordion"]
+
 # [[on-window-detected]]
 # if.app-id = 'com.mitchellh.ghostty'
 # run = ["move-node-to-workspace T"]
 
 [[on-window-detected]]
-if.app-id = "com.cockos.reaper"                                # TODO: disable tiling for app? layout floating?
-run = ["move-node-to-workspace  R", "workspace R", "mode app"]
+if.app-id = "com.cockos.reaper" # Q: ReaLauncher by itself?
+run = [
+  "move-node-to-workspace  R",
+  "workspace R",
+  "mode app",
+  "layout floating",
+]
 
 [[on-window-detected]]
 if.app-id = "com.arobas-music.guitarpro8"         # TODO: layout floating?
@@ -323,5 +325,3 @@ run = 'layout floating'
 [[on-window-detected]]
 if.window-title-regex-substring = "bitwarden"
 run = 'layout floating'
-
-# TODO: when empty workspace, go back to main

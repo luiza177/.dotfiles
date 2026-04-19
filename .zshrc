@@ -19,6 +19,7 @@ alias ga="git add ."
 alias gC="git commit -m"
 alias gP="git push"
 alias gp="git pull"
+alias lg="lazygit"
 
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"

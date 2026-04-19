@@ -1,6 +1,6 @@
 local map = vim.keymap.set
 
-map("n", "q", "<nop>", { desc = "Disabled (macro record)" })
+-- map("n", "q", "<nop>", { desc = "Disabled (macro record)" })
 
 -------- File Operations
 --map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
@@ -11,8 +11,8 @@ map("n", "q", "<nop>", { desc = "Disabled (macro record)" })
 map("n", "<Esc>", ":nohl<CR>", { desc = "Clear search highlights" })
 
 ---- keep cursor centered when jumping through search
---map("n", "n", "nzzzv", { desc = "Next result (centered)" })
---map("n", "n", "Nzzzv", { desc = "Prev result (centered)" })
+map("n", "n", "nzzzv", { desc = "Next result (centered)" })
+map("n", "n", "Nzzzv", { desc = "Prev result (centered)" })
 
 -------- Navigation
 ---- keep cursor centered when scrolling
@@ -39,11 +39,16 @@ map("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new
 map("n", "<leader>bp", "<cmd>bp<CR>", { desc = "Previous buffer" })
 map("n", "<leader>bn", "<cmd>bn<CR>", { desc = "Next buffer" })
 map("n", "<leader>bx", "<cmd>bd<CR>", { desc = "Close buffer" })
+map("n", "<leader>bb", "<cmd>b#<CR>", { desc = "Toggle last focused buffer" })
 
 --------- Editor
 map("n", "<leader>/", "gcc", { remap = true, desc = "Toggle line comment" })
 map("v", "<leader>/", "gc", { remap = true, desc = "Toggle comment" })
 map("i", "jj", "<ESC>", { silent = true })
+map("n", "gl", "$", { desc = "Go to end of line" })
+map("n", "gh", "^", { desc = "Go to first character in line" })
+map("v", "gl", "$", { desc = "Select until the end of line" })
+map("v", "gh", "^", { desc = "Select back until first character in line" })
 
 ---- Move lines
 map("n", "<M-j>", "<cmd>m .+1<cr>==", { desc = "Move line down" })

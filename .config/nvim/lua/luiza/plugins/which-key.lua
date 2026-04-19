@@ -1,9 +1,10 @@
 return {
-	"folke/which-key.nvim",
-	event = "VeryLazy",
-	-- event = "VimEnter",
-	config = function()
-		local wk = require("which-key")
+  "folke/which-key.nvim",
+  enabled = false,
+  event = "VeryLazy",
+  -- event = "VimEnter",
+  config = function()
+    local wk = require("which-key")
 
 		wk.setup({
 			delay = 500,
@@ -33,86 +34,69 @@ return {
 			},
 		})
 
-		wk.add({
-			-- register key group names
-			{ "<leader>e", group = "explorer", icon = "󰙅" },
-			{ "<leader>f", group = "find" },
-			{ "<leader>s", group = "split", icon = "" },
-			{ "<leader>t", group = "tab" },
-			{ "<leader>x", group = "trouble", icon = "" },
-			{ "<leader>u", group = "ui" },
-			{ "<leader>b", group = "buffer", icon = "" },
-			{ "<leader>d", group = "diagnostics" },
-			{ "<leader>l", group = "lsp", icon = "" },
-			{ "<leader>c", group = "code" },
-			{ "<leader>r", group = "replace", icon = "" },
-			{ "<leader>g", group = "git" },
-			{ "<leader>n", group = "notifications" },
-			{ "<leader>q", group = "Session (persistence)" },
+    wk.add({
+      -- register key group names
+      { "<leader>f", group = "find", icon = "󰈞" },
+      { "<leader>s", group = "split", icon = "" },
+      { "<leader>t", group = "tab", icon = "󰓩" },
+      { "<leader>x", group = "trouble", icon = "" },
+      { "<leader>u", group = "ui", icon = "󰍹" },
+      { "<leader>b", group = "buffer", icon = "" },
+      { "<leader>d", group = "diagnostics", icon = "" },
+      { "<leader>l", group = "lsp", icon = "" },
+      { "<leader>c", group = "code", icon = "󰘦" },
+      { "<leader>r", group = "replace", icon = "" },
+      { "<leader>g", group = "git", icon = "󰊢" },
+      { "<leader>n", group = "notifications", icon = "" },
+      { "<leader>q", group = "sessions", icon = "" },
+      { "<leader>o", group = "Obsidian", icon = "" },
+      { "<leader>m", group = "mini map", icon = "" },
 
-			{ "<leader>L", desc = "Open Lazy package manager", icon = "" },
-			{ "<leader>M", desc = "Open Mason", icon = "" },
+      { "<leader>L", desc = "Open Lazy package manager", icon = "" },
+      { "<leader>M", desc = "Open Mason", icon = "" },
 
-			--------------- NORMAL VIM KEYS
-			-- g prefix
-			-- { "g", group = "goto/comment" },
-			-- { "gg", desc = "Go to top of file" },
-			-- { "G", desc = "Go to bottom of file" },
-			-- { "ge", desc = "Go to end of previous word" },
-			-- { "gf", desc = "Go to file under cursor" },
-			-- { "g;", desc = "Go to last edit position" },
-			-- { "gc", desc = "Toggle comment (operator)" },
-			-- { "gcc", desc = "Toggle comment line" },
+      { "<leader>e", desc = "explorer", icon = "󰙅" },
+      { "<leader>E", desc = "explorer (cwd)", icon = "󰙅" },
 
-			-- z prefix
-			{ "z", group = "folds/view", icon = "" },
-			{ "za", desc = "Toggle fold" },
-			{ "zo", desc = "Open fold", icon = "" },
-			{ "zc", desc = "Close fold", icon = "" },
-			{ "zR", desc = "Open all folds", icon = "" },
-			{ "zM", desc = "Close all folds", icon = "󰄾" },
-			{ "zz", desc = "Center cursor", icon = "󰘢" },
-			{ "zt", desc = "Cursor to top of screen", icon = "󰘣" },
-			{ "zb", desc = "Cursor to bottom of screen", icon = "" },
-			{ "z=", desc = "Spelling suggestions", icon = "" },
+      -- markdown (markdown-plus.nvim)
+      { "<localleader>m", group = "Markdown formatting...", icon = "󰽛" },
+      { "<localleader>mQ", group = "Callouts...", icon = "" },
+      { "<localleader>mf", group = "Footnotes...", icon = "󰽒" },
+      { "<localleader>h", group = "Markdown headings...", icon = "" },
+      { "<localleader>t", group = "Markdown tables...", icon = "" },
+      { "<localleader>tm", group = "Move...", icon = "" },
+      { "<localleader>ts", group = "Sort...", icon = "" },
+      { "<localleader>tv", group = "CSV", icon = "" },
+      { "<leader>um", group = "Live preview", icon = "" },
 
-			-- [ and ] navigation
-			{ "[", group = "prev", icon = "󰒮" },
-			{ "]", group = "next", icon = "󰒭" },
-			-- { "[d", desc = "Prev diagnostic" },
-			-- { "]d", desc = "Next diagnostic" },
-			-- { "[c", desc = "Prev git hunk" },
-			-- { "]c", desc = "Next git hunk" },
-			{ "[[", desc = "Prev function/class", icon = "󰊕" },
-			{ "]]", desc = "Next function/class", icon = "󰊕" },
+      --------------- NORMAL VIM KEYS
 
-			-- surround
-			{ "ys", desc = "Add surrounding", icon = "+" },
-			{ "ds", desc = "Delete surrounding", icon = "-" },
-			{ "cs", desc = "Change surrounding", icon = "" },
-			{ "S", desc = "Surround selection", icon = "󰒉" },
+      -- z prefix
+      { "z", group = "folds/view", icon = "" },
+      { "za", desc = "Toggle fold", icon = "" },
+      { "zo", desc = "Open fold", icon = "" },
+      { "zc", desc = "Close fold", icon = "" },
+      { "zR", desc = "Open all folds", icon = "" },
+      { "zM", desc = "Close all folds", icon = "󰄾" },
+      { "zz", desc = "Center cursor", icon = "󰘢" },
+      { "zt", desc = "Cursor to top of screen", icon = "󰘣" },
+      { "zb", desc = "Cursor to bottom of screen", icon = "" },
+      { "z=", desc = "Spelling suggestions", icon = "" },
 
-			-- text objects (visual reference)
-			-- { "y", group = "yank" },
-			-- { "yiw", desc = "Yank inner word" },
-			-- { "yaw", desc = "Yank around word" },
-			-- { 'yi"', desc = "Yank inner quotes" },
-			-- { 'ya"', desc = "Yank around quotes" },
-			-- { "yi(", desc = "Yank inner parens" },
-			-- { "ya(", desc = "Yank around parens" },
-			-- { "yif", desc = "Yank inner function" },
-			-- { "yaf", desc = "Yank around function" },
+      -- [ and ] navigation
+      { "[", group = "prev", icon = "󰒮" },
+      { "]", group = "next", icon = "󰒭" },
 
-			-- Ctrl prefixed
-			-- { "<C-d>", desc = "Scroll down" },
-			-- { "<C-u>", desc = "Scroll up" },
-			-- { "<C-o>", desc = "Jump back" },
-			-- { "<C-i>", desc = "Jump forward" },
-			-- { "<C-^>", desc = "Alternate buffer" },
+      -- Ctrl prefixed
+      { "<C-d>", desc = "Scroll down" },
+      { "<C-u>", desc = "Scroll up" },
+      { "<C-o>", desc = "Jump back" },
+      { "<C-i>", desc = "Jump forward" },
+      { "<C-^>", desc = "Alternate buffer" },
 
-			-- misc
-			{ "%", desc = "Jump to matching pair" },
-			{ "@:", desc = "Repeat last command", icon = "" },
-		})
-	end,
+      -- misc
+      { "%", desc = "Jump to matching pair" },
+      { "@:", desc = "Repeat last command", icon = "" },
+    })
+  end,
 }

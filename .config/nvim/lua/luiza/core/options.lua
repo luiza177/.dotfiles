@@ -8,33 +8,6 @@ opt.relativenumber = true
 -- opt.numberwidth = 6 -- default is 4
 -- opt.statuscolumn = "%s %l %r "
 
--------- Switch to abs when in insert mode
-local numbertoggle = vim.api.nvim_create_augroup("NumberToggle", { clear = true })
-vim.api.nvim_create_autocmd({ "InsertEnter" }, {
-	group = numbertoggle,
-	callback = function()
-		if vim.bo.buftype == "" then
-			vim.opt.relativenumber = false
-		end
-	end,
-})
-
-vim.api.nvim_create_autocmd({ "InsertLeave" }, {
-	group = numbertoggle,
-	callback = function()
-		if vim.bo.buftype == "" then
-			vim.opt.relativenumber = true
-		end
-	end,
-})
-
--------- Highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
-	callback = function()
-		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 150 })
-	end,
-})
-
 -------- Indentation
 opt.tabstop = 2 -- width of tab char
 opt.shiftwidth = 2 -- spaces for indent
@@ -55,6 +28,7 @@ opt.cursorline = true
 opt.scrolloff = 10 -- always keep 8 lines above/below cursor
 opt.sidescrolloff = 10 -- same as above, but for horizontal, useful for wrap = true
 opt.wrap = false
+opt.conceallevel = 2
 
 -------- Behavior
 opt.clipboard = "unnamedplus" -- merge system and vim clipboard. Or use `"+y`
@@ -91,10 +65,6 @@ opt.fillchars = {
     diff = "╱",
 }
 
--------- No auto-comment
-vim.api.nvim_create_autocmd("BufEnter", {
-	callback = function()
-		-- r = pressing enter; o = o or O; c = auto-wrapping long comments
-		opt.formatoptions:remove({ "c", "r", "o" })
-	end,
+vim.filetype.add({
+  extension = { kbd = "scheme", plist = "xml" },
 })

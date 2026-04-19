@@ -1,9 +1,9 @@
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- vim.g.maplocalleader = " "
 
 -- TODO: reorganize plugins in folders, eg. UI, coding, workflow, etc
--- TODO: replace persistence
 -- TODO: revisit ALT keymaps
+-- TODO: which-key: brackets ][ and other stuff
 
 -- ACTIVE THEME:
 --vim.g.theme = "default"
@@ -13,7 +13,7 @@ vim.g.maplocalleader = " "
 -- vim.g.theme = "blue-moon"
 -- vim.g.theme = "gruvbox"
 -- vim.g.theme = "palenight"
-vim.g.theme = "nordic"
+-- vim.g.theme = "nordic"
 -- vim.g.theme = "kanagawa"
 -- vim.g.theme = "nightfox"
 -- vim.g.theme = "lovelace"
@@ -21,10 +21,16 @@ vim.g.theme = "nordic"
 -- vim.g.theme = "everforest"
 -- vim.g.theme = "edge"
 -- vim.g.theme = "poimandres"
+-- vim.g.theme = "ethereal"
+-- vim.g.theme = "ayu"
+vim.g.theme = "teide-darker"
+-- vim.g.theme = "nagai-poolside"
+-- vim.g.theme = "modus_vivendi"
 ---
 
 require("luiza.core.options")
 require("luiza.core.keymaps")
+require("luiza.core.autocmds")
 require("luiza.lazy")
 
 ---

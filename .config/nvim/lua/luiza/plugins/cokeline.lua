@@ -76,14 +76,14 @@ return {
 				},
 				{
 					text = function(buffer)
-						return buffer.is_modified and "" or "󰖭"
+						return buffer.is_modified and "" or "󱎘"
 					end,
 					fg = function(buffer)
 						if buffer.is_focused then
 							if buffer.is_modified then
 								return get_hex("String", "fg")
 							else
-								return get_hex("Normal", "fg")
+								return get_hex("Red", "fg")
 							end
 						else
 							return get_hex("LineNr", "fg")

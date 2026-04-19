@@ -1,0 +1,114 @@
+(defcfg
+  process-unmapped-keys yes
+  macos-dev-names-include ("Apple Internal Keyboard / Trackpad")
+  concurrent-tap-hold yes
+)
+
+(defvar
+  tap-time  200   ;; time in ms for tap->re-tap results in tap action being held
+  hold-time 230   ;; ms to wait before triggering the hold action
+  num-hold  200   ;; longer hold for number→Fkey (avoids accidental triggers)
+)
+
+(defsrc
+  esc   f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
+  lsgt  1     2     3     4     5     6     7     8     9     0     -     =     bspc
+  tab   q     w     e     r     t     y     u     i     o     p     [     ]
+  caps  a     s     d     f     g     h     j     k     l     ;     '     \     ret
+  lsft  grv   z     x     c     v     b     n     m     ,     .     /     rsft
+  fn    lctl  lalt  lmet             spc                rmet  ralt
+)
+
+(defalias
+  a-cmd     (tap-hold-release $tap-time $hold-time a    lmet)
+  s-opt     (tap-hold-release $tap-time $hold-time s    lalt)
+  d-ctl     (tap-hold-release $tap-time $hold-time d    lctl)
+  f-sft     (tap-hold-release $tap-time $hold-time f    lsft)
+  j-sft     (tap-hold-release $tap-time $hold-time j    lsft)
+  k-ctl     (tap-hold-release $tap-time $hold-time k    lctl)
+  l-opt     (tap-hold-release $tap-time $hold-time l    lalt)
+  semi-cmd  (tap-hold-release $tap-time $hold-time ;    lmet)
+
+  lsgt-grv grv
+
+  n1  (tap-hold $tap-time $num-hold 1 f1) ;; Q: one shot?
+  n2  (tap-hold $tap-time $num-hold 2 f2)
+  n3  (tap-hold $tap-time $num-hold 3 f3)
+  n4  (tap-hold $tap-time $num-hold 4 f4)
+  n5  (tap-hold $tap-time $num-hold 5 f5)
+  n6  (tap-hold $tap-time $num-hold 6 f6)
+  n7  (tap-hold $tap-time $num-hold 7 f7)
+  n8  (tap-hold $tap-time $num-hold 8 f8)
+  n9  (tap-hold $tap-time $num-hold 9 f9)
+  n0  (tap-hold $tap-time $num-hold 0 f10)
+  nm  (tap-hold $tap-time $num-hold - f11)
+  neq (tap-hold $tap-time $num-hold = f12)
+
+  ;; -- LAYER CHANGE
+  esc-lnum (tap-hold $tap-time $hold-time esc (layer-while-held numpad))
+  spc-lnav (tap-hold-release $tap-time $hold-time spc (layer-while-held nav))
+)
+
+;; TODO: new file: windows version
+(deflayer base
+  esc       brdn    brup   f3     f4     f5  f6  prev   pp     next   mute      vold   volu
+
+  @lsgt-grv @n1     @n2    @n3    @n4    @n5 @n6 @n7    @n8    @n9    @n0       @nm    @neq  bspc
+
+  tab       q       w      e      r      t   y   u      i      o      p         [      ]
+
+  @esc-lnum @a-cmd  @s-opt @d-ctl @f-sft g   h   @j-sft @k-ctl @l-opt @semi-cmd '      \    ret
+
+  lsft      lsft    z      x      c      v   b   n      m      ,      .         /      rsft
+
+  fn        lctl    lalt   lmet              @spc-lnav         rmet   ralt
+)
+
+;; TODO: add symbols, maybe symbol layer
+;; Q: add long-press for f-keys here too?
+;; TODO: add homerow mods in each layer
+(deflayer numpad
+  _         _       _      _      _      _   _   _      _      _      _         _      _
+
+  _         _       _      _      _      _   _   _      _      _      _         _      _    _   
+
+  _         XX      XX     XX     XX     XX  XX  7      8      9      XX        XX     XX
+
+  _         lmet    lalt   lctl   lsft   XX  XX  4      5      6      XX        XX     XX   _
+
+  _         _       XX     XX     XX     XX  XX  0      1      2      3         XX     _  
+
+  _         _       _      _                 _                 _      _   
+)
+
+;; Q: which key switches layer? spc?
+(deflayer nav
+  _         _       _      _      _      _   _     _      _      _      _         _      _
+
+  _         _       _      _      _      _   _     _      _      _      _         _      _    _   
+
+  _         XX      XX     XX     XX     XX  XX    XX     XX     XX     XX        XX     XX
+
+  _         _       _      _      _      XX  left  down   up     right  XX        XX     XX   _
+
+  _         _       XX     XX     XX     XX  XX    XX     XX     XX     XX        XX     XX  
+
+  _         _       _      _                 _                   _      _   
+
+)
+
+;; TODO: add homerow mods
+(deflayer sym
+  _         _       _      _      _      _   _   _      _      _      _         _      _
+
+  _         _       _      _      _      _   _   _      _      _      _         _      _    _   
+
+  _         S-1     S-2    S-3    S-4    S-5 S-6 S-7    S-8    XX     XX        XX     XX
+
+  _         S-grv   [      S-[    S-9    =   XX  XX     lsft   lctl   lalt      lmet   XX   _
+
+  _         S-\     \      S-=    S--    -   XX  XX     XX     XX     XX        XX     _  
+
+  _         _       _      _                 _                 _      _   
+)
+

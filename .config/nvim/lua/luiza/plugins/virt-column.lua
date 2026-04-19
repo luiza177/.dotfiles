@@ -4,6 +4,6 @@ return {
 	opts = {
 		char = "│", -- the line character, not | pipe
 		highlight = "VirtColumn",
-		virtcolumn = "100",
+		virtcolumn = "90",
 	},
 }
