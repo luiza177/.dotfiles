@@ -1,6 +1,6 @@
 return {
   "folke/which-key.nvim",
-  enabled = false,
+  enabled = true,
   event = "VeryLazy",
   -- event = "VimEnter",
   config = function()
@@ -64,6 +64,9 @@ return {
       { "<localleader>ts", group = "Sort...", icon = "" },
       { "<localleader>tv", group = "CSV", icon = "" },
       { "<leader>um", group = "Live preview", icon = "" },
+
+      -- latex (vimtex)
+      { "<localleader>l", group = "LaTeX", icon = "" },
 
       --------------- NORMAL VIM KEYS
 

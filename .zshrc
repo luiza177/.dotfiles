@@ -20,6 +20,7 @@ alias gC="git commit -m"
 alias gP="git push"
 alias gp="git pull"
 alias lg="lazygit"
+alias gd="git diff"
 
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
@@ -53,6 +54,7 @@ eval "$(fzf --zsh)"
 # export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 # export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # export FZF_ALT_C_COMMAND="fs --type d --hidden --strip-cwd-prefix --exclude .git" # WARN: conflicts with aerospace
+export FZF_ALT_C_COMMAND="fs --type d --hidden --exclude .git"
 # TODO: fzf git?
 
 # Q: fd compgen path and dir ??

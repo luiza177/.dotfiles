@@ -90,9 +90,9 @@ return {
           map.gen_integration.diff(),
         },
         symbols = {
-          encode = map.gen_encode_symbols.dot("4x2"), -- or "3x2"
+          encode = map.gen_encode_symbols.dot("4x2"), -- or "3x2" -- NOTE: try shade instead of dot
           scroll_line = "▶",
-          scroll_view = "┃",
+          scroll_view = "┃", -- try ┋ or ┋ or ╎
         },
         window = {
           side = "right",
@@ -194,7 +194,7 @@ return {
   {
     "nvim-mini/mini.clue",
     version = false,
-    enable = true,
+    enabled = false,
     config = function()
       local miniclue = require("mini.clue")
       miniclue.setup({

@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
--- vim.g.maplocalleader = " "
 
 -- TODO: reorganize plugins in folders, eg. UI, coding, workflow, etc
 -- TODO: revisit ALT keymaps
