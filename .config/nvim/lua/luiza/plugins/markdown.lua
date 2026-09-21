@@ -28,7 +28,7 @@ return {
   },
   {
     "MeanderingProgrammer/render-markdown.nvim", -- FIX: strikethrough not working
-    enabled = false,
+    enabled = true,
     ft = "markdown",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     keys = {
@@ -72,7 +72,7 @@ return {
   {
     "obsidian-nvim/obsidian.nvim",
     version = "*",
-    enabled = true,
+    enabled = false,
     ft = "markdown",
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
